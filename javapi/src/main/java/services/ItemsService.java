@@ -13,7 +13,7 @@ public class ItemsService implements ItemsInterface {
     public static ItemsService instance;
     private Connection cnx;
 
-    private ItemsService() throws SQLException {
+    public ItemsService() throws SQLException {
         cnx = MyConnection.getInstance().getCnx();
     }
 
@@ -26,12 +26,15 @@ public class ItemsService implements ItemsInterface {
 
     public void addItems(Items i) {
         try {
-            String request = "INSERT INTO items (name, ref, part_condition, quantity) VALUES (?, ?, ?, ?)";
+            String request = "INSERT INTO items (name,description,ref, part_condition, quantity,photos,inventory_id) VALUES (?, ?,?, ?, ?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(request);
             pst.setString(1, i.getName());
-            pst.setString(2, i.getRef());
-            pst.setString(3, i.getPart_condition());
-            pst.setInt(4, i.getQuantity());
+            pst.setString(2, i.getDescription());
+            pst.setString(3, i.getRef());
+            pst.setString(4, i.getPart_condition());
+            pst.setInt(5, i.getQuantity());
+            pst.setString(6, i.getPhotos());
+            pst.setInt(7, i.getInventory_id());
             pst.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -48,9 +51,12 @@ public class ItemsService implements ItemsInterface {
                 Items i = new Items();
                 i.setId(rs.getInt("id"));
                 i.setName(rs.getString("name"));
+                i.setDescription(rs.getString("description"));
                 i.setRef(rs.getString("ref"));
                 i.setPart_condition(rs.getString("part_condition"));
                 i.setQuantity(rs.getInt("quantity"));
+                i.setPhotos(rs.getString("photos"));
+                i.setInventory_id(rs.getInt("inventory_id"));
                 items.add(i);
             }
         } catch (SQLException e) {
@@ -73,13 +79,16 @@ public class ItemsService implements ItemsInterface {
 
     public boolean updateItems(Items i) {
         try {
-            String request = "UPDATE items SET name = ?, ref = ?, part_condition = ?, quantity = ? WHERE id = ?";
+            String request = "UPDATE items SET name = ?,description=?, ref = ?, part_condition = ?, quantity = ?, photos= ? WHERE id = ?";
             PreparedStatement pst = cnx.prepareStatement(request);
             pst.setString(1, i.getName());
-            pst.setString(2, i.getRef());
-            pst.setString(3, i.getPart_condition());
-            pst.setInt(4, i.getQuantity());
-            pst.setInt(5, i.getId());
+               pst.setString(2, i.getDescription());
+            pst.setString(3, i.getRef());
+            pst.setString(4, i.getPart_condition());
+            pst.setInt(5, i.getQuantity());
+            pst.setString(6, i.getPhotos());
+
+
             pst.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -102,6 +111,7 @@ public class ItemsService implements ItemsInterface {
                 i.setRef(rs.getString("ref"));
                 i.setPart_condition(rs.getString("part_condition"));
                 i.setQuantity(rs.getInt("quantity"));
+                i.setPhotos(rs.getString("photos"));
                 items.add(i);
             }
         } catch (SQLException e) {
@@ -109,7 +119,7 @@ public class ItemsService implements ItemsInterface {
         }
         return items;
     }
-
+//stream
     public List<Items> searchByRef(String ref) {
         List<Items> items = new ArrayList<>();
         try {
@@ -124,6 +134,7 @@ public class ItemsService implements ItemsInterface {
                 i.setRef(rs.getString("ref"));
                 i.setPart_condition(rs.getString("part_condition"));
                 i.setQuantity(rs.getInt("quantity"));
+                i.setPhotos(rs.getString("photos"));
                 items.add(i);
             }
         } catch (SQLException e) {
@@ -131,7 +142,7 @@ public class ItemsService implements ItemsInterface {
         }
         return items;
     }
-
+//stream
     public List<Items> searchByPartCondition(String part_condition) {
         List<Items> items = new ArrayList<>();
         try {
@@ -146,6 +157,7 @@ public class ItemsService implements ItemsInterface {
                 i.setRef(rs.getString("ref"));
                 i.setPart_condition(rs.getString("part_condition"));
                 i.setQuantity(rs.getInt("quantity"));
+                i.setPhotos(rs.getString("photos"));
                 items.add(i);
             }
         } catch (SQLException e) {
@@ -154,7 +166,7 @@ public class ItemsService implements ItemsInterface {
         return items;
     }
 
-
+//stream
     public List<Items> searchByQuantity(int quantity) {
         List<Items> items = new ArrayList<>();
         try {
@@ -169,6 +181,7 @@ public class ItemsService implements ItemsInterface {
                 i.setRef(rs.getString("ref"));
                 i.setPart_condition(rs.getString("part_condition"));
                 i.setQuantity(rs.getInt("quantity"));
+                i.setPhotos(rs.getString("photos"));
                 items.add(i);
             }
         } catch (SQLException e) {

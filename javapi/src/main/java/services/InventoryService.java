@@ -1,5 +1,5 @@
 package services;
-
+//author aziz
 import Interfaces.InventoryInterface;
 import entities.Inventory;
 import utils.MyConnection;
@@ -12,7 +12,7 @@ public class InventoryService implements InventoryInterface {
     private static InventoryService instance;
     private Connection cnx;
 
-    private InventoryService() throws SQLException {
+    public InventoryService() throws SQLException {
         cnx = MyConnection.getInstance().getCnx();
     }
 
@@ -80,9 +80,8 @@ public class InventoryService implements InventoryInterface {
             e.printStackTrace();
             return false;
         }
-
     }
-
+//stream
     public List<Inventory> searchByTitle(String title) {
         List<Inventory> inventory = new ArrayList<>();
         try {
