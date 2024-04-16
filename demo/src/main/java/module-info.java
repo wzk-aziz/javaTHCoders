@@ -11,6 +11,7 @@ module org.pi.demo {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires javafx.swing;
 
     opens org.pi.demo to javafx.fxml;
     exports org.pi.demo;

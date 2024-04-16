@@ -29,8 +29,15 @@ public class MenuController {
     }
 
     @FXML
-    void consulteritems(ActionEvent event) {
+    void consulteritems(ActionEvent event) throws IOException {
+        Parent AjouterInventaireParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/AjouterItems.fxml")));
+        Scene AjouterInventaireScene = new Scene(AjouterInventaireParent);
 
+        // This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(AjouterInventaireScene);
+        window.show();
     }
 
 }

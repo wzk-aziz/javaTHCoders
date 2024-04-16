@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -18,7 +19,7 @@
    <children>
       <HBox layoutX="264.0" layoutY="-4.0" prefHeight="97.0" prefWidth="642.0" style="-fx-background-color: #ED5A5B;">
          <children>
-            <Label alignment="BOTTOM_LEFT" prefHeight="36.0" prefWidth="289.0" text="Ajouter des item">
+            <Label alignment="BOTTOM_LEFT" prefHeight="36.0" prefWidth="289.0" text="Ajouter des items">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -113,5 +114,45 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </TextField>
+      <TextField fx:id="nomItem" layoutX="302.0" layoutY="195.0" promptText="nom de l'item">
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextField>
+      <TextField fx:id="refItem" layoutX="300.0" layoutY="300.0" promptText="refference">
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextField>
+      <TextField fx:id="descItem" layoutX="300.0" layoutY="235.0" prefHeight="43.0" prefWidth="232.0" promptText="Description">
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextField>
+    <Button layoutX="625.0" layoutY="457.0" mnemonicParsing="false" onAction="#ajouterItem" styleClass="reserve-button" stylesheets="@Style.css" text="Ajouter" textFill="#220202">
+    <effect>
+        <DropShadow />
+    </effect>
+    <cursor>
+        <Cursor fx:constant="DEFAULT" />
+    </cursor>
+</Button>
+      <Button layoutX="729.0" layoutY="457.0" mnemonicParsing="false" onAction="#ListedesItems" onMouseClicked="#displayev" styleClass="reserve-button" stylesheets="@Style.css" text="Liste des items">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button layoutX="291.0" layoutY="498.0" mnemonicParsing="false" onAction="#handleUploadButtonAction" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style.css" text="telecharger image">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <ChoiceBox fx:id="conditionItem" layoutX="366.0" layoutY="342.0" prefWidth="150.0" />
+      <Label layoutX="269.0" layoutY="346.0" text="Condition d'Item" />
+      <Label layoutX="269.0" layoutY="386.0" prefHeight="18.0" prefWidth="90.0" text="Quantité" />
+      <ChoiceBox fx:id="quantityItem" layoutX="366.0" layoutY="382.0" prefWidth="150.0" />
+      <ImageView fx:id="imageItem" fitHeight="221.0" fitWidth="263.0" layoutX="585.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="268.0" layoutY="438.0" prefHeight="18.0" prefWidth="90.0" text="Inventory" />
+      <ChoiceBox fx:id="inventoryItem" layoutX="366.0" layoutY="434.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
