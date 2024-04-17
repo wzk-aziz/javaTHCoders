@@ -79,4 +79,30 @@
 .text-field:hover {
     -fx-border-color: #bbb;
 }
+.table-view {
+    -fx-background-color: white; /* Background color */
+}
+
+.table-column {
+    -fx-alignment: CENTER; /* Center-align content */
+}
+
+.table-row-cell {
+    -fx-background-color: #f2f2f2; /* Row background color */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #3498db; /* Selected row background color */
+    -fx-text-fill: white; /* Selected row text color */
+}
+
+.table-cell {
+    -fx-padding: 5px; /* Padding for cell content */
+}
+
+/* Example: Custom style for header */
+.table-view .column-header {
+    -fx-background-color: #3498db; /* Header background color */
+    -fx-text-fill: white; /* Header text color */
+}
 

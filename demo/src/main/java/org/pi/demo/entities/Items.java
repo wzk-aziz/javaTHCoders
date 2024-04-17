@@ -56,9 +56,7 @@ public class Items {
     }
 
     public void setName(String name) {
-        if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be null or empty");
-        }
+
         this.name = name;
     }
 
@@ -68,9 +66,7 @@ public class Items {
 
     public void setDescription(String description) {
 
-       if(description == null || description.isEmpty()){
-            throw new IllegalArgumentException("Description cannot be null or empty");
-        }
+
         this.description = description;
     }
 
@@ -79,9 +75,7 @@ public class Items {
     }
 
     public void setRef(String ref) {
-       if(ref == null || ref.isEmpty()){
-            throw new IllegalArgumentException("Ref cannot be null or empty");
-        }
+
         this.ref = ref;
     }
 
@@ -90,12 +84,7 @@ public class Items {
     }
 
     public void setPart_condition(String part_condition) {
-    if(part_condition == null || part_condition.isEmpty()){
-        throw new IllegalArgumentException("Part condition cannot be null or empty");
-    }
-    if(!part_condition.equalsIgnoreCase("New") && !part_condition.equalsIgnoreCase("Used") && !part_condition.equalsIgnoreCase("Refurbished")){
-        throw new IllegalArgumentException("Part condition can be either 'New', 'Used' or 'Refurbished'");
-    }
+
     this.part_condition = part_condition;
 }
     public int getQuantity() {
@@ -103,9 +92,7 @@ public class Items {
     }
 
     public void setQuantity(int quantity) {
-        if (quantity < 0) {
-            throw new IllegalArgumentException("Quantity cannot be negative");
-        }
+
         this.quantity = quantity;
     }
 
@@ -122,9 +109,6 @@ public class Items {
     }
 
     public void setPhotos(String photos) {
-        if(photos == null || photos.isEmpty()){
-            throw new IllegalArgumentException("Photos cannot be null or empty");
-        }
         this.photos = photos;
     }
 
@@ -133,9 +117,6 @@ public class Items {
     }
 
     public void setInventory(Inventory inventory) {
-        if (inventory == null) {
-            throw new IllegalArgumentException("Inventory cannot be null");
-        }
         this.inventory = inventory;
     }
 

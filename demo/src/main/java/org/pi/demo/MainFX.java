@@ -14,6 +14,7 @@ public class MainFX extends Application {
     public void start(Stage stage) throws IOException, SQLException {
         MyConnection mc = new MyConnection();
         FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("Menu.fxml"));
+
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Hello!");
         stage.setScene(scene);

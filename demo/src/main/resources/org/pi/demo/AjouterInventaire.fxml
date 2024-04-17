@@ -61,7 +61,7 @@
             </HBox>
             <Pane prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="5.0" prefHeight="42.0" prefWidth="151.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;" text="Dashboard" textAlignment="JUSTIFY">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="5.0" prefHeight="42.0" prefWidth="151.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;" text="Inventaire" textAlignment="JUSTIFY">
                      <font>
                         <Font name="Yu Gothic UI Semibold" size="28.0" />
                      </font>

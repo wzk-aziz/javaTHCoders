@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.AjouterItems">
    <children>
       <HBox layoutX="264.0" layoutY="-4.0" prefHeight="97.0" prefWidth="642.0" style="-fx-background-color: #ED5A5B;">
@@ -49,7 +48,7 @@
             </HBox>
             <Pane prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="5.0" prefHeight="42.0" prefWidth="151.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;" text="Dashboard" textAlignment="JUSTIFY">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="13.0" prefHeight="42.0" prefWidth="151.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;" text="Items" textAlignment="JUSTIFY">
                      <font>
                         <Font name="Yu Gothic UI Semibold" size="28.0" />
                      </font>

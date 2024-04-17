@@ -2,12 +2,16 @@ package org.pi.demo.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.pi.demo.entities.Items;
 import org.pi.demo.services.ItemsService;
 import org.pi.demo.services.InventoryService;
@@ -23,6 +27,7 @@ import javafx.scene.Node;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.util.List;
+import java.util.Objects;
 
 public class AjouterItems {
 
@@ -51,6 +56,7 @@ public class AjouterItems {
     @FXML
     private ChoiceBox<String> inventoryItem;
 
+    private String imagePath = null; // Variable to store the image path
 
     @FXML
     public void initialize() {
@@ -78,8 +84,15 @@ public class AjouterItems {
 
 
     @FXML
-    void ListedesItems(ActionEvent event) {
+    void ListedesItems(ActionEvent event) throws IOException {
+        Parent AjouterInventaireParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/DisplayItemsfront.fxml")));
+        Scene AjouterInventaireScene = new Scene(AjouterInventaireParent);
 
+        // This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(AjouterInventaireScene);
+        window.show();
     }
 
     @FXML
@@ -90,35 +103,42 @@ public class AjouterItems {
         String condition = conditionItem.getValue();
         int quantity = quantityItem.getValue();
         String inventoryName = inventoryItem.getValue();
-        String photos = "";
+        String photos = imagePath;
+
         // Field validation
-        if (name.isEmpty()) {
+        if (name == null || name.isEmpty()) {
             error.setText("Name cannot be empty");
             error.setStyle("-fx-text-fill: red;");
             return;
         }
-        if (description.isEmpty()) {
+        if (description == null || description.isEmpty()) {
             error.setText("Description cannot be empty");
             error.setStyle("-fx-text-fill: red;");
             return;
         }
-        if (ref.isEmpty()) {
+        if (ref == null || ref.isEmpty()) {
             error.setText("Reference cannot be empty");
             error.setStyle("-fx-text-fill: red;");
             return;
         }
-        if (condition.isEmpty()) {
+        if (condition == null || condition.isEmpty()) {
             error.setText("Condition cannot be empty");
             error.setStyle("-fx-text-fill: red;");
             return;
         }
-        if (quantity <= 0) {
-            error.setText("Quantity must be greater than 0");
+        if (quantityItem.getItems().isEmpty()) {
+            error.setText("Quantity must be selected");
             error.setStyle("-fx-text-fill: red;");
             return;
         }
-        if (inventoryName.isEmpty()) {
+
+        if (inventoryName == null || inventoryName.isEmpty()) {
             error.setText("Inventory name cannot be empty");
+            error.setStyle("-fx-text-fill: red;");
+            return;
+        }
+        if (photos == null || photos.isEmpty()) {
+            error.setText("You must select an image");
             error.setStyle("-fx-text-fill: red;");
             return;
         }
@@ -135,7 +155,7 @@ public class AjouterItems {
             Inventory inventory = inventories.get(0);
 
             // Create a new Items object and add it to the database
-            Items item = new Items(name, description, ref, condition, quantity, inventory.getId(), ""); // Assuming photos is an empty string
+            Items item = new Items(name, description, ref, condition, quantity, inventory.getId(), photos); // Assuming photos is an empty string
             ItemsService.getInstance().addItems(item);
             error.setText("Item added successfully!");
             error.setStyle("-fx-text-fill: green;"); // Set the text color to green
@@ -154,40 +174,32 @@ public class AjouterItems {
     void handleUploadButtonAction(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
-        File selectedFile = fileChooser.showOpenDialog(((Node) event.getSource()).getScene().getWindow());
+        File selectedFile = fileChooser.showOpenDialog(null);
 
         if (selectedFile != null) {
             try {
                 BufferedImage bufferedImage = ImageIO.read(selectedFile);
                 Image image = SwingFXUtils.toFXImage(bufferedImage, null);
                 imageItem.setImage(image);
-
-                // Define the path to the directory where you want to save the image
-                String directoryPath = "src/main/resources/uploadedphotos";
-
-                // Create the directory if it doesn't exist
-                File directory = new File(directoryPath);
-                if (!directory.exists()) {
-                    directory.mkdirs();
-                }
-
-                // Define the path to the new image file
-                String imagePath = directoryPath + "/" + selectedFile.getName();
-
-                // Write the image to the new file
-                ImageIO.write(bufferedImage, "png", new File(imagePath));
-
-                // Now you can store imagePath in your database
+                imagePath = selectedFile.getAbsolutePath(); // Store the image path
             } catch (IOException e) {
-                error.setText("Error while loading image: " + e.getMessage());
-                error.setStyle("-fx-text-fill: red;");
                 e.printStackTrace();
             }
+        } else {
+            System.out.println("No file selected");
         }
     }
 
     @FXML
-    void menu(ActionEvent event) {
+    void menu(ActionEvent event) throws IOException {
+        Parent AjouterInventaireParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/Menu.fxml")));
+        Scene AjouterInventaireScene = new Scene(AjouterInventaireParent);
+
+        // This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(AjouterInventaireScene);
+        window.show();
 
     }
 

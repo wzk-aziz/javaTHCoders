@@ -1,6 +1,7 @@
 package org.pi.demo.services;
 
 import org.pi.demo.Interfaces.ItemsInterface;
+import org.pi.demo.entities.Inventory;
 import org.pi.demo.entities.Items;
 import org.pi.demo.utils.MyConnection;
 
@@ -44,7 +45,7 @@ public class ItemsService implements ItemsInterface {
     public List<Items> AfficherItems() {
         List<Items> items = new ArrayList<>();
         try {
-            String request = "SELECT * FROM items";
+            String request = "SELECT items.*, inventory.title AS inventory_title FROM items INNER JOIN inventory ON items.inventory_id = inventory.id";
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(request);
             while (rs.next()) {
@@ -57,15 +58,21 @@ public class ItemsService implements ItemsInterface {
                 i.setQuantity(rs.getInt("quantity"));
                 i.setPhotos(rs.getString("photos"));
                 i.setInventory_id(rs.getInt("inventory_id"));
+
+                // Create a new Inventory object and set the title
+                Inventory inventory = new Inventory();
+                inventory.setTitle(rs.getString("inventory_title"));
+
+                // Set the Inventory object to the Items object
+                i.setInventory(inventory);
+
                 items.add(i);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-
         }
         return items;
     }
-
     public void SupprimerItems(int id) {
         try {
             String request = "DELETE FROM items WHERE id = ?";
@@ -79,16 +86,16 @@ public class ItemsService implements ItemsInterface {
 
     public boolean updateItems(Items i) {
         try {
-            String request = "UPDATE items SET name = ?,description=?, ref = ?, part_condition = ?, quantity = ?, photos= ? WHERE id = ?";
+            String request = "UPDATE items SET name = ?,description=?, ref = ?, part_condition = ?, quantity = ?, photos= ?, inventory_id = ? WHERE id = ?";
             PreparedStatement pst = cnx.prepareStatement(request);
             pst.setString(1, i.getName());
-               pst.setString(2, i.getDescription());
+            pst.setString(2, i.getDescription());
             pst.setString(3, i.getRef());
             pst.setString(4, i.getPart_condition());
             pst.setInt(5, i.getQuantity());
             pst.setString(6, i.getPhotos());
-
-
+            pst.setInt(7, i.getInventory_id());
+            pst.setInt(8, i.getId());
             pst.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -96,7 +103,6 @@ public class ItemsService implements ItemsInterface {
             return false;
         }
     }
-
     public List<Items> searchByName(String name) {
         List<Items> items = new ArrayList<>();
         try {
