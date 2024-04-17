@@ -185,8 +185,8 @@ void ModifierItem(ActionEvent event) throws SQLException {
         selectedItem.setRef(refItem.getText());
         selectedItem.setPart_condition(conditionItem.getValue());
         selectedItem.setQuantity(quantityitem.getValue());
-        selectedItem.setPhotos(imagePath); // Set the photo path to the selected item
-        // Assuming you have a method in InventoryService to get an Inventory by its title
+        selectedItem.setPhotos(imagePath);
+        //  in InventoryService to get an Inventory by its title
         selectedItem.setInventory(InventoryService.getInstance().searchByTitle(invenotryitem.getValue()).get(0));
 
         // Update the item in the database
@@ -206,7 +206,7 @@ void ModifierItem(ActionEvent event) throws SQLException {
         quantityitem.setValue(null);
         invenotryitem.setValue(null);
         imageItem.setImage(null);
-        imagePath = null; // Clear the image path
+        imagePath = null;
     }
 }
 
@@ -240,6 +240,27 @@ void ModifierItem(ActionEvent event) throws SQLException {
 
         window.setScene(AjouterInventaireScene);
         window.show();
+    }
+
+    @FXML
+    void displayStatistics(ActionEvent event) {
+        ObservableList<Items> items = items_tableview.getItems();
+
+        int totalItems = items.size();
+        double averageQuantity = items.stream().mapToInt(Items::getQuantity).average().orElse(0.0);
+        long newItems = items.stream().filter(item -> item.getPart_condition().equals("New")).count();
+        long usedItems = items.stream().filter(item -> item.getPart_condition().equals("Used")).count();
+        long refurbishedItems = items.stream().filter(item -> item.getPart_condition().equals("Refurbished")).count();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Items Statistics");
+        alert.setHeaderText(null);
+        alert.setContentText("Total items: " + totalItems +
+                "\nAverage quantity: " + averageQuantity +
+                "\nNew items: " + newItems +
+                "\nUsed items: " + usedItems +
+                "\nRefurbished items: " + refurbishedItems);
+        alert.showAndWait();
     }
 
 }

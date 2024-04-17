@@ -80,7 +80,7 @@
             </Button>
          </children>
       </VBox>
-      <TableView fx:id="items_tableview" layoutX="258.0" layoutY="14.0" prefHeight="230.0" prefWidth="642.0" stylesheets="@Style.css">
+      <TableView fx:id="items_tableview" layoutX="258.0" layoutY="14.0" prefHeight="230.0" prefWidth="642.0" stylesheets="@Style.css" AnchorPane.bottomAnchor="355.20000000000005" AnchorPane.leftAnchor="257.6" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
         <columns>
           <TableColumn fx:id="items_col_name" prefWidth="95.20001220703125" text="Nom" />
           <TableColumn fx:id="items_col_desc" prefWidth="126.39996337890625" text="Description" />
@@ -90,17 +90,17 @@
             <TableColumn fx:id="items_col_invname" prefWidth="128.0" text="Inventaire" />
         </columns>
       </TableView>
-      <TextField fx:id="nomItem" layoutX="269.0" layoutY="272.0" prefHeight="26.0" prefWidth="232.0" promptText="nom de l'item">
+      <TextField fx:id="nomItem" layoutX="269.0" layoutY="272.0" prefHeight="26.0" prefWidth="232.0" promptText="nom de l'item" AnchorPane.leftAnchor="271.0">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <TextField fx:id="refItem" layoutX="267.0" layoutY="377.0" prefHeight="26.0" prefWidth="232.0" promptText="refference">
+      <TextField fx:id="refItem" layoutX="267.0" layoutY="377.0" prefHeight="26.0" prefWidth="232.0" promptText="refference" AnchorPane.leftAnchor="271.0">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <TextField fx:id="descItem" layoutX="267.0" layoutY="312.0" prefHeight="43.0" prefWidth="232.0" promptText="Description">
+      <TextField fx:id="descItem" layoutX="267.0" layoutY="312.0" prefHeight="43.0" prefWidth="232.0" promptText="Description" AnchorPane.leftAnchor="271.0">
          <effect>
             <DropShadow />
          </effect>
@@ -110,19 +110,24 @@
             <DropShadow />
          </effect>
       </Button>
-      <ImageView fx:id="imageItem" fitHeight="170.0" fitWidth="179.0" layoutX="522.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="271.0" layoutY="545.0" mnemonicParsing="false" onAction="#ModifierItem" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style.css" text="Modifier">
+      <ImageView fx:id="imageItem" fitHeight="170.0" fitWidth="179.0" layoutX="522.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="159.60000000000002" AnchorPane.leftAnchor="521.5999999999999" AnchorPane.rightAnchor="199.0" AnchorPane.topAnchor="270.0" />
+      <Button layoutX="271.0" layoutY="545.0" mnemonicParsing="false" onAction="#ModifierItem" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style.css" text="Modifier" AnchorPane.leftAnchor="271.0">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button layoutX="726.0" layoutY="268.0" mnemonicParsing="false" onAction="#SupprimerItem" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style.css" text="Supprimer">
+      <Button layoutX="726.0" layoutY="268.0" mnemonicParsing="false" onAction="#SupprimerItem" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style.css" text="Supprimer" AnchorPane.rightAnchor="24.400000000000006">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <ComboBox fx:id="conditionItem" layoutX="267.0" layoutY="419.0" prefHeight="26.0" prefWidth="232.0" promptText="Condition..." />
-      <ComboBox fx:id="quantityitem" layoutX="267.0" layoutY="464.0" prefHeight="26.0" prefWidth="232.0" promptText="Quantité..." />
-      <ComboBox fx:id="invenotryitem" layoutX="267.0" layoutY="508.0" prefHeight="26.0" prefWidth="232.0" promptText="Inventaire..." />
+      <ComboBox fx:id="conditionItem" layoutX="267.0" layoutY="419.0" prefHeight="26.0" prefWidth="232.0" promptText="Condition..." AnchorPane.leftAnchor="271.0" />
+      <ComboBox fx:id="quantityitem" layoutX="267.0" layoutY="464.0" prefHeight="26.0" prefWidth="232.0" promptText="Quantité..." AnchorPane.leftAnchor="271.0" />
+      <ComboBox fx:id="invenotryitem" layoutX="267.0" layoutY="508.0" prefHeight="26.0" prefWidth="232.0" promptText="Inventaire..." AnchorPane.leftAnchor="271.0" />
+      <Button layoutX="736.0" layoutY="545.0" mnemonicParsing="false" onAction="#displayStatistics" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style.css" text="Statistic">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>

@@ -16,7 +16,7 @@ public class MainFX extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("Menu.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Khoudh&het!");
         stage.setScene(scene);
         stage.show();
     }
