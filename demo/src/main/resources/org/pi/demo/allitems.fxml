@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="274.0" prefWidth="302.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.Allitems">
+   <children>
+      <VBox prefHeight="228.0" prefWidth="261.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="10" left="10" right="10" top="10" />
+         </padding>
+         <children>
+            <HBox prefHeight="71.0" prefWidth="230.0">
+               <children>
+                  <VBox prefHeight="70.0" prefWidth="147.0">
+                     <children>
+                        <Label fx:id="item_name" prefHeight="18.0" prefWidth="153.0" />
+                        <Label fx:id="item_condition" prefHeight="18.0" prefWidth="170.0" />
+                        <Label fx:id="item_ref" prefHeight="18.0" prefWidth="169.0" />
+                        <Label fx:id="item_quantity" prefHeight="18.0" prefWidth="177.0" />
+                     </children>
+                  </VBox>
+                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" text="Echanger" />
+               </children>
+            </HBox>
+            <ImageView fx:id="item_image" fitHeight="168.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

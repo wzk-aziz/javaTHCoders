@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.itemsforshow">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="265.0" style="-fx-background-color: #ED5A5B;">
+         <children>
+            <HBox prefHeight="77.0" prefWidth="291.0">
+               <children>
+                  <ImageView fitHeight="87.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/416410478_914063033747346_4330283370965631652_n.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="114.0" prefWidth="167.0" text="Khoudh&amp;Het">
+                     <font>
+                        <Font name="Freestyle Script" size="42.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="273.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Profile">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label prefHeight="17.0" prefWidth="11.0" />
+            <Button mnemonicParsing="false" onAction="#backtoinv" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Inventaire">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label prefHeight="17.0" prefWidth="11.0" />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Evenements">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Annonces">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Réclamations">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Echange">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label prefHeight="17.0" prefWidth="11.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="search_bar" prefHeight="38.0" prefWidth="186.0" />
+                  <Button mnemonicParsing="false" onAction="#searchbtn" prefHeight="38.0" prefWidth="78.0" text="Search" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox layoutX="266.0" prefHeight="600.0" prefWidth="634.0">
+         <children>
+            <ScrollPane fx:id="scroll" prefHeight="600.0" prefWidth="638.0">
+               <content>
+                  <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
