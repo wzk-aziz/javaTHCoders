@@ -1,4 +1,5 @@
-package utils;
+package org.pi.demo.utils;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
