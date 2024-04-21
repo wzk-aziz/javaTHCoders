@@ -4,9 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import org.pi.demo.Interfaces.MyListener;
 import org.pi.demo.entities.Items;
 
 public class Allitems {
+
 
     @FXML
     private Label item_condition;
@@ -22,8 +25,20 @@ public class Allitems {
 
     @FXML
     private Label item_ref;
+    private Items item;
+    private MyListener myListener;
 
-    public void setData(Items item) {
+
+    @FXML
+    void click(MouseEvent event) {
+
+            myListener.OnClickListner(item);
+    }
+
+    public void setData(Items item, MyListener myListener) {
+        this.item = item;
+        this.myListener = myListener;
+        System.out.println("setData method called. Item: " + item); // Debug print statement
         item_name.setText(item.getName());
         item_condition.setText(item.getPart_condition());
         item_ref.setText(item.getRef());
@@ -40,5 +55,9 @@ public class Allitems {
         } catch (Exception e) {
             System.out.println("Error loading image: " + e.getMessage()); // Print any exceptions
         }
+    }
+
+    public void setMyListener(MyListener myListener) {
+        this.myListener = myListener;
     }
 }
