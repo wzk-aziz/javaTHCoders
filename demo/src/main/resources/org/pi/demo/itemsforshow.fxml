@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -7,9 +9,10 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -31,59 +34,55 @@
                   </Label>
                </children>
             </HBox>
-            <Label />
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="273.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Profile">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Label prefHeight="17.0" prefWidth="11.0" />
-            <Button mnemonicParsing="false" onAction="#backtoinv" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Inventaire">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Label prefHeight="17.0" prefWidth="11.0" />
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Evenements">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Label />
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Annonces">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Label />
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Réclamations">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Label />
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Echange">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Label prefHeight="17.0" prefWidth="11.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="43.0" prefWidth="266.0">
                <children>
-                  <TextField fx:id="search_bar" prefHeight="38.0" prefWidth="186.0" />
-                  <Button mnemonicParsing="false" onAction="#searchbtn" prefHeight="38.0" prefWidth="78.0" text="Search" />
+                  <TextField fx:id="search_bar" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css" />
+                  <Button fx:id="searchbtn" mnemonicParsing="false" onAction="#searchbtn" prefHeight="38.0" prefWidth="78.0" styleClass="search-button" stylesheets="@Style2.css" text="Search" />
                </children>
             </HBox>
+            <Pane prefHeight="33.0" prefWidth="266.0" />
+            <VBox fx:id="chosenItemsCard" alignment="CENTER" prefHeight="443.0" prefWidth="214.0" stylesheets="@Style2.css">
+               <children>
+                  <HBox prefHeight="190.0" prefWidth="230.0">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <ImageView fx:id="itemimg" fitHeight="123.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Button fx:id="exchangebtn" mnemonicParsing="false" prefHeight="22.0" prefWidth="192.0" styleClass="add-btn" stylesheets="@../../../../../../../../../../Downloads/Fruits-Market-master/Fruits-Market-master/FruitMarket/src/values/style.css" text="Exchange" textFill="#828282">
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+               <styleClass>
+                  <String fx:value="chosen-item-card" />
+                  <String fx:value="shadow" />
+               </styleClass>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="23.0" />
+               </VBox.margin>
+            </VBox>
          </children>
       </VBox>
-      <HBox layoutX="266.0" prefHeight="600.0" prefWidth="634.0">
+      <HBox layoutX="266.0" prefHeight="600.0" prefWidth="634.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="265.6" AnchorPane.topAnchor="0.0">
          <children>
-            <ScrollPane fx:id="scroll" prefHeight="600.0" prefWidth="638.0">
+            <ScrollPane fx:id="scroll" prefHeight="579.0" prefWidth="602.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="20.0" top="10.0" />
+               </HBox.margin>
                <content>
                   <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                   </GridPane>
                </content>
             </ScrollPane>

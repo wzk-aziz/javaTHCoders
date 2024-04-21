@@ -6,11 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pi.demo.entities.Items;
 import org.pi.demo.services.ItemsService;
@@ -23,13 +26,25 @@ import java.util.Objects;
 public class itemsforshow {
 
     @FXML
+    private VBox chosenItemsCard;
+
+    @FXML
+    private Button exchangebtn;
+
+    @FXML
     private GridPane grid;
+
+    @FXML
+    private ImageView itemimg;
 
     @FXML
     private ScrollPane scroll;
 
     @FXML
     private TextField search_bar;
+
+    @FXML
+    private Button searchbtn;
 
 
     @FXML
