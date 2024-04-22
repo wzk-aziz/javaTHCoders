@@ -14,12 +14,14 @@ public class AnnoncesServicesImp implements IAnnonce<Annonce> {
 	@Override
 	public void ajouter(Annonce annonce) {
 		try{
-			String requete = "INSERT INTO annonces (titre, description, datedepub, liked) VALUES (?,?,?,?)";
+			String requete = "INSERT INTO annonces (titre, description, datedepub, liked,rating) VALUES (?,?,?,?,?)";
 			java.sql.PreparedStatement pst = cnx.prepareStatement(requete);
 			pst.setString(1, annonce.getTitre());
 			pst.setString(2, annonce.getDescription());
 			pst.setDate(3, annonce.getDatedepub());
 			pst.setInt(4, annonce.getLiked());
+			pst.setDouble(5, annonce.getRating());
+
 			pst.executeUpdate();
 			System.out.println("Annonce ajoutée");
 		} catch (Exception e) {
@@ -45,13 +47,15 @@ public class AnnoncesServicesImp implements IAnnonce<Annonce> {
 	public void modifier(Annonce annonce) {
 
 		try {
-			String requete = "UPDATE annonces SET titre = ?, description = ?, datedepub = ?, liked = ? WHERE id = ?";
+			String requete = "UPDATE annonces SET titre = ?, description = ?, datedepub = ?, liked = ? ,rating=?,WHERE id = ?";
 			java.sql.PreparedStatement pst = cnx.prepareStatement(requete);
 			pst.setString(1, annonce.getTitre());
 			pst.setString(2, annonce.getDescription());
 			pst.setDate(3, annonce.getDatedepub());
 			pst.setInt(4, annonce.getLiked());
 			pst.setInt(5, annonce.getId());
+			pst.setDouble(5, annonce.getRating());
+
 			pst.executeUpdate();
 			System.out.println("Annonce modifiée");
 		} catch (Exception e) {
@@ -73,7 +77,7 @@ public class AnnoncesServicesImp implements IAnnonce<Annonce> {
 				annonce.setDescription(rs.getString("description"));
 				annonce.setDatedepub(rs.getDate("datedepub"));
 				annonce.setLiked(rs.getInt("liked"));
-				list.add(annonce);
+				annonce.setRating(rs.getDouble("Rating"));				list.add(annonce);
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

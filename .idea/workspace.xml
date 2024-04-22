@@ -4,42 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="crud modif">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/javaTHCoders.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/jdbc/mysql-connector-j-8.3.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/AnnonceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/CommentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/MenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/ImServices/AnnoncesServicesImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/ImServices/CommentServiceImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Services/IAnnonce.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Services/IComment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/entities/Annonce.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/entities/Comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/entities/CommentDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/utils/ConnectionBd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Annonce.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Comment.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Menu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/hello-view.fxml" afterDir="false" />
+    <list default="true" id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AzizProjet/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/AnnonceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/AnnonceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/ImServices/AnnoncesServicesImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/ImServices/AnnoncesServicesImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/entities/Annonce.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/entities/Annonce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Annonce.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Annonce.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +74,8 @@
       <option name="presentableId" value="Default" />
       <updated>1713823086565</updated>
       <workItem from="1713823087606" duration="540000" />
-      <workItem from="1713823667724" duration="731000" />
+      <workItem from="1713823667724" duration="3659000" />
+      <workItem from="1713828003438" duration="1072000" />
     </task>
     <task id="LOCAL-00001" summary="crud">
       <option name="closed" value="true" />
@@ -113,7 +85,31 @@
       <option name="project" value="LOCAL" />
       <updated>1713823772187</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="crud modif1">
+      <option name="closed" value="true" />
+      <created>1713825054144</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713825054144</updated>
+    </task>
+    <task id="LOCAL-00003" summary="11">
+      <option name="closed" value="true" />
+      <created>1713825090775</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713825090775</updated>
+    </task>
+    <task id="LOCAL-00004" summary="3">
+      <option name="closed" value="true" />
+      <created>1713825243129</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713825243129</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +118,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="crud" />
     <MESSAGE value="crud modif" />
-    <option name="LAST_COMMIT_MESSAGE" value="crud modif" />
+    <MESSAGE value="crud modif1" />
+    <MESSAGE value="11" />
+    <MESSAGE value="3" />
+    <option name="LAST_COMMIT_MESSAGE" value="3" />
   </component>
 </project>

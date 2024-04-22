@@ -8,21 +8,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
+import org.controlsfx.control.Rating;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AnnonceController implements Initializable {
+	@FXML
+	private Rating myrating;
 
 	@FXML
 	private DatePicker date;
 	public static int idAn;
 	int etat = 0;
+
 	@FXML
 	private TextArea desc;
 
@@ -31,6 +33,7 @@ public class AnnonceController implements Initializable {
 
 	@FXML
 	private TextField titire;
+
 	@FXML
 	private Button disbtn;
 
@@ -41,6 +44,8 @@ public class AnnonceController implements Initializable {
 	void add(ActionEvent event) {
 		String titreText = titire.getText().trim();
 		String descText = desc.getText().trim();
+		double note = myrating.getRating(); // Retrieve the rating value
+		Annonce rec = new Annonce(titreText, java.sql.Date.valueOf(date.getValue()), descText, etat, note);
 
 		if (titreText.isEmpty() || descText.isEmpty() || date.getValue() == null) {
 			showAlert("Error", "Please fill in all fields before adding.");
@@ -48,17 +53,14 @@ public class AnnonceController implements Initializable {
 		}
 
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
-		an.ajouter(new Annonce(titreText, java.sql.Date.valueOf(date.getValue()), descText, etat));
+		an.ajouter(rec);
 		listv.getItems().clear();
 		loadData();
 	}
 
-
 	@FXML
 	void Menu(ActionEvent event) throws IOException {
-
 		FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Menu.fxml"));
-
 		Scene scene2 = new Scene(fxmlLoader.load());
 		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		app_stage.setScene(scene2);
@@ -67,9 +69,7 @@ public class AnnonceController implements Initializable {
 
 	@FXML
 	void comment(ActionEvent event) throws IOException {
-
 		FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Comment.fxml"));
-
 		Scene scene2 = new Scene(fxmlLoader.load());
 		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		app_stage.setScene(scene2);
@@ -87,25 +87,27 @@ public class AnnonceController implements Initializable {
 	@FXML
 	void dislike(ActionEvent event) {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
-		an.modifier(new Annonce(idAn, titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), 0));
+		double note = myrating.getRating(); // Retrieve the rating value
+		an.modifier(new Annonce(idAn, titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), 0, note));
 		loadData();
 	}
 
 	@FXML
 	void edit(ActionEvent event) {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
-		an.modifier(new Annonce(idAn, titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), etat));
+		double note = myrating.getRating(); // Retrieve the rating value
+		an.modifier(new Annonce(idAn, titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), etat, note));
 		loadData();
 	}
 
 	@FXML
 	void like(ActionEvent event) {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
-		an.modifier(new Annonce(idAn, titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), 1));
+		double note = myrating.getRating(); // Retrieve the rating value
+		an.modifier(new Annonce(idAn, titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), 1, note));
 		loadData();
 		clearField();
 	}
-
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -132,6 +134,7 @@ public class AnnonceController implements Initializable {
 				desc.setText(t1.getDescription());
 				date.setValue(t1.getDatedepub().toLocalDate());
 				etat = t1.getLiked();
+				myrating.setRating(t1.getRating()); // Set the rating value
 				if (t1.getLiked() == 1) {
 					likebtn.setDisable(true);
 					disbtn.setDisable(false);
