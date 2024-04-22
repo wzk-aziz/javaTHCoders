@@ -22,7 +22,8 @@ import javafx.stage.Stage;
 public class CommentController implements Initializable {
 	@FXML
 	private DatePicker date;
-int etat = 0;
+	int etat = 0;
+
 	@FXML
 	private TextArea desc;
 
@@ -37,16 +38,21 @@ int etat = 0;
 
 	@FXML
 	void add(ActionEvent event) {
+		String descText = desc.getText().trim();
+
+		if (descText.isEmpty() || date.getValue() == null) {
+			showAlert("Error", "Please fill in all fields before adding.");
+			return;
+		}
+
 		CommentServiceImp com = new CommentServiceImp();
-		com.ajouter(new Comment(desc.getText(), java.sql.Date.valueOf(date.getValue()), AnnonceController.idAn, etat));
+		com.ajouter(new Comment(descText, java.sql.Date.valueOf(date.getValue()), AnnonceController.idAn, etat));
 		listv.getItems().clear();
 		loadData();
-
 	}
 
 	@FXML
 	void delete(ActionEvent event) {
-
 		CommentServiceImp com = new CommentServiceImp();
 		com.supprimer(new Comment(idCom));
 		listv.getItems().clear();
@@ -55,7 +61,6 @@ int etat = 0;
 
 	@FXML
 	void dislike(ActionEvent event) {
-
 		CommentServiceImp com = new CommentServiceImp();
 		com.modifier(new Comment(idCom,desc.getText(), java.sql.Date.valueOf(date.getValue()), AnnonceController.idAn, 0));
 		listv.getItems().clear();
@@ -64,17 +69,14 @@ int etat = 0;
 
 	@FXML
 	void edit(ActionEvent event) {
-
 		CommentServiceImp com = new CommentServiceImp();
 		com.modifier(new Comment(idCom,desc.getText(), java.sql.Date.valueOf(date.getValue()), AnnonceController.idAn, etat));
 		listv.getItems().clear();
 		loadData();
-
 	}
 
 	@FXML
 	void like(ActionEvent event) {
-
 		CommentServiceImp com = new CommentServiceImp();
 		com.modifier(new Comment(idCom,desc.getText(), java.sql.Date.valueOf(date.getValue()), AnnonceController.idAn, 1));
 		listv.getItems().clear();
@@ -83,9 +85,7 @@ int etat = 0;
 
 	@FXML
 	void post(ActionEvent event) throws IOException {
-
 		FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Annonce.fxml"));
-
 		Scene scene2 = new Scene(fxmlLoader.load());
 		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		app_stage.setScene(scene2);
@@ -94,11 +94,13 @@ int etat = 0;
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
-System.out.println("Comment Controller"+AnnonceController.idAn);
+		System.out.println("Comment Controller"+AnnonceController.idAn);
 		loadData();
 	}
-int idCom;
-	void loadData(){
+
+	int idCom;
+
+	void loadData() {
 		CommentServiceImp com = new CommentServiceImp();
 		listv.getItems().clear();
 		listv.getItems().addAll(com.AfficheR());
@@ -108,7 +110,7 @@ int idCom;
 				CommentDTO commentDTO1 = listv.getSelectionModel().getSelectedItem();
 				desc.setText(commentDTO1.getContenu());
 				date.setValue(commentDTO1.getDatecommnt().toLocalDate());
-etat = commentDTO1.getLiked();
+				etat = commentDTO1.getLiked();
 				// If liked == 1 set like button to disable
 				if (t1.getLiked() == 1) {
 					likebtn.setDisable(true);
@@ -120,5 +122,13 @@ etat = commentDTO1.getLiked();
 				idCom = t1.getId();
 			}
 		});
+	}
+
+	private void showAlert(String title, String content) {
+		Alert alert = new Alert(Alert.AlertType.ERROR);
+		alert.setTitle(title);
+		alert.setHeaderText(null);
+		alert.setContentText(content);
+		alert.showAndWait();
 	}
 }
