@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.Dashboard">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.Dashboard">
     <children>
         <VBox prefHeight="600.0" prefWidth="268.0" style="-fx-background-color: #ED5A5B;">
             <children>
@@ -97,5 +97,10 @@
             </font>
         </Button>
         <TextField fx:id="aff" layoutX="288.0" layoutY="59.0" opacity="0.0" prefHeight="25.0" prefWidth="21.0" />
+      <Button layoutX="482.0" layoutY="454.0" mnemonicParsing="false" onAction="#consulterevents" prefHeight="56.0" prefWidth="268.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Consulter event">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

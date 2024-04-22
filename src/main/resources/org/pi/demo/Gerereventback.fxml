@@ -125,7 +125,6 @@
       </DatePicker>
       <TableView fx:id="TableView_Event" layoutX="271.0" layoutY="14.0" prefHeight="200.0" prefWidth="613.0">
         <columns>
-          <TableColumn fx:id="TableView_col_Event_id" prefWidth="75.0" text="id" />
           <TableColumn fx:id="TableView_col_Event_nom" prefWidth="75.0" text="nom" />
             <TableColumn fx:id="TableView_col_Event_capacity" prefWidth="75.0" text="Capacité" />
             <TableColumn fx:id="TableView_col_Event_date_debut" prefWidth="93.60000610351562" text="date debut" />

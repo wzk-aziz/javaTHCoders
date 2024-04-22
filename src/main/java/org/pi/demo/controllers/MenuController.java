@@ -32,5 +32,18 @@ public class MenuController {
     void consulterreservation(ActionEvent event) {
 
     }
+    @FXML
+    void consulterevents(ActionEvent event) {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/pi/demo/ConsulterEventFront.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

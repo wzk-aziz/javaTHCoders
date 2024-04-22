@@ -7,7 +7,11 @@ import java.util.List;
 
 public interface EventInterface {
     public void addEvent(Event ev);
-    public List<Event> AfficherEvent();
+
+    static List<Event> AfficherEvent() {
+        return null;
+    }
+
     public void SupprimerEvent(int id);
     public boolean updateEvent(Event ev) ;
     public List<Event> searchByPlace(String place);

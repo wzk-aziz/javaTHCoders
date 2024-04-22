@@ -66,7 +66,7 @@ public class Event {
         this.description = description;
     }
 
-   public String getImage() {
+   public  String getImage() {
         return image;
     }
 

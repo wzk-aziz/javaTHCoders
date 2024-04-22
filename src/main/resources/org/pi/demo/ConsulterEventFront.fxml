@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="536.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.ConsulterEventFront">
+   <children>
+      <VBox layoutX="7.0" layoutY="7.0" prefHeight="521.0" prefWidth="274.0" style="-fx-background-color: #FFE0B2;" stylesheets="@../../../../../../../../../Downloads/zaykaa/zaykaa/src/main/resources/Style.css">
+         <children>
+            <HBox alignment="CENTER" prefHeight="66.0" prefWidth="271.0" />
+            <HBox alignment="CENTER" prefHeight="33.0" prefWidth="258.0" style="-fx-background-color: #FF9800; -fx-background-radius: 15;" styleClass="shadow" stylesheets="@../../../../../../../../../Downloads/zaykaa/zaykaa/src/main/resources/Style.css">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+               <children>
+                  <Label prefHeight="30.0" prefWidth="198.0" style="-fx-background-color: #FF9800;" stylesheets="@../../../../../../../../../Downloads/zaykaa/zaykaa/src/main/resources/Style.css" text="Top 3 Evenements" textFill="#1b1001">
+                     <font>
+                        <Font name="Sylfaen" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox prefHeight="421.0" prefWidth="194.0">
+               <VBox.margin>
+                  <Insets left="40.0" right="40.0" />
+               </VBox.margin>
+               <children>
+                  <ScrollPane prefHeight="507.0" prefWidth="194.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1137.0" prefWidth="197.0">
+                           <children>
+                              <GridPane fx:id="gridePaneTop" layoutY="12.0" prefHeight="4.0" prefWidth="100.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <ScrollPane layoutX="282.0" layoutY="60.0" prefHeight="230.0" prefWidth="526.0">
+         <content>
+            <GridPane fx:id="gridPane" prefHeight="22.0" prefWidth="46.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <ImageView fx:id="imageevent" fitHeight="148.0" fitWidth="198.0" layoutX="305.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="adresse" layoutX="602.0" layoutY="374.0" prefHeight="43.0" prefWidth="150.0" promptText="adresse">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </TextField>
+      <TextField fx:id="num_tel" layoutX="602.0" layoutY="424.0" prefHeight="43.0" prefWidth="150.0" promptText="telephone" styleClass="text-field13" stylesheets="@../../../../../../../../../Downloads/zaykaa/zaykaa/src/main/resources/Style.css">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </TextField>
+      <TextField fx:id="nom" layoutX="602.0" layoutY="323.0" prefHeight="43.0" prefWidth="150.0" promptText="nom">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </TextField>
+      <Button layoutX="602.0" layoutY="488.0" mnemonicParsing="false" onAction="#reserver" prefHeight="33.0" prefWidth="121.0" style="-fx-background-color: #FF9800; -fx-background-radius: 15;" styleClass="reserve-button" stylesheets="@../../../../../../../../../Downloads/zaykaa/zaykaa/src/main/resources/Style.css" text="Reserver">
+         <effect>
+            <Blend />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

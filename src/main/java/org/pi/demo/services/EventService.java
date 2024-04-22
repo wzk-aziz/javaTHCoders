@@ -59,7 +59,7 @@ public class EventService implements EventInterface {
         }
     }
 
-  public  List<Event> AfficherEvent() {
+  public static List<Event> AfficherEvent() {
     List<Event> events = new ArrayList<>();
     try {
         String request = "SELECT * FROM event";
