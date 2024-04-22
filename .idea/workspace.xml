@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="crud modif">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/javaTHCoders.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/jdbc/mysql-connector-j-8.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/AnnonceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/MenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/HelloApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/ImServices/AnnoncesServicesImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/ImServices/CommentServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Services/IAnnonce.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Services/IComment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/entities/Annonce.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/entities/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/entities/CommentDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/utils/ConnectionBd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Annonce.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Comment.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Menu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/hello-view.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2fTRTF1sD3jX7omF3FIEkdVpPqB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;aziz-ferjaoui&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/javaTHCoders/AzizProjet/jdbc/mysql-connector-j-8.3.0.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.projet.azizprojet.HelloApplication" />
+      <module name="AzizProjet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.projet.azizprojet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.HelloApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="" />
+      <created>1713823086565</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713823086565</updated>
+      <workItem from="1713823087606" duration="540000" />
+      <workItem from="1713823667724" duration="731000" />
+    </task>
+    <task id="LOCAL-00001" summary="crud">
+      <option name="closed" value="true" />
+      <created>1713823772187</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713823772187</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="crud" />
+    <MESSAGE value="crud modif" />
+    <option name="LAST_COMMIT_MESSAGE" value="crud modif" />
+  </component>
+</project>

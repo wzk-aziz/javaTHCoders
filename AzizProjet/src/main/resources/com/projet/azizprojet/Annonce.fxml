@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="422.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projet.azizprojet.Controllers.AnnonceController">
+   <children>
+      <ListView fx:id="listv" layoutX="14.0" layoutY="14.0" prefHeight="360.0" prefWidth="328.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff01f50" height="405.0" layoutX="359.0" layoutY="14.0" stroke="#0000002b" strokeType="INSIDE" width="256.0" />
+      <TextField fx:id="titire" layoutX="381.0" layoutY="58.0" prefHeight="26.0" prefWidth="200.0" promptText="titre" />
+      <DatePicker fx:id="date" layoutX="381.0" layoutY="106.0" prefHeight="26.0" prefWidth="200.0" promptText="date" />
+      <TextArea fx:id="desc" layoutX="381.0" layoutY="149.0" prefHeight="103.0" prefWidth="200.0" promptText="description" />
+      <Button layoutX="381.0" layoutY="348.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: green;" text="add" textFill="WHITE" />
+      <Button layoutX="461.0" layoutY="348.0" mnemonicParsing="false" onAction="#edit" prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: blue;" text="edit" textFill="WHITE" />
+      <Button layoutX="537.0" layoutY="348.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="64.0" style="-fx-background-color: red;" text="remove" textFill="WHITE" />
+      <Text layoutX="423.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Annonces" wrappingWidth="128.21630859375">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Button layoutX="376.0" layoutY="382.0" mnemonicParsing="false" onAction="#comment" prefHeight="26.0" prefWidth="222.0" style="-fx-background-color: orange;" text="Comment" textFill="WHITE" />
+      <Button fx:id="likebtn" layoutX="396.0" layoutY="259.0" mnemonicParsing="false" onAction="#like" style="-fx-background-color: purple;" text="Like" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="disbtn" layoutX="519.0" layoutY="259.0" mnemonicParsing="false" onAction="#dislike" style="-fx-background-color: grey;" text="dislike" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="21.0" layoutY="383.0" mnemonicParsing="false" onAction="#Menu" prefHeight="26.0" prefWidth="141.0" style="-fx-background-color: pink;" text="Menu" textFill="WHITE" />
+   </children>
+</AnchorPane>
