@@ -114,7 +114,7 @@ myListener =new MyListener(){
                 Allitems itemController = fxmlLoader.getController();
                 itemController.setData(itemsList.get(i), myListener);
                 itemController.setMyListener(this);
-                if (column == 3) {
+                if (column == 2) {
                     column = 0;
                     row++;
                 }
@@ -129,6 +129,7 @@ myListener =new MyListener(){
                 grid.setMinHeight(Region.USE_COMPUTED_SIZE);
                 grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
+
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -185,7 +186,7 @@ void searchbtn(ActionEvent event) throws SQLException {
                         Allitems itemController = fxmlLoader.getController();
                         itemController.setData(item, myListener);
 
-                        if (column == 3) {
+                        if (column == 2) {
                             column = 0;
                             row++;
                         }
@@ -210,7 +211,7 @@ void searchbtn(ActionEvent event) throws SQLException {
                 Allitems itemController = fxmlLoader.getController();
                 itemController.setData(item, myListener);
 
-                if (column == 3) {
+                if (column == 2) {
                     column = 0;
                     row++;
                 }
