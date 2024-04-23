@@ -1,5 +1,7 @@
 package com.projet.azizprojet.Services;
 
+import com.projet.azizprojet.entities.Annonce;
+
 import java.util.List;
 
 public interface IAnnonce  <T> {

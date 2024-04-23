@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="3">
+    <list default="true" id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="rarting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AzizProjet/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/AnnonceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/AnnonceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/ImServices/AnnoncesServicesImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/ImServices/AnnoncesServicesImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/entities/Annonce.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/entities/Annonce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Services/IAnnonce.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Services/IAnnonce.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Annonce.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Annonce.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +73,8 @@
       <updated>1713823086565</updated>
       <workItem from="1713823087606" duration="540000" />
       <workItem from="1713823667724" duration="3659000" />
-      <workItem from="1713828003438" duration="1072000" />
+      <workItem from="1713828003438" duration="2025000" />
+      <workItem from="1713869158299" duration="1258000" />
     </task>
     <task id="LOCAL-00001" summary="crud">
       <option name="closed" value="true" />
@@ -109,7 +108,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713825243129</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="rarting">
+      <option name="closed" value="true" />
+      <created>1713829353342</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713829353342</updated>
+    </task>
+    <task id="LOCAL-00006" summary="rarting">
+      <option name="closed" value="true" />
+      <created>1713829367229</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713829367229</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +136,7 @@
     <MESSAGE value="crud modif1" />
     <MESSAGE value="11" />
     <MESSAGE value="3" />
-    <option name="LAST_COMMIT_MESSAGE" value="3" />
+    <MESSAGE value="rarting" />
+    <option name="LAST_COMMIT_MESSAGE" value="rarting" />
   </component>
 </project>
