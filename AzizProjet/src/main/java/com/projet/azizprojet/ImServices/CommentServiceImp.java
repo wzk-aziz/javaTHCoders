@@ -32,7 +32,7 @@ public class CommentServiceImp implements IComment<Comment> {
 
 	@Override
 	public void supprimer(Comment comment) {
-try {
+		try {
 			String requete = "DELETE FROM commnet WHERE id = ?";
 			java.sql.PreparedStatement pst = cnx.prepareStatement(requete);
 			pst.setInt(1, comment.getId());
@@ -40,7 +40,7 @@ try {
 			System.out.println("Commentaire supprimé");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-}
+		}
 	}
 
 	@Override

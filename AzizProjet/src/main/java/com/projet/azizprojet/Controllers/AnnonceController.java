@@ -10,10 +10,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.TextFieldListCell;
 import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
+
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AnnonceController implements Initializable {
@@ -39,6 +43,9 @@ public class AnnonceController implements Initializable {
 
 	@FXML
 	private Button likebtn;
+
+	@FXML
+	private TextField recherche; // Champ de recherche ajouté
 
 	@FXML
 	void add(ActionEvent event) {
@@ -112,6 +119,11 @@ public class AnnonceController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		loadData();
+
+		// Ajoutez un écouteur pour détecter les changements de texte dans le champ de recherche
+		recherche.textProperty().addListener((observable, oldValue, newValue) -> {
+			filterAnnonces(newValue);
+		});
 	}
 
 	void clearField() {
@@ -153,5 +165,11 @@ public class AnnonceController implements Initializable {
 		alert.setHeaderText(null);
 		alert.setContentText(content);
 		alert.showAndWait();
+	}
+
+	private void filterAnnonces(String keyword) {
+		AnnoncesServicesImp an = new AnnoncesServicesImp();
+		listv.getItems().clear();
+		listv.getItems().addAll(an.rechercherParTitre(keyword));
 	}
 }

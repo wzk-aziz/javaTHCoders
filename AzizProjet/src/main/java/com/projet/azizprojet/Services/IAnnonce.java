@@ -9,5 +9,5 @@ public interface IAnnonce  <T> {
 	public void supprimer(T t);
 	public void modifier(T t);
 	public List<T> afficher();
-
+	List<T> rechercherParTitre(String titre);
 }

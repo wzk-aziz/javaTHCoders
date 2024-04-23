@@ -84,4 +84,9 @@ public class AnnoncesServicesImp implements IAnnonce<Annonce> {
 		}
 		return list;
 	}
+
+	@Override
+	public List<Annonce> rechercherParTitre(String titre) {
+		return null;
+	}
 }

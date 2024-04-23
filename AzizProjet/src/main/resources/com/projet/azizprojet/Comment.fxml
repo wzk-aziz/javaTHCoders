@@ -4,6 +4,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -11,7 +12,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projet.azizprojet.Controllers.CommentController">
    <children>
-      <ListView fx:id="listv" layoutX="14.0" layoutY="14.0" prefHeight="360.0" prefWidth="328.0" />
+      <ListView fx:id="listv" layoutX="17.0" layoutY="46.0" prefHeight="329.0" prefWidth="325.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fc9d9d4f" height="382.0" layoutX="359.0" layoutY="14.0" stroke="#0000002b" strokeType="INSIDE" width="256.0" />
       <DatePicker fx:id="date" layoutX="381.0" layoutY="72.0" prefHeight="26.0" prefWidth="200.0" promptText="date" />
       <TextArea fx:id="desc" layoutX="381.0" layoutY="109.0" prefHeight="143.0" prefWidth="200.0" promptText="Contenu" />
@@ -34,5 +35,5 @@
             <Font size="15.0" />
          </font>
       </Button>
-   </children>
+c   </children>
 </AnchorPane>
