@@ -45,22 +45,22 @@ public class AnnoncesServicesImp implements IAnnonce<Annonce> {
 
 	@Override
 	public void modifier(Annonce annonce) {
-
 		try {
-			String requete = "UPDATE annonces SET titre = ?, description = ?, datedepub = ?, liked = ? ,rating=?,WHERE id = ?";
+			String requete = "UPDATE annonces SET titre = ?, description = ?, datedepub = ?, liked = ?, rating = ? WHERE id = ?";
 			java.sql.PreparedStatement pst = cnx.prepareStatement(requete);
 			pst.setString(1, annonce.getTitre());
 			pst.setString(2, annonce.getDescription());
 			pst.setDate(3, annonce.getDatedepub());
 			pst.setInt(4, annonce.getLiked());
-			pst.setInt(5, annonce.getId());
 			pst.setDouble(5, annonce.getRating());
+			pst.setInt(6, annonce.getId()); // Treat id as integer
 
 			pst.executeUpdate();
 			System.out.println("Annonce modifiée");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+
 	}
 
 	@Override
@@ -87,6 +87,25 @@ public class AnnoncesServicesImp implements IAnnonce<Annonce> {
 
 	@Override
 	public List<Annonce> rechercherParTitre(String titre) {
-		return null;
+		List<Annonce> resultats = new ArrayList<>();
+		try {
+			String requete = "SELECT * FROM annonces WHERE titre LIKE ?";
+			java.sql.PreparedStatement pst = cnx.prepareStatement(requete);
+			pst.setString(1, "%" + titre + "%");
+			java.sql.ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				Annonce annonce = new Annonce();
+				annonce.setId(rs.getInt("id"));
+				annonce.setTitre(rs.getString("titre"));
+				annonce.setDescription(rs.getString("description"));
+				annonce.setDatedepub(rs.getDate("datedepub"));
+				annonce.setLiked(rs.getInt("liked"));
+				annonce.setRating(rs.getDouble("Rating"));
+				resultats.add(annonce);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return resultats;
 	}
 }
