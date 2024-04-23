@@ -76,7 +76,7 @@ public class AnnonceController implements Initializable {
 
 	@FXML
 	void comment(ActionEvent event) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Comment.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/projet/azizprojet/Comment.fxml"));
 		Scene scene2 = new Scene(fxmlLoader.load());
 		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		app_stage.setScene(scene2);

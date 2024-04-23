@@ -63,4 +63,20 @@ public class MenuController {
 		app_stage.setScene(scene2);
 		app_stage.show();
 	}
+
+    @FXML
+    void consulterannonces(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("DisplayAnnonces.fxml"));
+
+        Scene scene2 = new Scene(fxmlLoader.load());
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene2);
+        app_stage.show();
+    }
+
+
+
+
+
 }

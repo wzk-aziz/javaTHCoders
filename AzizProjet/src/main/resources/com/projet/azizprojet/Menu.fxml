@@ -73,7 +73,7 @@
                 </Button>
             </children>
         </VBox>
-        <Button layoutX="503.0" layoutY="158.0" mnemonicParsing="false" onAction="#consulterInventaire" prefHeight="56.0" prefWidth="268.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Consulter Inventaire" AnchorPane.leftAnchor="496.8" AnchorPane.rightAnchor="135.2">
+        <Button layoutX="497.0" layoutY="166.0" mnemonicParsing="false" onAction="#consulterannonces" prefHeight="56.0" prefWidth="268.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Consulter les annonces" AnchorPane.leftAnchor="497.0" AnchorPane.rightAnchor="135.0">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
@@ -84,16 +84,6 @@
         <ImageView fitHeight="125.0" fitWidth="170.0" layoutX="318.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="308.8" AnchorPane.rightAnchor="412.4">
 
         </ImageView>
-        <Button layoutX="497.0" layoutY="356.0" mnemonicParsing="false" onAction="#consulteritems" prefHeight="56.0" prefWidth="268.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Consulter items" AnchorPane.bottomAnchor="188.39999999999998" AnchorPane.leftAnchor="496.79999999999995" AnchorPane.rightAnchor="135.0" AnchorPane.topAnchor="356.0">
-            <font>
-                <Font name="System Bold" size="15.0" />
-            </font>
-        </Button>
       <TextField fx:id="aff" layoutX="288.0" layoutY="59.0" opacity="0.0" prefHeight="25.0" prefWidth="21.0" />
-      <Button layoutX="417.0" layoutY="501.0" mnemonicParsing="false" onAction="#allitems" prefHeight="56.0" prefWidth="268.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Consulter item pour echange" AnchorPane.leftAnchor="496.8" AnchorPane.rightAnchor="135.2">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Button>
     </children>
 </AnchorPane>

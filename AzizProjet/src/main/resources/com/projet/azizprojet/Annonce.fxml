@@ -38,7 +38,7 @@
          </font>
       </Button>
       <Button layoutX="21.0" layoutY="383.0" mnemonicParsing="false" onAction="#Menu" prefHeight="26.0" prefWidth="141.0" style="-fx-background-color: pink;" text="Menu" textFill="WHITE" />
-      <Rating fx:id="myrating" layoutX="178.0" layoutY="379.0" prefHeight="31.0" prefWidth="142.0" />
+      <Rating fx:id="myrating" layoutX="178.0" layoutY="385.0" prefHeight="26.0" prefWidth="161.0" />
       <TextField fx:id="recherche" layoutX="29.0" layoutY="19.0" promptText="Rechercher" />
    </children>
 </AnchorPane>
