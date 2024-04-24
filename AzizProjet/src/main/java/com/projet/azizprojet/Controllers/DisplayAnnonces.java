@@ -103,7 +103,7 @@ public class DisplayAnnonces {
                 commentController.setCommentDetails(comment);
 
                 grid1.add(root, column++, row);
-                if (column == 4) {
+                if (column == 2) {
                     column = 0;
                     row++;
                 }
@@ -128,7 +128,7 @@ public class DisplayAnnonces {
     @FXML
     void Annonces(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Annonce.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/projet/azizprojet/Annonce.fxml"));
             Parent root = loader.load();
             AnnonceController annonceController = loader.getController();
 

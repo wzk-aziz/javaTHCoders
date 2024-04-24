@@ -36,7 +36,7 @@ public class AnnonceController implements Initializable {
 	private TextField titire;
 
 	@FXML
-	private Button disbtn;
+	private Button dislike;
 
 	@FXML
 	private Button likebtn;
@@ -129,7 +129,7 @@ public class AnnonceController implements Initializable {
 		desc.clear();
 		date.getEditor().clear();
 		likebtn.setDisable(false);
-		disbtn.setDisable(false);
+		dislike.setDisable(false);
 		idAn = 0;
 		etat = 0;
 	}
@@ -138,6 +138,30 @@ public class AnnonceController implements Initializable {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
 		listv.getItems().clear();
 		listv.getItems().addAll(an.afficher());
+
+		// Customize the cell factory to display only desired properties
+		listv.setCellFactory(param -> new ListCell<Annonce>() {
+			@Override
+			protected void updateItem(Annonce item, boolean empty) {
+				super.updateItem(item, empty);
+				if (empty || item == null) {
+					setText(null);
+				} else {
+					setText("Titre: " + item.getTitre() + "\nDescription: " + item.getDescription() + "\nDate: " + item.getDatedepub().toString());
+				}
+			}
+		});
+		listv.setCellFactory(param -> new ListCell<Annonce>() {
+			@Override
+			protected void updateItem(Annonce item, boolean empty) {
+				super.updateItem(item, empty);
+				if (empty || item == null) {
+					setText(null);
+				} else {
+					setText("Titre: " + item.getTitre() + "\nDescription: " + item.getDescription() + "\nDate: " + item.getDatedepub().toString() + "\nRating: " + item.getRating());
+				}
+			}
+		});
 		listv.getSelectionModel().selectedItemProperty().addListener((observableValue, annonce, t1) -> {
 			if (t1 != null) {
 				titire.setText(t1.getTitre());
@@ -147,15 +171,16 @@ public class AnnonceController implements Initializable {
 				myrating.setRating(t1.getRating()); // Set the rating value
 				if (t1.getLiked() == 1) {
 					likebtn.setDisable(true);
-					disbtn.setDisable(false);
+					dislike.setDisable(false);
 				} else if (t1.getLiked() == 0) {
-					disbtn.setDisable(true);
+					dislike.setDisable(true);
 					likebtn.setDisable(false);
 				}
 				idAn = t1.getId();
 			}
 		});
 	}
+
 
 	private void showAlert(String title, String content) {
 		Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -168,7 +193,7 @@ public class AnnonceController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		likebtn.setVisible(false);
-		disbtn.setVisible(false);
+		dislike.setVisible(false);
 
 	}
 	/*private void filterAnnonces(String keyword) {

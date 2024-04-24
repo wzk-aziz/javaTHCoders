@@ -88,9 +88,9 @@
         </children>
     </VBox>
     <!-- ScrollPane for Comments -->
-    <ScrollPane fx:id="scroll1" layoutX="301.0" layoutY="414.0" prefHeight="166.0" prefWidth="445.0">
+    <ScrollPane fx:id="scroll1" layoutX="257.0" layoutY="387.0" prefHeight="203.0" prefWidth="634.0">
         <content>
-            <GridPane fx:id="grid1" prefHeight="26.0" prefWidth="693.0" style="-fx-background-color: #ffffff;">
+            <GridPane fx:id="grid1" prefHeight="26.0" prefWidth="719.0" style="-fx-background-color: #ffffff;">
                 <!-- Content for scroll1 -->
                 <children>
                     <Pane onMouseClicked="#handleAnnouncementClick" />

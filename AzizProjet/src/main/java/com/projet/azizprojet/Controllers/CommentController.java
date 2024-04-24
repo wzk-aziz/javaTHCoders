@@ -107,6 +107,17 @@ public class CommentController implements Initializable {
 		listv.getItems().clear();
 		listv.getItems().addAll(com.AfficheR());
 		//select item from listview and show it in textfield
+		listv.setCellFactory(param -> new ListCell<CommentDTO>() {
+			@Override
+			protected void updateItem(CommentDTO item, boolean empty) {
+				super.updateItem(item, empty);
+				if (empty || item == null) {
+					setText(null);
+				} else {
+					setText("Content: " + item.getContenu() + "\nDate: " + item.getDatecommnt().toString());
+				}
+			}
+		});
 		listv.getSelectionModel().selectedItemProperty().addListener((observableValue, commentDTO, t1) -> {
 			if (listv.getSelectionModel().getSelectedItem() != null) {
 				CommentDTO commentDTO1 = listv.getSelectionModel().getSelectedItem();
