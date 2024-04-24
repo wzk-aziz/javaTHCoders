@@ -119,6 +119,7 @@ public class User {
         this.roles = roles;
     }
 
+
     public void setIs_active(Boolean is_active) {
         this.is_active = is_active;
     }

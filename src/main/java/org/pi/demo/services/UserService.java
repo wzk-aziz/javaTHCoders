@@ -24,8 +24,9 @@ public class UserService implements UserInterface {
     }
     @Override
     public void addUser(User user) throws EmptyFieldException, InvalidPhoneNumberException, InvalidEmailException, IncorrectPasswordException {
+        java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
         // Vérifier que les champs obligatoires ne sont pas vides
-        if (user.getFirstname().isEmpty() || user.getName().isEmpty() || user.getEmail().isEmpty() || user.getPassword().isEmpty()|| user.getProfession().isEmpty()) {
+        if (user.getFirstname().isEmpty() || user.getName().isEmpty() || user.getEmail().isEmpty() || user.getPassword().isEmpty()) {
             throw new EmptyFieldException("Please fill in all required fields.");
         }
         // Valider le format de l'email
@@ -40,7 +41,7 @@ public class UserService implements UserInterface {
         if (!validationService.isValidPassword(user.getPassword())) {
             throw new IncorrectPasswordException("Password must contain at least one uppercase letter, one lowercase letter, one digit, and be at least 6 characters long.");
         }
-        String request = "INSERT INTO `user`(`firstname`, `lastname`, `email` ,`phone`,`password`, `roles`,`is_banned`,`is_active`) VALUES (?,?,?,?,?,?,false,true)";
+        String request = "INSERT INTO `user`(`firstname`, `name`, `email` ,`phone`,`password`, `roles`,`profession`,`createdat`,`age`) VALUES (?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(request);
             preparedStatement.setString(1, user.getFirstname());
@@ -49,6 +50,9 @@ public class UserService implements UserInterface {
             preparedStatement.setString(4, user.getPhone());
             preparedStatement.setString(5, cryptPassword(user.getPassword()));
             preparedStatement.setString(6, user.getRoles().toString());
+            preparedStatement.setString(7, user.getProfession());
+            preparedStatement.setDate(8, currentDate);
+            preparedStatement.setInt(9, user.getAge());
             preparedStatement.executeUpdate();
             System.out.println("User added successfully !");
         } catch (SQLException ex) {

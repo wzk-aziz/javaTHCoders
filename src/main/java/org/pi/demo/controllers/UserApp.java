@@ -6,6 +6,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.pi.demo.Exceptions.EmptyFieldException;
+import org.pi.demo.Exceptions.IncorrectPasswordException;
+import org.pi.demo.Exceptions.InvalidEmailException;
+import org.pi.demo.Exceptions.InvalidPhoneNumberException;
+import org.pi.demo.entities.User;
+import org.pi.demo.services.UserService;
+import org.pi.demo.services.ValidationService;
+import org.pi.demo.utils.MyConnection;
+import org.pi.demo.utils.Type;
 
 import java.sql.Connection;
 
@@ -57,7 +66,7 @@ public class UserApp {
     private Button registerButton;
 
     @FXML
-    void registerOnAction(ActionEvent event) {/*
+    void registerOnAction(ActionEvent event) {
         try {
             Connection connection = MyConnection.getInstance().getConnection();
             UserService userService = UserService.getInstance();
@@ -66,11 +75,13 @@ public class UserApp {
             if (!firstnameField.getText().isEmpty() || !lastnameField.getText().isEmpty() ||
                     !emailField.getText().isEmpty() || !passwordField.getText().isEmpty()) {
                 user.setFirstname(firstnameField.getText());
-                user.setLastname(lastnameField.getText());
+                user.setName(lastnameField.getText());
                 user.setEmail(emailField.getText());
                 user.setPassword(passwordField.getText());
                 user.setPhone(phoneField.getText());
-                user.setRoles(Type.ROLE_CLIENT);
+                user.setProfession(professionField.getText());
+                user.setAge(Integer.parseInt(ageField.getText()));
+                user.setRoles(Type.ROLE_USER);
                 userService.addUser(user);
             } else {
                 firstnameLabel.setText("Please enter your firstname.");
@@ -93,7 +104,7 @@ public class UserApp {
         } catch (InvalidEmailException | IncorrectPasswordException | InvalidPhoneNumberException |
                  EmptyFieldException e) {
             System.err.println(e);
-        }*/
+        }
     }
 
 }
