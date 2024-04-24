@@ -13,7 +13,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.pi.demo.entities.Event;
+import org.pi.demo.entities.Events;
+import org.pi.demo.entities.Events;
 import org.pi.demo.services.EventService;
 
 import java.io.File;
@@ -58,7 +59,7 @@ public class AjouterEvent {
     @FXML
     void ListeEvent(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/pi/demo/Gerereventback.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/pi/demo/Displayeventsback.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -79,7 +80,7 @@ public class AjouterEvent {
             Date eventEndDate = java.sql.Date.valueOf(finEvent.getValue());
             String eventImage = imagePath; // Use the stored image path
 
-            Event newEvent = new Event(eventName, eventPlace, eventDescription, eventImage, eventCapacity, eventStartDate, eventEndDate);
+            Events newEvent = new Events(eventName, eventPlace, eventDescription, eventImage, eventCapacity, eventStartDate, eventEndDate);
             EventService.getInstance().addEvent(newEvent);
 
             // Clear the fields after adding the event

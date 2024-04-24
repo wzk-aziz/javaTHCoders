@@ -1,7 +1,8 @@
 package org.pi.demo.services;
 
 import org.pi.demo.Interfaces.EventInterface;
-import org.pi.demo.entities.Event;
+import org.pi.demo.entities.Events;
+import org.pi.demo.entities.Events;
 import org.pi.demo.utils.MyConnection;
 
 import java.sql.Connection; // Correct import
@@ -14,10 +15,10 @@ import java.util.List;
 public class EventService implements EventInterface {
 
 
-    private static Connection cnx;
+    private Connection cnx;
     private static EventService instance;
 
-    private EventService() throws SQLException {
+    public EventService() throws SQLException {
         cnx = (Connection) MyConnection.getInstance().getCnx();
 
     }
@@ -29,7 +30,7 @@ public class EventService implements EventInterface {
         return instance;
     }
 
-    public void addEvent(Event ev) {
+    public void addEvent(Events ev) {
         try {
             String request = "INSERT INTO event(event_name, capacity, start_date, end_date, place, description,image) VALUES (?, ?, ?, ?, ?, ?,?)";
             PreparedStatement pst = cnx.prepareStatement(request);
@@ -59,14 +60,14 @@ public class EventService implements EventInterface {
         }
     }
 
-  public static List<Event> AfficherEvent() {
-    List<Event> events = new ArrayList<>();
+  public List<Events> AfficherEvent() {
+    List<Events> events = new ArrayList<>();
     try {
         String request = "SELECT * FROM event";
         PreparedStatement pst = cnx.prepareStatement(request);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
-            Event event = new Event(rs.getInt("id"), rs.getString("event_name"), rs.getString("place"), rs.getString("description") ,rs.getString("image"), rs.getInt("capacity"), rs.getDate("start_date"), rs.getDate("end_date"));
+            Events event = new Events(rs.getInt("id"), rs.getString("event_name"), rs.getString("place"), rs.getString("description") ,rs.getString("image"), rs.getInt("capacity"), rs.getDate("start_date"), rs.getDate("end_date"));
             events.add(event);
         }
     } catch (SQLException e) {
@@ -75,7 +76,7 @@ public class EventService implements EventInterface {
     return events;
 }
 
-  public boolean updateEvent(Event ev) {
+  public boolean updateEvent(Events ev) {
     try {
         String request = "UPDATE event SET event_name = ?, capacity = ?, start_date = ?, end_date = ?, place = ?, description = ? WHERE id = ?";
         PreparedStatement pst = cnx.prepareStatement(request);
@@ -95,8 +96,8 @@ public class EventService implements EventInterface {
 }
 
 
-    public List<Event> searchByPlace(String place){
-        List<Event> event = new ArrayList<>();
+    public List<Events> searchByPlace(String place){
+        List<Events> events = new ArrayList<>();
         try{
             String request="SELECT * FROM event WHERE place=?";
             PreparedStatement pst=cnx.prepareStatement(request);
@@ -105,7 +106,7 @@ public class EventService implements EventInterface {
         }catch (SQLException e){
             e.printStackTrace();
         }
-        return event;
+        return events;
     }
 
 

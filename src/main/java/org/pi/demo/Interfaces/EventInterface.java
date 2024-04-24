@@ -1,18 +1,15 @@
 package org.pi.demo.Interfaces;
 
 
-import org.pi.demo.entities.Event;
+import org.pi.demo.entities.Events;
+import org.pi.demo.entities.Events;
 
 import java.util.List;
 
 public interface EventInterface {
-    public void addEvent(Event ev);
-
-    static List<Event> AfficherEvent() {
-        return null;
-    }
-
+    public void addEvent(Events ev);
+    public List<Events> AfficherEvent();
     public void SupprimerEvent(int id);
-    public boolean updateEvent(Event ev) ;
-    public List<Event> searchByPlace(String place);
+    public boolean updateEvent(Events ev) ;
+    public List<Events> searchByPlace(String place);
 }

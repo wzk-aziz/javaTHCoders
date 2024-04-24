@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class MyConnection {
 
     //DB PARAM
-    static final String URL ="jdbc:mysql://localhost:3306/dppi";
+    static final String URL ="jdbc:mysql://localhost:3306/dbpi";
     static final String USER ="root";
     static final String PASSWORD ="";
 

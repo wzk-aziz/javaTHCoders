@@ -6,7 +6,7 @@ public class Reservation {
     private String nom,address;
     private int phone;
     private int event_id;
-   Event event;
+   Events events;
 
 
 public Reservation()
@@ -71,12 +71,12 @@ public Reservation()
         this.event_id = event_id;
     }
 
-    public Event getEvent() {
-        return event;
+    public Events getEvent() {
+        return events;
     }
 
-    public void setEvent(Event event) {
-        this.event = event;
+    public void setEvent(Events event) {
+        this.events = event;
     }
 
     @Override
@@ -87,7 +87,7 @@ public Reservation()
                 ", address='" + address + '\'' +
                 ", phone=" + phone +
                 ", event_id=" + event_id +
-                ", event=" + event +
+                ", events=" + events +
                 '}';
     }
 }
