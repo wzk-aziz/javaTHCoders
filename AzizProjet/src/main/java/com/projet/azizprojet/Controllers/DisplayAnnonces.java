@@ -2,7 +2,9 @@ package com.projet.azizprojet.Controllers;
 
 import com.projet.azizprojet.HelloApplication;
 import com.projet.azizprojet.ImServices.AnnoncesServicesImp;
+import com.projet.azizprojet.ImServices.CommentServiceImp;
 import com.projet.azizprojet.entities.Annonce;
+import com.projet.azizprojet.entities.CommentDTO;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -27,6 +29,8 @@ public class DisplayAnnonces {
 
     @FXML
     private GridPane grid;
+    @FXML
+    private GridPane grid1;
 
     @FXML
     private ScrollPane scroll;
@@ -44,6 +48,8 @@ public class DisplayAnnonces {
 
     public void initialize() {
         loadAnnonces();
+        loadComments();
+
 
         // Add a listener to the textProperty of the searchField
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -79,6 +85,32 @@ public class DisplayAnnonces {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    private void loadComments() {
+        CommentServiceImp commentService = new CommentServiceImp();
+        List<CommentDTO> commentsList = commentService.AfficheR();
+        int column = 0;
+        int row = 0;
+
+        try {
+            for (CommentDTO comment : commentsList) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/com/projet/azizprojet/comment20.fxml"));
+                VBox root = fxmlLoader.load();
+
+                comment20 commentController = fxmlLoader.getController();
+                commentController.setCommentDetails(comment);
+
+                grid1.add(root, column++, row);
+                if (column == 4) {
+                    column = 0;
+                    row++;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading comment20.fxml: " + e.getMessage());
         }
     }
 
@@ -178,6 +210,9 @@ public class DisplayAnnonces {
                 }
             }
         }
+    }
+
+    public void handleAnnouncementClick(MouseEvent mouseEvent) {
     }
 
     // Remaining methods...

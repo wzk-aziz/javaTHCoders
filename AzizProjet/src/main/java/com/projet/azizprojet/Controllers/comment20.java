@@ -1,8 +1,11 @@
 package com.projet.azizprojet.Controllers;
 
 import com.projet.azizprojet.entities.Comment;
+import com.projet.azizprojet.entities.CommentDTO;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+
+import java.text.SimpleDateFormat;
 
 public class comment20 {
 
@@ -12,21 +15,23 @@ public class comment20 {
     @FXML
     private Label dateLabel;
 
-    private Comment selectedComment;
+    private CommentDTO selectedComment;
 
     public void initialize() {
         // Initialize UI components
     }
 
-    public void setCommentDetails(Comment comment) {
+    public void setCommentDetails(CommentDTO comment) {
         // Set the details of the selected comment
         selectedComment = comment;
         contenuLabel.setText(comment.getContenu());
-        dateLabel.setText(comment.getDatecommnt().toString());
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = formatter.format(comment.getDatecommnt());
+        dateLabel.setText(formattedDate);
         // Set other details as needed
     }
 
-    public Comment getCommentDetails() {
+    public CommentDTO getCommentDetails() {
         return selectedComment;
     }
 
