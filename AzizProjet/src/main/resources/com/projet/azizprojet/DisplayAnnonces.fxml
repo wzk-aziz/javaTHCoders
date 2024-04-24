@@ -20,18 +20,12 @@
         <content>
             <GridPane fx:id="grid" prefHeight="26.0" prefWidth="693.0" style="-fx-background-color: #ffffff;">
                 <!-- Add your announces here -->
-                <children>
-                    <!-- Example announcement element -->
-                    <Pane onMouseClicked="#handleAnnouncementClick">
-                        <!-- Announcement content -->
-                    </Pane>
-                </children>
-            <columnConstraints>
-               <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-               <RowConstraints />
-            </rowConstraints>
+                <columnConstraints>
+                    <ColumnConstraints />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                </rowConstraints>
             </GridPane>
         </content>
     </ScrollPane>
@@ -93,19 +87,18 @@
             </Button>
         </children>
     </VBox>
-   <ScrollPane fx:id="scroll1" layoutX="301.0" layoutY="414.0" prefHeight="166.0" prefWidth="445.0">
-      <content>
-         <GridPane fx:id="grid1" prefHeight="26.0" prefWidth="693.0" style="-fx-background-color: #ffffff;">
-            <children>
-               <Pane onMouseClicked="#handleAnnouncementClick" />
-            </children>
-            <columnConstraints>
-               <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-               <RowConstraints />
-            </rowConstraints>
-         </GridPane>
-      </content>
-   </ScrollPane>
+    <!-- ScrollPane for Comments -->
+    <ScrollPane fx:id="scroll1" layoutX="301.0" layoutY="414.0" prefHeight="166.0" prefWidth="445.0">
+        <content>
+            <GridPane fx:id="grid1" prefHeight="26.0" prefWidth="693.0" style="-fx-background-color: #ffffff;">
+                <!-- Add your comments here -->
+                <columnConstraints>
+                    <ColumnConstraints />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                </rowConstraints>
+            </GridPane>
+        </content>
+    </ScrollPane>
 </AnchorPane>

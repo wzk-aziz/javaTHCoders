@@ -4,6 +4,7 @@ import com.projet.azizprojet.HelloApplication;
 import com.projet.azizprojet.ImServices.AnnoncesServicesImp;
 import com.projet.azizprojet.entities.Annonce;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -64,9 +65,11 @@ public class DisplayAnnonces {
         try {
             for (Annonce annonce : annoncesList) {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/projet/azizprojet/annonces20.fxml"));
-                fxmlLoader.load();
+                Parent root = fxmlLoader.load();
                 Annonces20 annonceController = fxmlLoader.getController();
                 annonceController.setAnnonceDetails(annonce);
+
+                root.getProperties().put("controller", annonceController);
 
                 grid.add(fxmlLoader.getRoot(), column++, row);
                 if (column == 4) {
@@ -124,19 +127,15 @@ public class DisplayAnnonces {
     }
 
 
-    public void handleAnnouncementClick(MouseEvent event) {
-        Node source = (Node) event.getSource();
-        Integer rowIndex = GridPane.getRowIndex(source);
-        Integer columnIndex = GridPane.getColumnIndex(source);
-
-        if (rowIndex != null && columnIndex != null) {
-            System.out.println("Clicked on announcement at row: " + rowIndex + ", column: " + columnIndex);
-            // Add logic to handle the selection of this announcement detail
-        } else {
-            System.out.println("Failed to determine row and column index of clicked announcement.");
-        }
+    private EventHandler<ActionEvent> buttonEventHandler() {
+        return event -> {
+            Node node = (Node) event.getTarget();
+            int row = GridPane.getRowIndex(node);
+            int column = GridPane.getColumnIndex(node);
+            System.out.println("Button clicked at row: " + row + ", column: " + column);
+            // Add your logic here to handle the button click event
+        };
     }
-
     @FXML
     void returnhomepage(ActionEvent event) throws IOException {
         Parent menuParent = FXMLLoader.load(getClass().getResource("Menu.fxml"));
@@ -163,8 +162,8 @@ public class DisplayAnnonces {
         for (Node node : grid.getChildren()) {
             if (node instanceof Pane) {
                 Pane pane = (Pane) node;
-                Annonces20 annonceController = (Annonces20) pane.getProperties().get("controller");
-                Annonce annonce = annonceController.getAnnonceDetails();
+                Annonces20 annonceControllers = (Annonces20) pane.getProperties().get("controller");
+                Annonce annonce = annonceControllers.getAnnonceDetails();
                 if (annonce != null) {
                     String titre = annonce.getTitre().toLowerCase();
                     String description = annonce.getDescription().toLowerCase();

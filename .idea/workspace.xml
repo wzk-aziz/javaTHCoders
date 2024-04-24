@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="des modif">
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/comment20.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/comment20.fxml" afterDir="false" />
+    <list default="true" id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="puch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/Annonces20.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/Annonces20.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/DisplayAnnonces.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/DisplayAnnonces.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/DisplayAnnonces.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/DisplayAnnonces.fxml" afterDir="false" />
     </list>
@@ -36,24 +33,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;aziz-ferjaoui&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ahwed/Downloads/workpedv - Copie1&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "aziz-ferjaoui",
+    "last_opened_file_path": "C:/Users/ahwed/Downloads/workpedv - Copie1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean javafx:run" />
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.projet.azizprojet.HelloApplication" />
@@ -91,7 +94,7 @@
       <workItem from="1713905329346" duration="4729000" />
       <workItem from="1713913378265" duration="9386000" />
       <workItem from="1713952183508" duration="372000" />
-      <workItem from="1713960879326" duration="13466000" />
+      <workItem from="1713960879326" duration="19342000" />
     </task>
     <task id="LOCAL-00001" summary="crud">
       <option name="closed" value="true" />
@@ -213,7 +216,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713971224920</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="puch">
+      <option name="closed" value="true" />
+      <created>1713975975139</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713975975139</updated>
+    </task>
+    <task id="LOCAL-00017" summary="puch">
+      <option name="closed" value="true" />
+      <created>1713975985755</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713975985755</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +250,7 @@
     <MESSAGE value="display" />
     <MESSAGE value="rechercher" />
     <MESSAGE value="des modif" />
-    <option name="LAST_COMMIT_MESSAGE" value="des modif" />
+    <MESSAGE value="puch" />
+    <option name="LAST_COMMIT_MESSAGE" value="puch" />
   </component>
 </project>
