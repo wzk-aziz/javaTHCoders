@@ -79,45 +79,48 @@
             </Button>
          </children>
       </VBox>
-      <TextField fx:id="nomItem" layoutX="269.0" layoutY="272.0" prefHeight="26.0" prefWidth="232.0" promptText="nom de l'item" AnchorPane.leftAnchor="271.0">
+      <TextField fx:id="nomItem" layoutX="269.0" layoutY="272.0" prefHeight="26.0" prefWidth="232.0" promptText="nom de l'item" stylesheets="@modern.css" AnchorPane.leftAnchor="271.0">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <TextField fx:id="refItem" layoutX="267.0" layoutY="377.0" prefHeight="26.0" prefWidth="232.0" promptText="refference" AnchorPane.leftAnchor="271.0">
+      <TextField fx:id="refItem" layoutX="267.0" layoutY="377.0" prefHeight="26.0" prefWidth="232.0" promptText="refference" stylesheets="@modern.css" AnchorPane.leftAnchor="271.0">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <TextField fx:id="descItem" layoutX="267.0" layoutY="312.0" prefHeight="43.0" prefWidth="232.0" promptText="Description" AnchorPane.leftAnchor="271.0">
+      <TextField fx:id="descItem" layoutX="267.0" layoutY="312.0" prefHeight="43.0" prefWidth="232.0" promptText="Description" stylesheets="@modern.css" AnchorPane.leftAnchor="271.0">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <Button layoutX="537.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleUploadButtonAction" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style.css" text="telecharger image">
+      <Button layoutX="537.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleUploadButtonAction" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@modern.css" text="telecharger image">
          <effect>
             <DropShadow />
          </effect>
       </Button>
       <ImageView fx:id="imageItem" fitHeight="170.0" fitWidth="179.0" layoutX="522.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="159.60000000000002" AnchorPane.leftAnchor="521.5999999999999" AnchorPane.rightAnchor="199.0" AnchorPane.topAnchor="270.0" />
-      <Button layoutX="271.0" layoutY="545.0" mnemonicParsing="false" onAction="#ModifierItem" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style.css" text="Modifier">
+      <Button layoutX="271.0" layoutY="545.0" mnemonicParsing="false" onAction="#ModifierItem" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@modern.css" text="Modifier">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button layoutX="743.0" layoutY="283.0" mnemonicParsing="false" onAction="#SupprimerItem" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style.css" text="Supprimer">
+      <Button layoutX="743.0" layoutY="283.0" mnemonicParsing="false" onAction="#SupprimerItem" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@modern.css" text="Supprimer">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <ComboBox fx:id="conditionItem" layoutX="267.0" layoutY="419.0" prefHeight="26.0" prefWidth="232.0" promptText="Condition..." AnchorPane.leftAnchor="271.0" />
-      <ComboBox fx:id="invenotryitem" layoutX="267.0" layoutY="508.0" prefHeight="26.0" prefWidth="232.0" promptText="Inventaire..." AnchorPane.leftAnchor="271.0" />
+      <ComboBox fx:id="conditionItem" layoutX="267.0" layoutY="419.0" prefHeight="26.0" prefWidth="232.0" promptText="Condition..." stylesheets="@modern.css" AnchorPane.leftAnchor="271.0" />
+      <ComboBox fx:id="invenotryitem" layoutX="267.0" layoutY="508.0" prefHeight="26.0" prefWidth="232.0" promptText="Inventaire..." stylesheets="@modern.css" AnchorPane.leftAnchor="271.0" />
 
-      <ListView fx:id="list_view_items" layoutX="272.0" prefHeight="262.0" prefWidth="636.0" stylesheets="@Style.css" />
-      <Button layoutX="415.0" layoutY="464.0" mnemonicParsing="false" onAction="#increase_quantity_btn" text="+" />
-      <Button layoutX="479.0" layoutY="464.0" mnemonicParsing="false" onAction="#decrease_quantity_btn" prefHeight="25.6" prefWidth="24.8" text="-" />
-      <Label fx:id="quantity_number" layoutX="453.0" layoutY="467.0" prefHeight="18.0" prefWidth="25.0" />
-      <Label layoutX="271.0" layoutY="464.0" prefHeight="18.0" prefWidth="130.0" text="Quantité">
+      <ListView fx:id="list_view_items" layoutX="272.0" prefHeight="262.0" prefWidth="636.0" styleClass="table-view" stylesheets="@Style.css" />
+      <Button layoutX="421.0" layoutY="466.0" mnemonicParsing="false" onAction="#increase_quantity_btn" styleClass="quantity-button" stylesheets="@modern.css" text="+" />
+      <Button layoutX="480.0" layoutY="466.0" mnemonicParsing="false" onAction="#decrease_quantity_btn" prefHeight="25.6" prefWidth="24.8" styleClass="quantity-button" stylesheets="@modern.css" text="-" />
+      <Label fx:id="quantity_number" layoutX="459.0" layoutY="469.0" prefHeight="26.0" prefWidth="31.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="271.0" layoutY="464.0" prefHeight="18.0" prefWidth="130.0" stylesheets="@modern.css" text="Quantité">
          <font>
             <Font size="16.0" />
          </font>
