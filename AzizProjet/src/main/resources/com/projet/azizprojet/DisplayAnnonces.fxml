@@ -88,7 +88,7 @@
         </children>
     </VBox>
     <!-- ScrollPane for Comments -->
-    <ScrollPane fx:id="scroll1" layoutX="301.0" layoutY="414.0" prefHeight="166.0" prefWidth="445.0">
+    <ScrollPane fx:id="scroll1" layoutX="301.0" layoutY="414.0" prefHeight="235.0" prefWidth="578.0">
         <content>
             <GridPane fx:id="grid1" prefHeight="26.0" prefWidth="693.0" style="-fx-background-color: #ffffff;">
                 <!-- Add your comments here -->

@@ -72,7 +72,7 @@ public class DisplayAnnonces {
                 root.getProperties().put("controller", annonceController);
 
                 grid.add(fxmlLoader.getRoot(), column++, row);
-                if (column == 4) {
+                if (column == 3) {
                     column = 0;
                     row++;
                 }

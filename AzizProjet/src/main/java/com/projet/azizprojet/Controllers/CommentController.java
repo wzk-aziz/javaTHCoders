@@ -95,6 +95,8 @@ public class CommentController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		System.out.println("Comment Controller"+AnnonceController.idAn);
+		likebtn.setVisible(false);
+		disbtn.setVisible(false);
 		loadData();
 	}
 

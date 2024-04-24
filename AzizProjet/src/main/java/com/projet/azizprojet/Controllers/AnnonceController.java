@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AnnonceController implements Initializable {
@@ -44,19 +45,32 @@ public class AnnonceController implements Initializable {
 	void add(ActionEvent event) {
 		String titreText = titire.getText().trim();
 		String descText = desc.getText().trim();
-		double note = myrating.getRating(); // Retrieve the rating value
-		Annonce rec = new Annonce(titreText, java.sql.Date.valueOf(date.getValue()), descText, etat, note);
+		LocalDate selectedDate = date.getValue(); // Retrieve the selected date
+		if (selectedDate == null) {
+			showAlert("Error", "Please select a date.");
+			return;
+		}
+		java.sql.Date sqlDate = java.sql.Date.valueOf(selectedDate); // Convert LocalDate to java.sql.Date
 
-		if (titreText.isEmpty() || descText.isEmpty() || date.getValue() == null) {
+		double note = myrating.getRating(); // Retrieve the rating value
+		Annonce rec = new Annonce(titreText, sqlDate, descText, etat, note);
+
+		if (titreText.isEmpty() || descText.isEmpty()) {
 			showAlert("Error", "Please fill in all fields before adding.");
 			return;
 		}
 
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
+		if (an == null) {
+			showAlert("Error", "AnnoncesServicesImp is not initialized.");
+			return;
+		}
+
 		an.ajouter(rec);
 		listv.getItems().clear();
 		loadData();
 	}
+
 
 	@FXML
 	void Menu(ActionEvent event) throws IOException {
@@ -109,10 +123,6 @@ public class AnnonceController implements Initializable {
 		clearField();
 	}
 
-	@Override
-	public void initialize(URL url, ResourceBundle resourceBundle) {
-		loadData();
-	}
 
 	void clearField() {
 		titire.clear();
@@ -153,6 +163,13 @@ public class AnnonceController implements Initializable {
 		alert.setHeaderText(null);
 		alert.setContentText(content);
 		alert.showAndWait();
+	}
+
+	@Override
+	public void initialize(URL url, ResourceBundle resourceBundle) {
+		likebtn.setVisible(false);
+		disbtn.setVisible(false);
+
 	}
 	/*private void filterAnnonces(String keyword) {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();

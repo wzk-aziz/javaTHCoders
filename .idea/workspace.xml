@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="puch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/AnnonceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/AnnonceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/Annonces20.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/Annonces20.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/DisplayAnnonces.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/DisplayAnnonces.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/entities/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/entities/Comment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/DisplayAnnonces.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/DisplayAnnonces.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/annonces20.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/annonces20.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +99,7 @@
       <workItem from="1713905329346" duration="4729000" />
       <workItem from="1713913378265" duration="9386000" />
       <workItem from="1713952183508" duration="372000" />
-      <workItem from="1713960879326" duration="19342000" />
+      <workItem from="1713960879326" duration="23493000" />
     </task>
     <task id="LOCAL-00001" summary="crud">
       <option name="closed" value="true" />
@@ -232,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713975985755</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="puch">
+      <option name="closed" value="true" />
+      <created>1713982254085</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713982254085</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

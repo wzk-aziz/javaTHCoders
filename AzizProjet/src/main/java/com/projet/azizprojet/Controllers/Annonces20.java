@@ -25,7 +25,9 @@ public class Annonces20 {
 
     @FXML
     private Button disbtn;
+    private int likeStatus = 0;
 
+    private int clickCount = 0;
     @FXML
     private Button likebtn;
 
@@ -60,7 +62,7 @@ public class Annonces20 {
         myrating.setRating(annonce.getRating());
 
         // Show buttons and rating
-        disbtn.setVisible(true);
+
         likebtn.setVisible(true);
         myrating.setVisible(true);
     }
@@ -72,11 +74,7 @@ public class Annonces20 {
 
     }
 
-    @FXML
-    void dislike(ActionEvent event) {
-
-    }
-
+   
     @FXML
     private Label titreLabel;
 
@@ -88,11 +86,37 @@ public class Annonces20 {
 
     @FXML
     void like(ActionEvent event) {
+        if (selectedAnnonce != null) {
+            clickCount++;
 
+            switch (clickCount) {
+                case 1:
+                    // First click, change color to green and text to "Liked"
+                    likebtn.setStyle("-fx-background-color: #00FF00;"); // Green color
+                    likebtn.setText("Liked");
+                    selectedAnnonce.setLiked(1);
+                    break;
+                case 2:
+                    // Second click, change color to red and text to "Dislike"
+                    likebtn.setStyle("-fx-background-color: #FF0000;"); // Red color
+                    likebtn.setText("Dislike");
+                    selectedAnnonce.setLiked(0);
+                    break;
+                case 3:
+                    // Third click, reset to initial state (blue color, text "Like")
+                    likebtn.setStyle("-fx-background-color: #6495ED;"); // Blue color
+                    likebtn.setText("Like");
+                    selectedAnnonce.setLiked(0);
+                    clickCount = 0; // Reset click count
+                    break;
+            }
+
+            // Update UI or send update to database
+        }
     }
 
 
-    public void commenta(ActionEvent actionEvent) {
+        public void commenta(ActionEvent actionEvent) {
     }
 
 
@@ -100,4 +124,6 @@ public class Annonces20 {
         return selectedAnnonce;
     }
 
+    public void dislike(ActionEvent actionEvent) {
+    }
 }
