@@ -301,7 +301,7 @@ public class DisplayItemsfront {
         }
     }
 
-  @FXML
+ @FXML
 void ModifierItem(ActionEvent event) throws SQLException {
     // Get the selected item
     Items selectedItem = list_view_items.getSelectionModel().getSelectedItem();
@@ -310,27 +310,27 @@ void ModifierItem(ActionEvent event) throws SQLException {
     if (selectedItem != null) {
         // Validate the fields
         if (nomItem.getText().isEmpty()) {
-            System.out.println("Name field must be filled out");
+            showAlert("Name field must be filled out");
             return;
         }
         if (descItem.getText().isEmpty()) {
-            System.out.println("Description field must be filled out");
+            showAlert("Description field must be filled out");
             return;
         }
         if (refItem.getText().isEmpty()) {
-            System.out.println("Reference field must be filled out");
+            showAlert("Reference field must be filled out");
             return;
         }
         if (conditionItem.getSelectionModel().isEmpty()) {
-            System.out.println("Condition must be selected");
+            showAlert("Condition must be selected");
             return;
         }
         if (quantity_number.getText().isEmpty() || !quantity_number.getText().matches("\\d+")) {
-            System.out.println("Quantity must be a positive integer");
+            showAlert("Quantity must be a positive integer");
             return;
         }
         if (invenotryitem.getSelectionModel().isEmpty()) {
-            System.out.println("Inventory item must be selected");
+            showAlert("Inventory item must be selected");
             return;
         }
 
@@ -370,6 +370,14 @@ void ModifierItem(ActionEvent event) throws SQLException {
         //quantity number
         quantity_number.setText("0");
     }
+}
+
+private void showAlert(String message) {
+    Alert alert = new Alert(Alert.AlertType.WARNING);
+    alert.setTitle("Validation Error");
+    alert.setHeaderText(null);
+    alert.setContentText(message);
+    alert.showAndWait();
 }
 //endds here
 
