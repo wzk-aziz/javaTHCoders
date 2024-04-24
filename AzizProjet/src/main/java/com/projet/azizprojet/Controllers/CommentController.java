@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -21,7 +22,6 @@ import javafx.stage.Stage;
 public class CommentController implements Initializable {
 	@FXML
 	private DatePicker date;
-
 	int etat = 0;
 
 	@FXML
@@ -36,17 +36,6 @@ public class CommentController implements Initializable {
 	@FXML
 	private ListView<CommentDTO> listv;
 
-	private AnnonceController annonceController;
-
-	public void setAnnonceController(AnnonceController annonceController) {
-		this.annonceController = annonceController;
-	}
-
-	@Override
-	public void initialize(URL url, ResourceBundle resourceBundle) {
-		loadData();
-	}
-
 	@FXML
 	void add(ActionEvent event) {
 		String descText = desc.getText().trim();
@@ -57,7 +46,7 @@ public class CommentController implements Initializable {
 		}
 
 		CommentServiceImp com = new CommentServiceImp();
-		com.ajouter(new Comment(descText, java.sql.Date.valueOf(date.getValue()), annonceController.idAn, etat));
+		com.ajouter(new Comment(descText, java.sql.Date.valueOf(date.getValue()), AnnonceController.idAn, etat));
 		listv.getItems().clear();
 		loadData();
 	}
@@ -73,7 +62,7 @@ public class CommentController implements Initializable {
 	@FXML
 	void dislike(ActionEvent event) {
 		CommentServiceImp com = new CommentServiceImp();
-		com.modifier(new Comment(idCom, desc.getText(), java.sql.Date.valueOf(date.getValue()), annonceController.idAn, 0));
+		com.modifier(new Comment(idCom,desc.getText(), java.sql.Date.valueOf(date.getValue()), AnnonceController.idAn, 0));
 		listv.getItems().clear();
 		loadData();
 	}
@@ -81,7 +70,7 @@ public class CommentController implements Initializable {
 	@FXML
 	void edit(ActionEvent event) {
 		CommentServiceImp com = new CommentServiceImp();
-		com.modifier(new Comment(idCom, desc.getText(), java.sql.Date.valueOf(date.getValue()), annonceController.idAn, etat));
+		com.modifier(new Comment(idCom,desc.getText(), java.sql.Date.valueOf(date.getValue()), AnnonceController.idAn, etat));
 		listv.getItems().clear();
 		loadData();
 	}
@@ -89,7 +78,7 @@ public class CommentController implements Initializable {
 	@FXML
 	void like(ActionEvent event) {
 		CommentServiceImp com = new CommentServiceImp();
-		com.modifier(new Comment(idCom, desc.getText(), java.sql.Date.valueOf(date.getValue()), annonceController.idAn, 1));
+		com.modifier(new Comment(idCom,desc.getText(), java.sql.Date.valueOf(date.getValue()), AnnonceController.idAn, 1));
 		listv.getItems().clear();
 		loadData();
 	}
@@ -103,18 +92,26 @@ public class CommentController implements Initializable {
 		app_stage.show();
 	}
 
+	@Override
+	public void initialize(URL url, ResourceBundle resourceBundle) {
+		System.out.println("Comment Controller"+AnnonceController.idAn);
+		loadData();
+	}
+
 	int idCom;
 
 	void loadData() {
 		CommentServiceImp com = new CommentServiceImp();
 		listv.getItems().clear();
 		listv.getItems().addAll(com.AfficheR());
+		//select item from listview and show it in textfield
 		listv.getSelectionModel().selectedItemProperty().addListener((observableValue, commentDTO, t1) -> {
 			if (listv.getSelectionModel().getSelectedItem() != null) {
 				CommentDTO commentDTO1 = listv.getSelectionModel().getSelectedItem();
 				desc.setText(commentDTO1.getContenu());
 				date.setValue(commentDTO1.getDatecommnt().toLocalDate());
 				etat = commentDTO1.getLiked();
+				// If liked == 1 set like button to disable
 				if (t1.getLiked() == 1) {
 					likebtn.setDisable(true);
 					disbtn.setDisable(false);

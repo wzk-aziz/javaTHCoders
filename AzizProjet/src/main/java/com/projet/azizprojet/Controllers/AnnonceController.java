@@ -12,19 +12,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AnnonceController implements Initializable {
-	public int idAn;
 	@FXML
 	private Rating myrating;
 
 	@FXML
 	private DatePicker date;
-
+	public static int idAn;
 	int etat = 0;
 
 	@FXML
@@ -41,9 +39,6 @@ public class AnnonceController implements Initializable {
 
 	@FXML
 	private Button likebtn;
-
-	@FXML
-	private TextField recherche; // Champ de recherche ajouté
 
 	@FXML
 	void add(ActionEvent event) {
@@ -74,7 +69,7 @@ public class AnnonceController implements Initializable {
 
 	@FXML
 	void comment(ActionEvent event) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/projet/azizprojet/Comment.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Comment.fxml"));
 		Scene scene2 = new Scene(fxmlLoader.load());
 		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		app_stage.setScene(scene2);
@@ -84,15 +79,16 @@ public class AnnonceController implements Initializable {
 	@FXML
 	void delete(ActionEvent event) {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
-		an.supprimer(listv.getSelectionModel().getSelectedItem());
+		an.supprimer(new Annonce(idAn));
 		loadData();
+		clearField();
 	}
 
 	@FXML
 	void dislike(ActionEvent event) {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
 		double note = myrating.getRating(); // Retrieve the rating value
-		an.modifier(new Annonce(titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), 0, note));
+		an.modifier(new Annonce(idAn, titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), 0, note));
 		loadData();
 	}
 
@@ -100,7 +96,7 @@ public class AnnonceController implements Initializable {
 	void edit(ActionEvent event) {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
 		double note = myrating.getRating(); // Retrieve the rating value
-		an.modifier(new Annonce(titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), etat, note));
+		an.modifier(new Annonce(idAn, titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), etat, note));
 		loadData();
 	}
 
@@ -108,9 +104,9 @@ public class AnnonceController implements Initializable {
 	void like(ActionEvent event) {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
 		double note = myrating.getRating(); // Retrieve the rating value
-		an.modifier(new Annonce(titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), 1, note));
+		an.modifier(new Annonce(idAn, titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), 1, note));
 		loadData();
-		clearFields();
+		clearField();
 	}
 
 	@Override
@@ -118,12 +114,14 @@ public class AnnonceController implements Initializable {
 		loadData();
 	}
 
-	void clearFields() {
+	void clearField() {
 		titire.clear();
 		desc.clear();
 		date.getEditor().clear();
 		likebtn.setDisable(false);
 		disbtn.setDisable(false);
+		idAn = 0;
+		etat = 0;
 	}
 
 	void loadData() {
@@ -144,6 +142,7 @@ public class AnnonceController implements Initializable {
 					disbtn.setDisable(true);
 					likebtn.setDisable(false);
 				}
+				idAn = t1.getId();
 			}
 		});
 	}
@@ -155,4 +154,11 @@ public class AnnonceController implements Initializable {
 		alert.setContentText(content);
 		alert.showAndWait();
 	}
+	/*private void filterAnnonces(String keyword) {
+		AnnoncesServicesImp an = new AnnoncesServicesImp();
+		listv.getItems().clear();
+		listv.getItems().addAll(an.rechercherParTitre(keyword));
+	}
+	*/
+
 }
