@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox alignment="CENTER" prefHeight="586.0" prefWidth="206.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="46.0" prefWidth="206.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Dashbaord">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="40.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="46.0" prefWidth="206.0">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../../../images/items.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Dashbaord">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="46.0" prefWidth="206.0">
+               <children>
+                  <HBox prefHeight="46.0" prefWidth="206.0">
+                     <children>
+                        <ImageView fitHeight="32.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="20.0" top="10.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../../../images/items.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Dashbaord">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="46.0" prefWidth="206.0">
+               <children>
+                  <HBox prefHeight="46.0" prefWidth="206.0">
+                     <children>
+                        <ImageView fitHeight="32.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="20.0" top="10.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../../../images/items.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Dashbaord">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="46.0" prefWidth="206.0">
+               <children>
+                  <HBox prefHeight="46.0" prefWidth="206.0">
+                     <children>
+                        <ImageView fitHeight="32.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="20.0" top="10.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../../../images/items.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Dashbaord">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

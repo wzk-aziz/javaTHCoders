@@ -92,7 +92,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Button fx:id="exchangebtn" mnemonicParsing="false" prefHeight="22.0" prefWidth="192.0" styleClass="add-btn" stylesheets="@Style2.css" text="Exchange" textFill="#828282">
+                  <Button fx:id="exchangebtn" mnemonicParsing="false" onAction="#echange_btn" prefHeight="22.0" prefWidth="192.0" styleClass="add-btn" stylesheets="@Style2.css" text="Exchange" textFill="#828282">
                      <VBox.margin>
                         <Insets bottom="20.0" top="30.0" />
                      </VBox.margin>

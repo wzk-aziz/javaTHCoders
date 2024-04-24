@@ -106,3 +106,29 @@
     -fx-text-fill: white; /* Header text color */
 }
 
+/* ListView */
+.list-view {
+    -fx-background-color: #f2f2f2; /* Background color */
+    -fx-padding: 10px; /* Padding around the list */
+    -fx-border-width: 2px; /* Border width */
+    -fx-border-color: #d0d0d0; /* Border color */
+}
+
+/* List Cell */
+.list-cell {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-padding: 10px; /* Padding around each cell */
+    -fx-border-width: 0 0 1px 0; /* Bottom border only */
+    -fx-border-color: #d0d0d0; /* Border color */
+}
+
+.list-cell:hover {
+    -fx-background-color: #eaeaea; /* Hover background color */
+}
+
+.list-cell:selected {
+    -fx-background-color: #c7e0f4; /* Selected background color */
+    -fx-text-fill: #333333; /* Text color */
+}
+
+

@@ -280,4 +280,15 @@ void searchbtn(ActionEvent event) throws SQLException {
             System.out.println("Error loading image: " + e.getMessage()); // Print any exceptions
         }
     }
+    @FXML
+    void echange_btn(ActionEvent event) throws  IOException {
+        Parent AjouterInventaireParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/Menu.fxml")));
+        Scene AjouterInventaireScene = new Scene(AjouterInventaireParent);
+
+        // This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(AjouterInventaireScene);
+        window.show();
+    }
 }

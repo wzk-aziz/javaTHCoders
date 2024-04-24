@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -56,15 +58,24 @@ public class AjouterItems {
     @FXML
     private ChoiceBox<String> inventoryItem;
 
+    @FXML
+    private Slider quantity_slider;
+    @FXML
+    private Label sliderValueLabel;
     private String imagePath = null; // Variable to store the image path
 
     @FXML
     public void initialize() {
-        // Populate the quantity ChoiceBox with numbers from 1 to 20
-        for (int i = 1; i <= 20; i++) {
-            quantityItem.getItems().add(i);
-        }
 
+        // Set the minimum, maximum and initial values for the quantity slider
+        quantity_slider.setMin(1);
+        quantity_slider.setMax(1000);
+        quantity_slider.setValue(1);
+
+        // Optional: Add a listener to the slider value property to display the current value
+      quantity_slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+    sliderValueLabel.setText("" + newValue.intValue());
+});
         // Populate the condition ChoiceBox with the values "Used", "New", "Refurbished"
         conditionItem.getItems().addAll("Used", "New", "Refurbished");
 
@@ -101,7 +112,8 @@ public class AjouterItems {
         String description = descItem.getText();
         String ref = refItem.getText();
         String condition = conditionItem.getValue();
-        int quantity = quantityItem.getValue();
+        //int quantity = quantityItem.getValue();
+        int quantity = (int) quantity_slider.getValue(); // Use the slider value
         String inventoryName = inventoryItem.getValue();
         String photos = imagePath;
 
@@ -126,11 +138,12 @@ public class AjouterItems {
             error.setStyle("-fx-text-fill: red;");
             return;
         }
-        if (quantityItem.getItems().isEmpty()) {
-            error.setText("Quantity must be selected");
-            error.setStyle("-fx-text-fill: red;");
-            return;
-        }
+       double value = quantity_slider.getValue();
+if (value < quantity_slider.getMin() || value > quantity_slider.getMax()) {
+    error.setText("Quantity must be selected");
+    error.setStyle("-fx-text-fill: red;");
+    return;
+}
 
         if (inventoryName == null || inventoryName.isEmpty()) {
             error.setText("Inventory name cannot be empty");
@@ -200,6 +213,10 @@ public class AjouterItems {
 
         window.setScene(AjouterInventaireScene);
         window.show();
+
+    }
+    @FXML
+    void quantity_slider(MouseEvent event) {
 
     }
 
