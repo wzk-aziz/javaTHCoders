@@ -41,38 +41,70 @@ public class ItemsService implements ItemsInterface {
             e.printStackTrace();
         }
     }
+    public List<Items> AfficherItems() {
+        List<Items> items = new ArrayList<>();
+        try {
+            String request = "SELECT items.*, inventory.title AS inventory_title, inventory.description AS inventory_description, inventory.id AS inventory_id FROM items LEFT JOIN inventory ON items.inventory_id = inventory.id";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(request);
+            while (rs.next()) {
+                Items i = new Items();
+                i.setId(rs.getInt("id"));
+                i.setName(rs.getString("name"));
+                i.setDescription(rs.getString("description"));
+                i.setRef(rs.getString("ref"));
+                i.setPart_condition(rs.getString("part_condition"));
+                i.setQuantity(rs.getInt("quantity"));
+                i.setPhotos(rs.getString("photos"));
+                i.setInventory_id(rs.getInt("inventory_id"));
 
-public List<Items> AfficherItems() {
-    List<Items> items = new ArrayList<>();
-    try {
-        String request = "SELECT items.*, inventory.title AS inventory_title FROM items LEFT JOIN inventory ON items.inventory_id = inventory.id";
-        Statement st = cnx.createStatement();
-        ResultSet rs = st.executeQuery(request);
-        while (rs.next()) {
-            Items i = new Items();
-            i.setId(rs.getInt("id"));
-            i.setName(rs.getString("name"));
-            i.setDescription(rs.getString("description"));
-            i.setRef(rs.getString("ref"));
-            i.setPart_condition(rs.getString("part_condition"));
-            i.setQuantity(rs.getInt("quantity"));
-            i.setPhotos(rs.getString("photos"));
-            i.setInventory_id(rs.getInt("inventory_id"));
+                // Create a new Inventory object and set the title, id and description
+                Inventory inventory = new Inventory();
+                inventory.setTitle(rs.getString("inventory_title")); // This will be null if there's no matching inventory_id
+                inventory.setId(rs.getInt("inventory_id")); // Set the id
+                inventory.setDescription(rs.getString("inventory_description")); // Set the description
 
-            // Create a new Inventory object and set the title
-            Inventory inventory = new Inventory();
-            inventory.setTitle(rs.getString("inventory_title")); // This will be null if there's no matching inventory_id
+                // Set the Inventory object to the Items object
+                i.setInventory(inventory);
 
-            // Set the Inventory object to the Items object
-            i.setInventory(inventory);
-
-            items.add(i);
+                items.add(i);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
+        return items;
     }
-    return items;
-}
+//public List<Items> AfficherItems() {
+//    List<Items> items = new ArrayList<>();
+//    try {
+//        String request = "SELECT items.*, inventory.title AS inventory_title FROM items LEFT JOIN inventory ON items.inventory_id = inventory.id";
+//        Statement st = cnx.createStatement();
+//        ResultSet rs = st.executeQuery(request);
+//        while (rs.next()) {
+//            Items i = new Items();
+//            i.setId(rs.getInt("id"));
+//            i.setName(rs.getString("name"));
+//            i.setDescription(rs.getString("description"));
+//            i.setRef(rs.getString("ref"));
+//            i.setPart_condition(rs.getString("part_condition"));
+//            i.setQuantity(rs.getInt("quantity"));
+//            i.setPhotos(rs.getString("photos"));
+//            i.setInventory_id(rs.getInt("inventory_id"));
+//
+//            // Create a new Inventory object and set the title
+//            Inventory inventory = new Inventory();
+//            inventory.setTitle(rs.getString("inventory_title")); // This will be null if there's no matching inventory_id
+//
+//            // Set the Inventory object to the Items object
+//            i.setInventory(inventory);
+//
+//            items.add(i);
+//        }
+//    } catch (SQLException e) {
+//        e.printStackTrace();
+//    }
+//    return items;
+//}
 //    public List<Items> AfficherItems() {
 //        List<Items> items = new ArrayList<>();
 //        try {
