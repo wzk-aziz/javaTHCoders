@@ -7,29 +7,29 @@ public class Annonce {
 	private Date datedepub;
 	private String description;
 	private int liked;
-	private  double rating;
+	private double rating;
 
 	// Empty constructor
 	public Annonce() {
 	}
 
 	// Constructor without ID parameter
-	public Annonce(String titre, Date datedepub, String description, int liked,double rating) {
+	public Annonce(String titre, Date datedepub, String description, int liked, double rating) {
 		this.titre = titre;
 		this.datedepub = datedepub;
 		this.description = description;
 		this.liked = liked;
-		this.rating=rating;
+		this.rating = rating;
 	}
 
 	// Fully parameterized constructor
-	public Annonce(int id, String titre, Date datedepub, String description, int liked,double rating) {
+	public Annonce(int id, String titre, Date datedepub, String description, int liked, double rating) {
 		this.id = id;
 		this.titre = titre;
 		this.datedepub = datedepub;
 		this.description = description;
 		this.liked = liked;
-		this.rating=rating;
+		this.rating = rating;
 	}
 
 	// Constructor with only ID
@@ -98,3 +98,5 @@ public class Annonce {
 				'}';
 	}
 }
+
+

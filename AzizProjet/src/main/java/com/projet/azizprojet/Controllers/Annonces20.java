@@ -1,11 +1,19 @@
 package com.projet.azizprojet.Controllers;
 
+import com.projet.azizprojet.HelloApplication;
 import com.projet.azizprojet.entities.Annonce;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
+
+import java.io.IOException;
 
 public class Annonces20 {
 
@@ -41,8 +49,22 @@ public class Annonces20 {
         titre_annonces.setText(annonce.getTitre());
         date_annonces.setText(annonce.getDatedepub().toString());
         description_annonces.setText(annonce.getDescription());
-        // You can also set other details like liked, rating, etc. if needed
+        if (annonce.getLiked() == 1) {
+            likebtn.setText("Liked");
+        } else {
+            likebtn.setText("Like");
+        }
+        // Set rating
+        myrating.setRating(annonce.getRating());
+
+        // Show buttons and rating
+        disbtn.setVisible(true);
+        likebtn.setVisible(true);
+        myrating.setVisible(true);
     }
+
+    // You can also set other details like liked, rating, etc. if needed
+
     @FXML
     void comment(ActionEvent event) {
 
@@ -58,4 +80,7 @@ public class Annonces20 {
 
     }
 
+
+    public void commenta(ActionEvent actionEvent) {
+    }
 }

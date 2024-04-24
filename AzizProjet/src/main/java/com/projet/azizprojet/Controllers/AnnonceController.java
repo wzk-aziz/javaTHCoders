@@ -21,12 +21,13 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class AnnonceController implements Initializable {
+	public int idAn;
 	@FXML
 	private Rating myrating;
 
 	@FXML
 	private DatePicker date;
-	public static int idAn;
+
 	int etat = 0;
 
 	@FXML
@@ -86,7 +87,7 @@ public class AnnonceController implements Initializable {
 	@FXML
 	void delete(ActionEvent event) {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
-		an.supprimer(new Annonce(idAn));
+		an.supprimer(listv.getSelectionModel().getSelectedItem());
 		loadData();
 		clearField();
 	}
@@ -95,7 +96,7 @@ public class AnnonceController implements Initializable {
 	void dislike(ActionEvent event) {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
 		double note = myrating.getRating(); // Retrieve the rating value
-		an.modifier(new Annonce(idAn, titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), 0, note));
+		an.modifier(new Annonce(titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), 0, note));
 		loadData();
 	}
 
@@ -103,7 +104,7 @@ public class AnnonceController implements Initializable {
 	void edit(ActionEvent event) {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
 		double note = myrating.getRating(); // Retrieve the rating value
-		an.modifier(new Annonce(idAn, titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), etat, note));
+		an.modifier(new Annonce(titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), etat, note));
 		loadData();
 	}
 
@@ -111,7 +112,7 @@ public class AnnonceController implements Initializable {
 	void like(ActionEvent event) {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
 		double note = myrating.getRating(); // Retrieve the rating value
-		an.modifier(new Annonce(idAn, titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), 1, note));
+		an.modifier(new Annonce(titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), 1, note));
 		loadData();
 		clearField();
 	}
@@ -132,8 +133,6 @@ public class AnnonceController implements Initializable {
 		date.getEditor().clear();
 		likebtn.setDisable(false);
 		disbtn.setDisable(false);
-		idAn = 0;
-		etat = 0;
 	}
 
 	void loadData() {
@@ -154,7 +153,6 @@ public class AnnonceController implements Initializable {
 					disbtn.setDisable(true);
 					likebtn.setDisable(false);
 				}
-				idAn = t1.getId();
 			}
 		});
 	}

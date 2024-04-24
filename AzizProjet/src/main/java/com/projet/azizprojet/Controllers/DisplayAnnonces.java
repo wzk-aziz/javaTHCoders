@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.List;
@@ -17,6 +18,11 @@ public class DisplayAnnonces {
 
     @FXML
     private ScrollPane scroll;
+
+    @FXML
+    private VBox root;
+
+
 
     private AnnoncesServicesImp annoncesService = new AnnoncesServicesImp();
 
@@ -45,4 +51,9 @@ public class DisplayAnnonces {
             e.printStackTrace();
         }
     }
+    private void handleCardViewClick(Annonce annonce) {
+        // Implement the action you want to perform when a card view is clicked
+        System.out.println("Clicked on card view with title: " + annonce.getTitre());
+    }
+
 }
