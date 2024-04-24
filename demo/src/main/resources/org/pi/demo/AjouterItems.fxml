@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -149,11 +149,29 @@
       </Button>
       <ChoiceBox fx:id="conditionItem" layoutX="366.0" layoutY="342.0" prefWidth="150.0" />
       <Label layoutX="269.0" layoutY="346.0" text="Condition d'Item" />
-      <Label layoutX="269.0" layoutY="386.0" prefHeight="18.0" prefWidth="90.0" text="Quantité" />
       <ImageView fx:id="imageItem" fitHeight="221.0" fitWidth="263.0" layoutX="585.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="268.0" layoutY="438.0" prefHeight="18.0" prefWidth="90.0" text="Inventory" />
       <ChoiceBox fx:id="inventoryItem" layoutX="366.0" layoutY="434.0" prefWidth="150.0" />
-      <Slider fx:id="quantity_slider" layoutX="371.0" layoutY="388.0" onDragDetected="#quantity_slider" />
       <Label fx:id="sliderValueLabel" layoutX="318.0" layoutY="386.0" prefHeight="18.0" prefWidth="48.0" />
+      <Label layoutX="269.0" layoutY="391.0" prefHeight="18.0" prefWidth="130.0" text="Quantité">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <HBox layoutX="377.0" layoutY="386.0" prefHeight="34.0" prefWidth="103.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#decrease_quantity_btn" prefHeight="25.6" prefWidth="24.8" text="-">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Label fx:id="quantity_number" prefHeight="18.0" prefWidth="25.0" />
+            <Button mnemonicParsing="false" onAction="#increase_quantity_btn" text="+">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

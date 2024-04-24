@@ -48,8 +48,7 @@ public class AjouterItems {
     @FXML
     private TextField nomItem;
 
-    @FXML
-    private ChoiceBox<Integer> quantityItem;
+
 
     @FXML
     private TextField refItem;
@@ -58,24 +57,17 @@ public class AjouterItems {
     @FXML
     private ChoiceBox<String> inventoryItem;
 
-    @FXML
-    private Slider quantity_slider;
-    @FXML
-    private Label sliderValueLabel;
-    private String imagePath = null; // Variable to store the image path
 
+    private String imagePath = null; // Variable to store the image path
+    @FXML
+    private Label quantity_number;
     @FXML
     public void initialize() {
 
-        // Set the minimum, maximum and initial values for the quantity slider
-        quantity_slider.setMin(1);
-        quantity_slider.setMax(1000);
-        quantity_slider.setValue(1);
+        quantity_number.setText("1");
 
-        // Optional: Add a listener to the slider value property to display the current value
-      quantity_slider.valueProperty().addListener((observable, oldValue, newValue) -> {
-    sliderValueLabel.setText("" + newValue.intValue());
-});
+
+
         // Populate the condition ChoiceBox with the values "Used", "New", "Refurbished"
         conditionItem.getItems().addAll("Used", "New", "Refurbished");
 
@@ -106,78 +98,75 @@ public class AjouterItems {
         window.show();
     }
 
-    @FXML
-    void ajouterItem(ActionEvent event) {
-        String name = nomItem.getText();
-        String description = descItem.getText();
-        String ref = refItem.getText();
-        String condition = conditionItem.getValue();
-        //int quantity = quantityItem.getValue();
-        int quantity = (int) quantity_slider.getValue(); // Use the slider value
-        String inventoryName = inventoryItem.getValue();
-        String photos = imagePath;
+   @FXML
+void ajouterItem(ActionEvent event) {
+    String name = nomItem.getText();
+    String description = descItem.getText();
+    String ref = refItem.getText();
+    String condition = conditionItem.getValue();
+    int quantity = Integer.parseInt(quantity_number.getText()); // Get quantity from label
+    String inventoryName = inventoryItem.getValue();
+    String photos = imagePath;
 
-        // Field validation
-        if (name == null || name.isEmpty()) {
-            error.setText("Name cannot be empty");
-            error.setStyle("-fx-text-fill: red;");
-            return;
-        }
-        if (description == null || description.isEmpty()) {
-            error.setText("Description cannot be empty");
-            error.setStyle("-fx-text-fill: red;");
-            return;
-        }
-        if (ref == null || ref.isEmpty()) {
-            error.setText("Reference cannot be empty");
-            error.setStyle("-fx-text-fill: red;");
-            return;
-        }
-        if (condition == null || condition.isEmpty()) {
-            error.setText("Condition cannot be empty");
-            error.setStyle("-fx-text-fill: red;");
-            return;
-        }
-       double value = quantity_slider.getValue();
-if (value < quantity_slider.getMin() || value > quantity_slider.getMax()) {
-    error.setText("Quantity must be selected");
-    error.setStyle("-fx-text-fill: red;");
-    return;
-}
-
-        if (inventoryName == null || inventoryName.isEmpty()) {
-            error.setText("Inventory name cannot be empty");
-            error.setStyle("-fx-text-fill: red;");
-            return;
-        }
-        if (photos == null || photos.isEmpty()) {
-            error.setText("You must select an image");
-            error.setStyle("-fx-text-fill: red;");
-            return;
-        }
-
-        try {
-            // Find the selected inventory from the database
-            InventoryService inventoryService = InventoryService.getInstance();
-            List<Inventory> inventories = inventoryService.searchByTitle(inventoryName);
-            if (inventories.isEmpty()) {
-                error.setText("Inventory not found: " + inventoryName);
-                error.setStyle("-fx-text-fill: red;");
-                return;
-            }
-            Inventory inventory = inventories.get(0);
-
-            // Create a new Items object and add it to the database
-            Items item = new Items(name, description, ref, condition, quantity, inventory.getId(), photos); // Assuming photos is an empty string
-            ItemsService.getInstance().addItems(item);
-            error.setText("Item added successfully!");
-            error.setStyle("-fx-text-fill: green;"); // Set the text color to green
-        } catch (SQLException e) {
-            error.setText("Error while adding item: " + e.getMessage());
-            error.setStyle("-fx-text-fill: red;"); // Set the text color to red
-            e.printStackTrace();
-        }
+    // Field validation
+    if (name == null || name.isEmpty()) {
+        error.setText("Name cannot be empty");
+        error.setStyle("-fx-text-fill: red;");
+        return;
     }
+    if (description == null || description.isEmpty()) {
+        error.setText("Description cannot be empty");
+        error.setStyle("-fx-text-fill: red;");
+        return;
+    }
+    if (ref == null || ref.isEmpty()) {
+        error.setText("Reference cannot be empty");
+        error.setStyle("-fx-text-fill: red;");
+        return;
+    }
+    if (condition == null || condition.isEmpty()) {
+        error.setText("Condition cannot be empty");
+        error.setStyle("-fx-text-fill: red;");
+        return;
+    }
+    if (quantity <= 0) { // Check if quantity is greater than 0
+        error.setText("Quantity must be greater than 0");
+        error.setStyle("-fx-text-fill: red;");
+        return;
+    }
+    if (inventoryName == null || inventoryName.isEmpty()) {
+        error.setText("Inventory name cannot be empty");
+        error.setStyle("-fx-text-fill: red;");
+        return;
+    }
+    if (photos == null || photos.isEmpty()) {
+        error.setText("You must select an image");
+        error.setStyle("-fx-text-fill: red;");
+        return;
+    }
+
+    try {
+        // Find the selected inventory from the database
+        InventoryService inventoryService = InventoryService.getInstance();
+        List<Inventory> inventories = inventoryService.searchByTitle(inventoryName);
+        if (inventories.isEmpty()) {
+            error.setText("Inventory not found: " + inventoryName);
+            error.setStyle("-fx-text-fill: red;");
+            return;
+        }
+        Inventory inventory = inventories.get(0);
+
+        // Create a new Items object and add it to the database
+        Items item = new Items(name, description, ref, condition, quantity, inventory.getId(), photos); // Assuming photos is an empty string
+        ItemsService.getInstance().addItems(item);
+        error.setText("Item added successfully!");
+        error.setStyle("-fx-text-fill: green;"); // Set the text color to green
+    } catch (SQLException e) {
+        error.setText("Error while adding item: " + e.getMessage());
+        error.setStyle("-fx-text-fill: red;"); // Set the text color to red
+        e.printStackTrace();
+    }
+}
     @FXML
     void displayev(MouseEvent event) {
 
@@ -215,9 +204,33 @@ if (value < quantity_slider.getMin() || value > quantity_slider.getMax()) {
         window.show();
 
     }
-    @FXML
-    void quantity_slider(MouseEvent event) {
 
+
+
+    @FXML
+    void increase_quantity_btn(ActionEvent event) {
+        // Get the current quantity
+        int currentQuantity = Integer.parseInt(quantity_number.getText());
+
+        // Increase the quantity by 1
+        currentQuantity++;
+
+        // Update the quantity_number label
+        quantity_number.setText(String.valueOf(currentQuantity));
+    }
+
+    @FXML
+    void decrease_quantity_btn(ActionEvent event) {
+        // Get the current quantity
+        int currentQuantity = Integer.parseInt(quantity_number.getText());
+
+        // Decrease the quantity by 1, but not less than 0
+        if (currentQuantity > 1) {
+            currentQuantity--;
+        }
+
+        // Update the quantity_number label
+        quantity_number.setText(String.valueOf(currentQuantity));
     }
 
 }
