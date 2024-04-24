@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="des modif">
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/comment20.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/comment20.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/Annonces20.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/Annonces20.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/DisplayAnnonces.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/DisplayAnnonces.java" afterDir="false" />
@@ -89,7 +91,7 @@
       <workItem from="1713905329346" duration="4729000" />
       <workItem from="1713913378265" duration="9386000" />
       <workItem from="1713952183508" duration="372000" />
-      <workItem from="1713960879326" duration="8601000" />
+      <workItem from="1713960879326" duration="13466000" />
     </task>
     <task id="LOCAL-00001" summary="crud">
       <option name="closed" value="true" />
@@ -203,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713965027624</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="des modif">
+      <option name="closed" value="true" />
+      <created>1713971224920</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713971224920</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

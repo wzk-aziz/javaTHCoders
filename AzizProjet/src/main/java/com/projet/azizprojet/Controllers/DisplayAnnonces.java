@@ -29,6 +29,9 @@ public class DisplayAnnonces {
 
     @FXML
     private ScrollPane scroll;
+    @FXML
+    private ScrollPane scroll1;
+
 
     @FXML
     private VBox root;
@@ -40,6 +43,18 @@ public class DisplayAnnonces {
 
     public void initialize() {
         loadAnnonces();
+
+        // Add a listener to the textProperty of the searchField
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                filterAnnouncements(newValue);
+            } else {
+                // If the searchField is empty, show all announcements
+                for (Node node : grid.getChildren()) {
+                    node.setVisible(true);
+                }
+            }
+        });
     }
 
     private void loadAnnonces() {
@@ -54,7 +69,7 @@ public class DisplayAnnonces {
                 annonceController.setAnnonceDetails(annonce);
 
                 grid.add(fxmlLoader.getRoot(), column++, row);
-                if (column == 2) {
+                if (column == 4) {
                     column = 0;
                     row++;
                 }
@@ -109,9 +124,6 @@ public class DisplayAnnonces {
     }
 
 
-
-
-
     public void handleAnnouncementClick(MouseEvent event) {
         Node source = (Node) event.getSource();
         Integer rowIndex = GridPane.getRowIndex(source);
@@ -138,5 +150,44 @@ public class DisplayAnnonces {
         window.show();
     }
 
-}
+    @FXML
+    void search(ActionEvent event) {
+        System.out.println("Search button clicked");
+        String keyword = searchField.getText().trim();
+        if (!keyword.isEmpty()) {
+            filterAnnouncements(keyword);
+        }
+    }
+
+    private void filterAnnouncements(String keyword) {
+        for (Node node : grid.getChildren()) {
+            if (node instanceof Pane) {
+                Pane pane = (Pane) node;
+                Annonces20 annonceController = (Annonces20) pane.getProperties().get("controller");
+                Annonce annonce = annonceController.getAnnonceDetails();
+                if (annonce != null) {
+                    String titre = annonce.getTitre().toLowerCase();
+                    String description = annonce.getDescription().toLowerCase();
+                    if (titre.contains(keyword.toLowerCase()) || description.contains(keyword.toLowerCase())) {
+                        pane.setVisible(true);
+                    } else {
+                        pane.setVisible(false);
+                    }
+                } else {
+                    // Handle null Annonce object, e.g., by making the pane visible
+                    pane.setVisible(true);
+                }
+            }
+        }
+    }
+
+    // Remaining methods...
+    }
+
+
+
+
+
+
+
 
