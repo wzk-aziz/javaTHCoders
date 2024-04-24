@@ -1,17 +1,23 @@
 package com.projet.azizprojet.Controllers;
 
+import com.projet.azizprojet.HelloApplication;
 import com.projet.azizprojet.ImServices.AnnoncesServicesImp;
 import com.projet.azizprojet.entities.Annonce;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DisplayAnnonces {
 
@@ -23,9 +29,9 @@ public class DisplayAnnonces {
 
     @FXML
     private VBox root;
+
     @FXML
     private TextField searchField;
-
 
     private AnnoncesServicesImp annoncesService = new AnnoncesServicesImp();
 
@@ -54,21 +60,17 @@ public class DisplayAnnonces {
             e.printStackTrace();
         }
     }
-    private void handleCardViewClick(Annonce annonce) {
-        // Implement the action you want to perform when a card view is clicked
-        System.out.println("Clicked on card view with title: " + annonce.getTitre());
+
+
+    @FXML
+    void comment(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Comment.fxml"));
+        Scene scene2 = new Scene(fxmlLoader.load());
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene2);
+        app_stage.show();
     }
 
-    public void searchByTitre(KeyEvent keyEvent) {
-        String searchText = searchField.getText().trim().toLowerCase();
-
-        // Loop through the nodes in the grid and hide/show based on search text
-        for (int i = 0; i < grid.getChildren().size(); i++) {
-            Annonces20 controller = (Annonces20) grid.getChildren().get(i).getUserData();
-            String titre = controller.getTitre().toLowerCase();
-            boolean isVisible = titre.contains(searchText);
-            grid.getChildren().get(i).setVisible(isVisible);
-            grid.getChildren().get(i).setManaged(isVisible);
-        }
+    public void Annonces(ActionEvent actionEvent) {
     }
 }

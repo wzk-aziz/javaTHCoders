@@ -44,6 +44,7 @@ public class Annonces20 {
         myrating.setVisible(false);
     }
 
+
     public void setAnnonceDetails(Annonce annonce) {
         // Set the details of the selected annonce
         selectedAnnonce = annonce;
