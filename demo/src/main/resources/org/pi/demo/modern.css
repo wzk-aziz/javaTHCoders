@@ -19,8 +19,7 @@
 
 .choice-box {
     -fx-font-family: "Arial", sans-serif;
-    -fx-font-size: 14px
-;
+    -fx-font-size: 14px;
     -fx-background-color: #ffffff;
     -fx-background-radius: 8px;
     -fx-border-radius: 8px;
@@ -29,7 +28,7 @@
 
 .button {
     -fx-font-family: "Arial", sans-serif;
-    -fx-font-size: 14px;
+    -fx-font-size: 12px;
     -fx-background-color: #ED5A5B;
     -fx-text-fill: #ffffff;
     -fx-background-radius: 8px;
@@ -46,10 +45,11 @@
 }
 
 #imageItem {
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 0);
 }
 
-#inventoryItem, #conditionItem {
+#inventoryItem,
+#conditionItem {
     -fx-font-family: "Arial", sans-serif;
     -fx-font-size: 14px;
     -fx-background-color: #ffffff;
@@ -74,7 +74,7 @@
     -fx-padding: 6px 10px;
     -fx-border-color: #cccccc;
     -fx-cursor: hand;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 0);
 }
 
 .button.quantity-button:hover {
@@ -87,7 +87,7 @@
 
 /* Image style */
 #item_image {
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 0);
 }
 
 /* Add Button style */

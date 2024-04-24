@@ -225,6 +225,7 @@ public class ItemsService implements ItemsInterface {
                 i.setName(rs.getString("name"));
                 i.setRef(rs.getString("ref"));
                 i.setPart_condition(rs.getString("part_condition"));
+                i.setDescription(rs.getString("description"));
                 i.setQuantity(rs.getInt("quantity"));
                 i.setPhotos(rs.getString("photos"));
                 items.add(i);
