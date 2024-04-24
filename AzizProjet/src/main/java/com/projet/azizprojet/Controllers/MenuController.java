@@ -16,13 +16,14 @@ import java.util.Objects;
 public class MenuController {
     @FXML
     private TextField aff;
+
     @FXML
     void consulterInventaire(ActionEvent event) throws IOException {
         Parent AjouterInventaireParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/AjouterInventaire.fxml")));
         Scene AjouterInventaireScene = new Scene(AjouterInventaireParent);
 
         // This line gets the Stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         window.setScene(AjouterInventaireScene);
         window.show();
@@ -34,7 +35,7 @@ public class MenuController {
         Scene AjouterInventaireScene = new Scene(AjouterInventaireParent);
 
         // This line gets the Stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         window.setScene(AjouterInventaireScene);
         window.show();
@@ -46,23 +47,23 @@ public class MenuController {
         Scene AjouterInventaireScene = new Scene(AjouterInventaireParent);
 
         // This line gets the Stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         window.setScene(AjouterInventaireScene);
         window.show();
     }
 
 
-	@FXML
-	void Annonces(ActionEvent event) throws IOException {
+    @FXML
+    void Annonces(ActionEvent event) throws IOException {
 
-		FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Annonce.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Annonce.fxml"));
 
-		Scene scene2 = new Scene(fxmlLoader.load());
-		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		app_stage.setScene(scene2);
-		app_stage.show();
-	}
+        Scene scene2 = new Scene(fxmlLoader.load());
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene2);
+        app_stage.show();
+    }
 
     @FXML
     void consulterannonces(ActionEvent event) throws IOException {
@@ -76,7 +77,8 @@ public class MenuController {
     }
 
 
-
-
-
 }
+
+
+
+

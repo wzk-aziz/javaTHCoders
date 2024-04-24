@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.paint.Color?>
 
-<AnchorPane prefHeight="663.0" prefWidth="893.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projet.azizprojet.Controllers.DisplayAnnonces" style="-fx-background-color: #f2f2f2;">
+<AnchorPane prefHeight="663.0" prefWidth="893.0" style="-fx-background-color: #f2f2f2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projet.azizprojet.Controllers.DisplayAnnonces">
     <children>
-        <!-- Left Panel with Buttons -->
-        <GridPane prefWidth="200.0" style="-fx-background-color: #d32f2f;">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" />
-            </columnConstraints>
-            <!-- Add your buttons here -->
-            <Button text="Button 1" GridPane.rowIndex="0" style="-fx-background-color: #ffffff; -fx-text-fill: #d32f2f;" />
-            <Button text="Button 2" GridPane.rowIndex="1" style="-fx-background-color: #ffffff; -fx-text-fill: #d32f2f;" />
-            <!-- Add more buttons as needed -->
-        </GridPane>
 
         <!-- ScrollPane for Announcements -->
         <ScrollPane fx:id="scroll" layoutX="200.0" prefHeight="664.0" prefWidth="693.0">
@@ -32,5 +21,6 @@
                 </GridPane>
             </content>
         </ScrollPane>
+        <TextField layoutX="29.0" layoutY="25.0" promptText="Rechercher" fx:id="searchField" onKeyReleased="#searchByTitre" />
     </children>
 </AnchorPane>

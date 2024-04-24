@@ -10,14 +10,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.TextFieldListCell;
 import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class AnnonceController implements Initializable {
@@ -89,7 +86,6 @@ public class AnnonceController implements Initializable {
 		AnnoncesServicesImp an = new AnnoncesServicesImp();
 		an.supprimer(listv.getSelectionModel().getSelectedItem());
 		loadData();
-		clearField();
 	}
 
 	@FXML
@@ -114,20 +110,15 @@ public class AnnonceController implements Initializable {
 		double note = myrating.getRating(); // Retrieve the rating value
 		an.modifier(new Annonce(titire.getText(), java.sql.Date.valueOf(date.getValue()), desc.getText(), 1, note));
 		loadData();
-		clearField();
+		clearFields();
 	}
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		loadData();
-
-		// Ajoutez un écouteur pour détecter les changements de texte dans le champ de recherche
-		recherche.textProperty().addListener((observable, oldValue, newValue) -> {
-			filterAnnonces(newValue);
-		});
 	}
 
-	void clearField() {
+	void clearFields() {
 		titire.clear();
 		desc.clear();
 		date.getEditor().clear();
@@ -163,11 +154,5 @@ public class AnnonceController implements Initializable {
 		alert.setHeaderText(null);
 		alert.setContentText(content);
 		alert.showAndWait();
-	}
-
-	private void filterAnnonces(String keyword) {
-		AnnoncesServicesImp an = new AnnoncesServicesImp();
-		listv.getItems().clear();
-		listv.getItems().addAll(an.rechercherParTitre(keyword));
 	}
 }

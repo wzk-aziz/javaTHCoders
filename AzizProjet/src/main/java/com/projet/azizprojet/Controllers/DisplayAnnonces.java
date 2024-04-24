@@ -5,6 +5,8 @@ import com.projet.azizprojet.entities.Annonce;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -21,7 +23,8 @@ public class DisplayAnnonces {
 
     @FXML
     private VBox root;
-
+    @FXML
+    private TextField searchField;
 
 
     private AnnoncesServicesImp annoncesService = new AnnoncesServicesImp();
@@ -56,4 +59,16 @@ public class DisplayAnnonces {
         System.out.println("Clicked on card view with title: " + annonce.getTitre());
     }
 
+    public void searchByTitre(KeyEvent keyEvent) {
+        String searchText = searchField.getText().trim().toLowerCase();
+
+        // Loop through the nodes in the grid and hide/show based on search text
+        for (int i = 0; i < grid.getChildren().size(); i++) {
+            Annonces20 controller = (Annonces20) grid.getChildren().get(i).getUserData();
+            String titre = controller.getTitre().toLowerCase();
+            boolean isVisible = titre.contains(searchText);
+            grid.getChildren().get(i).setVisible(isVisible);
+            grid.getChildren().get(i).setManaged(isVisible);
+        }
+    }
 }

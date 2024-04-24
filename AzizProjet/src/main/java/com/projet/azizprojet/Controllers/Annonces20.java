@@ -35,6 +35,7 @@ public class Annonces20 {
     @FXML
     private Label titre_annonces;
     private Annonce selectedAnnonce;
+
     public void initialize() {
         // Initialize UI components
         // For example, you might want to hide the buttons until an annonce is selected
@@ -76,6 +77,15 @@ public class Annonces20 {
     }
 
     @FXML
+    private Label titreLabel;
+
+    @FXML
+    public String getTitre() {
+        return titreLabel.getText();
+    }
+
+
+    @FXML
     void like(ActionEvent event) {
 
     }
@@ -83,4 +93,6 @@ public class Annonces20 {
 
     public void commenta(ActionEvent actionEvent) {
     }
+
+
 }
