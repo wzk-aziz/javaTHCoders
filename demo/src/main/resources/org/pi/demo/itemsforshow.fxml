@@ -10,6 +10,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -17,127 +18,151 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.itemsforshow">
+
+<AnchorPane prefHeight="663.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.itemsforshow">
    <children>
-      <VBox prefHeight="600.0" prefWidth="265.0" style="-fx-background-color: #ED5A5B;">
-         <children>
-            <HBox prefHeight="77.0" prefWidth="291.0">
+      <BorderPane prefHeight="663.0" prefWidth="915.0">
+         <left>
+            <VBox prefHeight="600.0" prefWidth="265.0" style="-fx-background-color: #ED5A5B;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="87.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/416410478_914063033747346_4330283370965631652_n.png" />
-                     </image>
-                  </ImageView>
-                  <Label prefHeight="114.0" prefWidth="167.0" text="Khoudh&amp;Het">
-                     <font>
-                        <Font name="Freestyle Script" size="42.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox prefHeight="43.0" prefWidth="266.0">
-               <children>
-                  <TextField fx:id="search_bar" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css" />
-                  <Button fx:id="searchbtn" mnemonicParsing="false" onAction="#searchbtn" prefHeight="38.0" prefWidth="78.0" styleClass="search-button" stylesheets="@Style2.css" text="Search" />
-               </children>
-            </HBox>
-            <Pane prefHeight="33.0" prefWidth="266.0" />
-            <VBox fx:id="chosenItemsCard" alignment="CENTER" prefHeight="490.0" prefWidth="257.0" stylesheets="@Style2.css">
-               <children>
-                  <VBox prefHeight="282.0" prefWidth="230.0">
+                  <HBox prefHeight="77.0" prefWidth="291.0">
                      <children>
-                        <Label fx:id="item_name_label" prefHeight="18.0" prefWidth="62.0" text="Item name">
-                           <VBox.margin>
-                              <Insets left="10.0" top="20.0" />
-                           </VBox.margin>
+                        <ImageView fitHeight="87.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/416410478_914063033747346_4330283370965631652_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="114.0" prefWidth="167.0" text="Khoudh&amp;Het">
+                           <font>
+                              <Font name="Freestyle Script" size="42.0" />
+                           </font>
                         </Label>
-                        <TextField fx:id="item_name" editable="false" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
-                           <VBox.margin>
-                              <Insets left="10.0" right="10.0" top="20.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <Label fx:id="item_condition_label" prefHeight="18.0" prefWidth="90.0" text="Item condition">
-                           <VBox.margin>
-                              <Insets left="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="item_condition" editable="false" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
-                           <VBox.margin>
-                              <Insets left="10.0" right="10.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <Label fx:id="item_ref_label" prefHeight="18.0" prefWidth="90.0" text="Item refferance">
-                           <VBox.margin>
-                              <Insets left="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="item_ref" editable="false" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
-                           <VBox.margin>
-                              <Insets left="10.0" right="10.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <Label fx:id="item_quantity_label" prefHeight="18.0" prefWidth="90.0" text="Item Quantity">
-                           <VBox.margin>
-                              <Insets left="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="item_quantity" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
-                           <VBox.margin>
-                              <Insets left="10.0" right="10.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
                      </children>
+                  </HBox>
+                  <HBox prefHeight="43.0" prefWidth="266.0">
+                     <children>
+                        <TextField fx:id="search_bar" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css" />
+                        <Button fx:id="searchbtn" mnemonicParsing="false" onAction="#searchbtn" prefHeight="38.0" prefWidth="78.0" styleClass="search-button" stylesheets="@Style2.css" text="Search" />
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="33.0" prefWidth="266.0" />
+                  <VBox fx:id="chosenItemsCard" alignment="CENTER" prefHeight="490.0" prefWidth="257.0" stylesheets="@Style2.css">
+                     <children>
+                        <VBox prefHeight="282.0" prefWidth="230.0">
+                           <children>
+                              <Label fx:id="item_name_label" prefHeight="18.0" prefWidth="62.0" text="Item name">
+                                 <VBox.margin>
+                                    <Insets left="10.0" top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="item_name" editable="false" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" top="20.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label fx:id="item_condition_label" prefHeight="18.0" prefWidth="90.0" text="Item condition">
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="item_condition" editable="false" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label fx:id="item_ref_label" prefHeight="18.0" prefWidth="90.0" text="Item refferance">
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="item_ref" editable="false" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label fx:id="item_quantity_label" prefHeight="18.0" prefWidth="90.0" text="Item Quantity">
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="item_quantity" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <ImageView fx:id="item_image" fitHeight="123.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Button fx:id="exchangebtn" mnemonicParsing="false" onAction="#echange_btn" prefHeight="22.0" prefWidth="192.0" styleClass="add-btn" stylesheets="@Style2.css" text="Exchange" textFill="#828282">
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="chosen-item-card" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="23.0" />
+                     </VBox.margin>
                   </VBox>
-                  <ImageView fx:id="item_image" fitHeight="123.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Button fx:id="exchangebtn" mnemonicParsing="false" onAction="#echange_btn" prefHeight="22.0" prefWidth="192.0" styleClass="add-btn" stylesheets="@Style2.css" text="Exchange" textFill="#828282">
-                     <VBox.margin>
-                        <Insets bottom="20.0" top="30.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
                </children>
-               <styleClass>
-                  <String fx:value="chosen-item-card" />
-                  <String fx:value="shadow" />
-               </styleClass>
-               <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="23.0" />
-               </VBox.margin>
             </VBox>
-         </children>
-      </VBox>
-      <HBox layoutX="266.0" prefHeight="600.0" prefWidth="634.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="265.6" AnchorPane.topAnchor="0.0">
-         <children>
-            <ScrollPane fx:id="scroll" prefHeight="490.0" prefWidth="492.0">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="20.0" top="10.0" />
-               </HBox.margin>
-               <content>
-                  <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0" stylesheets="@Style2.css">
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                  </GridPane>
-               </content>
-            </ScrollPane>
-            <Pane prefHeight="473.0" prefWidth="127.0">
+         </left>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <CheckBox fx:id="newItemsCheckBox" layoutY="14.0" mnemonicParsing="false" onAction="#shownewitemsonly" prefHeight="35.0" prefWidth="125.0" styleClass="button" stylesheets="@modern.css" text="New" />
-                  <CheckBox fx:id="refurbishedItemsCheckBox" layoutY="49.0" mnemonicParsing="false" onAction="#showrefurbisheditemsonly" prefHeight="32.0" prefWidth="125.0" styleClass="button" stylesheets="@modern.css" text="Refurbished">
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="usedItemsCheckBox" layoutY="81.0" mnemonicParsing="false" onAction="#showuseditemsonly" prefHeight="32.0" prefWidth="125.0" styleClass="button" stylesheets="@modern.css" text="Used" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="100.0" prefWidth="214.0" />
+                        <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="405.0">
+                           <children>
+                              <CheckBox fx:id="usedItemsCheckBox" mnemonicParsing="false" onAction="#showuseditemsonly" prefHeight="32.0" prefWidth="125.0" styleClass="button" stylesheets="@modern.css" text="Used">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="newItemsCheckBox" mnemonicParsing="false" onAction="#shownewitemsonly" prefHeight="35.0" prefWidth="125.0" styleClass="button" stylesheets="@modern.css" text="New">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="refurbishedItemsCheckBox" mnemonicParsing="false" onAction="#showrefurbisheditemsonly" prefHeight="32.0" prefWidth="125.0" styleClass="button" stylesheets="@modern.css" text="Refurbished">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ScrollPane fx:id="scroll" prefHeight="563.0" prefWidth="594.0">
+                           <content>
+                              <GridPane fx:id="grid" prefHeight="6.0" prefWidth="0.0" styleClass="transparent" stylesheets="@Style2.css">
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
                </children>
-            </Pane>
-         </children>
-      </HBox>
+            </VBox>
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>

@@ -16,17 +16,17 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.AjouterInventaire">
    <children>
-      <TextField fx:id="titreinventaire" layoutX="286.0" layoutY="169.0" prefHeight="43.0" prefWidth="232.0" promptText="titre inventaire">
+      <TextField fx:id="titreinventaire" layoutX="286.0" layoutY="169.0" prefHeight="43.0" prefWidth="232.0" promptText="titre inventaire" stylesheets="@modern.css">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <TextField fx:id="descInventaire" layoutX="286.0" layoutY="263.0" prefHeight="43.0" prefWidth="232.0" promptText="Description">
+      <TextField fx:id="descInventaire" layoutX="286.0" layoutY="263.0" prefHeight="43.0" prefWidth="232.0" promptText="Description" stylesheets="@modern.css">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <Button layoutX="577.0" layoutY="174.0" mnemonicParsing="false" onAction="#ajouterInventaire" styleClass="reserve-button" stylesheets="@Style.css" text="Ajouter" textFill="#220202">
+      <Button layoutX="577.0" layoutY="174.0" mnemonicParsing="false" onAction="#ajouterInventaire" styleClass="reserve-button" stylesheets="@modern.css" text="Ajouter" textFill="#220202">
          <effect>
             <DropShadow />
          </effect>
@@ -106,7 +106,7 @@
             </Button>
          </children>
       </VBox>
-      <Button layoutX="763.0" layoutY="552.0" mnemonicParsing="false" onAction="#menu" prefHeight="34.0" prefWidth="128.0" styleClass="reserve-button" stylesheets="@Style.css" text="Menu" textFill="#220202">
+      <Button layoutX="763.0" layoutY="552.0" mnemonicParsing="false" onAction="#menu" prefHeight="34.0" prefWidth="128.0" styleClass="reserve-button" stylesheets="@modern.css" text="Menu" textFill="#220202">
          <effect>
             <DropShadow />
          </effect>
@@ -114,13 +114,13 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
-      <TextField fx:id="error" editable="false" layoutX="280.0" layoutY="107.0" prefHeight="42.0" prefWidth="498.0">
+      <TextField fx:id="error" editable="false" layoutX="280.0" layoutY="107.0" prefHeight="42.0" prefWidth="498.0" stylesheets="@modern.css">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
       </TextField>
-      <ListView fx:id="inventoryList" layoutX="286.0" layoutY="330.0" prefHeight="210.0" prefWidth="599.0" />
-      <Button layoutX="577.0" layoutY="268.0" mnemonicParsing="false" onAction="#Modifierinventaire" styleClass="reserve-button" stylesheets="@Style.css" text="Modifier" textFill="#220202">
+      <ListView fx:id="inventoryList" layoutX="286.0" layoutY="330.0" prefHeight="210.0" prefWidth="599.0" stylesheets="@Style.css" />
+      <Button layoutX="577.0" layoutY="268.0" mnemonicParsing="false" onAction="#Modifierinventaire" styleClass="reserve-button" stylesheets="@modern.css" text="Modifier" textFill="#220202">
          <effect>
             <DropShadow />
          </effect>
@@ -128,7 +128,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
-      <Button layoutX="286.0" layoutY="552.0" mnemonicParsing="false" onAction="#SupprimerInventaire" styleClass="reserve-button" stylesheets="@Style.css" text="Supprimer" textFill="#220202">
+      <Button layoutX="286.0" layoutY="552.0" mnemonicParsing="false" onAction="#SupprimerInventaire" styleClass="reserve-button" stylesheets="@modern.css" text="Supprimer" textFill="#220202">
          <effect>
             <DropShadow />
          </effect>
