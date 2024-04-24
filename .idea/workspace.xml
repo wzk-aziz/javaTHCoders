@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="rechercher">
+    <list default="true" id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="des modif">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/Annonces20.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/Annonces20.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/DisplayAnnonces.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/DisplayAnnonces.java" afterDir="false" />
@@ -89,7 +89,7 @@
       <workItem from="1713905329346" duration="4729000" />
       <workItem from="1713913378265" duration="9386000" />
       <workItem from="1713952183508" duration="372000" />
-      <workItem from="1713960879326" duration="4094000" />
+      <workItem from="1713960879326" duration="8601000" />
     </task>
     <task id="LOCAL-00001" summary="crud">
       <option name="closed" value="true" />
@@ -195,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713952466477</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="des modif">
+      <option name="closed" value="true" />
+      <created>1713965027624</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713965027624</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +220,7 @@
     <MESSAGE value=" modif recherche" />
     <MESSAGE value="display" />
     <MESSAGE value="rechercher" />
-    <option name="LAST_COMMIT_MESSAGE" value="rechercher" />
+    <MESSAGE value="des modif" />
+    <option name="LAST_COMMIT_MESSAGE" value="des modif" />
   </component>
 </project>

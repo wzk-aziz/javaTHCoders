@@ -96,4 +96,7 @@ public class Annonces20 {
     }
 
 
+    public Annonce getAnnonceDetails() {
+        return null;
+    }
 }
