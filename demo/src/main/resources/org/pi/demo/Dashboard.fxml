@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="901.0"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.Dashboard">
    <left>
-      <VBox alignment="CENTER" prefHeight="586.0" prefWidth="206.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="586.0" prefWidth="254.0" style="-fx-background-color: CD2530;" BorderPane.alignment="TOP_CENTER">
          <children>
+            <ImageView fitHeight="166.0" fitWidth="308.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="@../../../images/416410478_914063033747346_4330283370965631652_n.png" />
+               </image>
+            </ImageView>
             <HBox prefHeight="46.0" prefWidth="206.0">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Dashbaord">
@@ -36,13 +47,13 @@
                         <Image url="@../../../images/items.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Dashbaord">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Profiles" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
                   </Label>
                </children>
             </HBox>
@@ -58,9 +69,9 @@
                               <Image url="@../../../images/items.png" />
                            </image>
                         </ImageView>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Dashbaord">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Evenements" textAlignment="CENTER">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="16.0" />
                            </font>
                            <HBox.margin>
                               <Insets top="10.0" />
@@ -82,9 +93,9 @@
                               <Image url="@../../../images/items.png" />
                            </image>
                         </ImageView>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Dashbaord">
+                        <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#invanditemback" prefHeight="36.0" prefWidth="133.0" text="Inventaire&amp;items" textAlignment="CENTER">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="16.0" />
                            </font>
                            <HBox.margin>
                               <Insets top="10.0" />
@@ -106,19 +117,91 @@
                               <Image url="@../../../images/items.png" />
                            </image>
                         </ImageView>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Dashbaord">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Annonces" textAlignment="CENTER">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="16.0" />
                            </font>
                            <HBox.margin>
                               <Insets top="10.0" />
                            </HBox.margin>
                         </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="46.0" prefWidth="206.0">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../../../images/items.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Echanges" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="46.0" prefWidth="206.0">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../../../images/items.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="133.0" text="Reclamations" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="52.0" prefWidth="647.0" style="-fx-background-color: white;">
+               <children>
+                  <Pane prefHeight="52.0" prefWidth="206.0" />
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="178.0" stylesheets="@StyleDashboard.css">
+                     <children>
+                        <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons8_Search_52px.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <TextField promptText="search" stylesheets="@StyleDashboard.css">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="search-bar" />
+                              <String fx:value="transparent" />
+                           </styleClass>
+                        </TextField>
                      </children>
                   </HBox>
                </children>
             </HBox>
          </children>
       </VBox>
-   </left>
+   </center>
 </BorderPane>

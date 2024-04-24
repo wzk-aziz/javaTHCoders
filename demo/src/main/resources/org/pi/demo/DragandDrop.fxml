@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="org.pi.demo.controllers.DragandDrop"
+          alignment="CENTER">
+
+    <columnConstraints>
+        <ColumnConstraints />
+        <!-- Add more ColumnConstraints if needed -->
+    </columnConstraints>
+
+    <rowConstraints>
+        <RowConstraints />
+        <!-- Add more RowConstraints if needed -->
+    </rowConstraints>
+
+    <!-- Header Labels -->
+    <Label text="Items" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <!-- Add more headers as needed -->
+
+    <!-- ListViews -->
+    <ListView fx:id="itemsListView" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <GridPane fx:id="inventoryGridPane" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <!-- Add more ListViews as needed -->
+
+</GridPane>

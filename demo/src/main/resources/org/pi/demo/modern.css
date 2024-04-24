@@ -1,0 +1,153 @@
+.root {
+    -fx-background-color: #f4f4f4;
+}
+
+.label {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+.text-field {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #cccccc;
+}
+
+.choice-box {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px
+;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #cccccc;
+}
+
+.button {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #ED5A5B;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-padding: 8px 16px;
+}
+
+.button:hover {
+    -fx-background-color: #c94d4e;
+}
+
+.button:pressed {
+    -fx-background-color: #ac4243;
+}
+
+#imageItem {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+}
+
+#inventoryItem, #conditionItem {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #cccccc;
+}
+
+#sliderValueLabel {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+.button.quantity-button {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #333333;
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-padding: 6px 10px;
+    -fx-border-color: #cccccc;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);
+}
+
+.button.quantity-button:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+.button.quantity-button:pressed {
+    -fx-background-color: #dddddd;
+}
+
+/* Image style */
+#item_image {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+}
+
+/* Add Button style */
+#exchangebtn {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #3B86FF;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-padding: 8px 16px;
+}
+
+#exchangebtn:hover {
+    -fx-background-color: #2A69D7;
+}
+
+#exchangebtn:pressed {
+    -fx-background-color: #1F4EAB;
+}
+
+/* Search Box style */
+.search-box {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: #cccccc;
+    -fx-padding: 5px 10px;
+}
+
+/* Search Button style */
+.search-button {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: rgba(59, 134, 255, 0);
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-padding: 5px 10px;
+}
+
+.search-button:hover {
+    -fx-background-color: #2A69D7;
+}
+
+.search-button:pressed {
+    -fx-background-color: #1F4EAB;
+}
+
+/* Chosen Item Card style */
+.chosen-item-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #dddddd;
+    -fx-padding: 10px;
+}
+
+.chosen-item-card .shadow {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 0);
+}

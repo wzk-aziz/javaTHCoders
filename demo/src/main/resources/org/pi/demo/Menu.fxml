@@ -102,5 +102,11 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
+      <Button layoutX="762.0" layoutY="21.0" mnemonicParsing="false" onAction="#Dashboard" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Dashboard">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+
     </children>
 </AnchorPane>

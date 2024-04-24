@@ -42,37 +42,68 @@ public class ItemsService implements ItemsInterface {
         }
     }
 
-    public List<Items> AfficherItems() {
-        List<Items> items = new ArrayList<>();
-        try {
-            String request = "SELECT items.*, inventory.title AS inventory_title FROM items INNER JOIN inventory ON items.inventory_id = inventory.id";
-            Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery(request);
-            while (rs.next()) {
-                Items i = new Items();
-                i.setId(rs.getInt("id"));
-                i.setName(rs.getString("name"));
-                i.setDescription(rs.getString("description"));
-                i.setRef(rs.getString("ref"));
-                i.setPart_condition(rs.getString("part_condition"));
-                i.setQuantity(rs.getInt("quantity"));
-                i.setPhotos(rs.getString("photos"));
-                i.setInventory_id(rs.getInt("inventory_id"));
+public List<Items> AfficherItems() {
+    List<Items> items = new ArrayList<>();
+    try {
+        String request = "SELECT items.*, inventory.title AS inventory_title FROM items LEFT JOIN inventory ON items.inventory_id = inventory.id";
+        Statement st = cnx.createStatement();
+        ResultSet rs = st.executeQuery(request);
+        while (rs.next()) {
+            Items i = new Items();
+            i.setId(rs.getInt("id"));
+            i.setName(rs.getString("name"));
+            i.setDescription(rs.getString("description"));
+            i.setRef(rs.getString("ref"));
+            i.setPart_condition(rs.getString("part_condition"));
+            i.setQuantity(rs.getInt("quantity"));
+            i.setPhotos(rs.getString("photos"));
+            i.setInventory_id(rs.getInt("inventory_id"));
 
-                // Create a new Inventory object and set the title
-                Inventory inventory = new Inventory();
-                inventory.setTitle(rs.getString("inventory_title"));
+            // Create a new Inventory object and set the title
+            Inventory inventory = new Inventory();
+            inventory.setTitle(rs.getString("inventory_title")); // This will be null if there's no matching inventory_id
 
-                // Set the Inventory object to the Items object
-                i.setInventory(inventory);
+            // Set the Inventory object to the Items object
+            i.setInventory(inventory);
 
-                items.add(i);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            items.add(i);
         }
-        return items;
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+    return items;
+}
+//    public List<Items> AfficherItems() {
+//        List<Items> items = new ArrayList<>();
+//        try {
+//            String request = "SELECT items.*, inventory.title AS inventory_title FROM items INNER JOIN inventory ON items.inventory_id = inventory.id";
+//            Statement st = cnx.createStatement();
+//            ResultSet rs = st.executeQuery(request);
+//            while (rs.next()) {
+//                Items i = new Items();
+//                i.setId(rs.getInt("id"));
+//                i.setName(rs.getString("name"));
+//                i.setDescription(rs.getString("description"));
+//                i.setRef(rs.getString("ref"));
+//                i.setPart_condition(rs.getString("part_condition"));
+//                i.setQuantity(rs.getInt("quantity"));
+//                i.setPhotos(rs.getString("photos"));
+//                i.setInventory_id(rs.getInt("inventory_id"));
+//
+//                // Create a new Inventory object and set the title
+//                Inventory inventory = new Inventory();
+//                inventory.setTitle(rs.getString("inventory_title"));
+//
+//                // Set the Inventory object to the Items object
+//                i.setInventory(inventory);
+//
+//                items.add(i);
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return items;
+//    }
     public void SupprimerItems(int id) {
         try {
             String request = "DELETE FROM items WHERE id = ?";
@@ -222,7 +253,29 @@ public class ItemsService implements ItemsInterface {
         return items;
     }
 
-
+public Items getItemById(int id) {
+    Items item = null;
+    try {
+        String request = "SELECT * FROM items WHERE id = ?";
+        PreparedStatement pst = cnx.prepareStatement(request);
+        pst.setInt(1, id);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            item = new Items();
+            item.setId(rs.getInt("id"));
+            item.setName(rs.getString("name"));
+            item.setDescription(rs.getString("description"));
+            item.setRef(rs.getString("ref"));
+            item.setPart_condition(rs.getString("part_condition"));
+            item.setQuantity(rs.getInt("quantity"));
+            item.setPhotos(rs.getString("photos"));
+            item.setInventory_id(rs.getInt("inventory_id"));
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return item;
+}
 
 
 

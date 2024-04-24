@@ -119,9 +119,9 @@
                </HBox.margin>
                <content>
                   <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0" stylesheets="@Style2.css">
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                   </GridPane>
                </content>
             </ScrollPane>

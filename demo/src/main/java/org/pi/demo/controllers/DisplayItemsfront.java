@@ -1,7 +1,6 @@
 package org.pi.demo.controllers;
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -222,22 +221,26 @@ public class DisplayItemsfront {
             List<Items> itemsList = itemsService.AfficherItems();
             ObservableList<Items> items = FXCollections.observableArrayList(itemsList);
 
-            // Set the items to the ListView
+            // add the items to the  ListView
             list_view_items.setItems(items);
 
             // Create a custom cell factory for the ListView to display the items
-            list_view_items.setCellFactory(param -> new ListCell<Items>() {
-                @Override
-                protected void updateItem(Items item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (item != null && !empty) {
-                        setText(item.getName() + " - " + item.getDescription() + " - " + item.getRef() + " - " + item.getPart_condition() + " - " + item.getQuantity() + " - " + item.getInventory().getTitle());
-                    } else {
-                        setText(null);
-                    }
-                }
-            });
-
+list_view_items.setCellFactory(param -> new ListCell<Items>() {
+    @Override
+    protected void updateItem(Items item, boolean empty) {
+        super.updateItem(item, empty);
+        if (item != null && !empty) {
+            setText("Item Name: " + item.getName() + "\n" +
+                    "Item Description: " + item.getDescription() + "\n" +
+                    "Item Reference: " + item.getRef() + "\n" +
+                    "Item Condition: " + item.getPart_condition() + "\n" +
+                    "Item Quantity: " + item.getQuantity() + "\n" +
+                    "Item is in: " + item.getInventory().getTitle());
+        } else {
+            setText(null);
+        }
+    }
+});
             // Add a listener to the selectedItemProperty of the ListView
             list_view_items.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
                 if (newSelection != null) {

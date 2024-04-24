@@ -1,4 +1,5 @@
 package org.pi.demo.entities;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -63,5 +64,11 @@ public class Inventory {
     @Override
     public String toString() {
         return "Inventory{" + "id=" + id + ", title=" + title + ", description=" + description + ", add_date=" + add_date + '}';
+    }
+    public void addItem(Items item) {
+        if (this.items == null) {
+            this.items = new ArrayList<>();
+        }
+        this.items.add(item);
     }
 }
