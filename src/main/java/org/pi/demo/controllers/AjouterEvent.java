@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -53,6 +50,14 @@ public class AjouterEvent {
     @FXML
     public void initialize() {
 
+        // Restrict the phone number field to accept only numbers
+        capacity.setTextFormatter(new TextFormatter<>(change -> {
+            if (change.getControlNewText().matches("\\d*")) {
+                return change;
+            }
+            return null;
+        }));
+
     }
     @FXML
     void ListeEvent(ActionEvent event) {
@@ -68,88 +73,75 @@ public class AjouterEvent {
     }
 
    @FXML
-void ajouterEvent(ActionEvent event) {
-    try {
-        // Get the current date
-        LocalDate currentDate = LocalDate.now();
+   void ajouterEvent(ActionEvent event) {
+       try {
+           // Get the current date
+           LocalDate currentDate = LocalDate.now();
 
-        // Get the selected start and end dates
-        LocalDate selectedStartDate = debutEvent.getValue();
-        LocalDate selectedEndDate = finEvent.getValue();
+           // Get the selected start and end dates
+           LocalDate selectedStartDate = debutEvent.getValue();
+           LocalDate selectedEndDate = finEvent.getValue();
 
+           // Check if the selected start date is null
+           if (selectedStartDate == null) {
+               showAlert("All fields must be filled");
+               return;
+           }
 
-        // Check if the selected start date is before the current date
-        if (selectedStartDate.isBefore(currentDate)) {
-            showAlert("Start date cannot be before the current date");
-            return;
-        }
+           // Check if the selected start date is before the current date
+           if (selectedStartDate.isBefore(currentDate)) {
+               showAlert("Start date cannot be before the current date");
+               return;
+           }
 
-        // Check if the selected end date is before the selected start date
-        if (selectedEndDate.isBefore(selectedStartDate) || selectedEndDate.isEqual(selectedStartDate)) {
-            showAlert("End date cannot be before or equal to the start date");
-            return;
-        }
+           // Check if the selected end date is null
+           if (selectedEndDate == null) {
+               showAlert("All fields must be filled");
+               return;
+           }
 
-        // Validate the input fields
-        if (nomEvent.getText().isEmpty()) {
-            showAlert("Event Name is required");
-            return;
-        }
+           // Check if the selected end date is before the selected start date
+           if (selectedEndDate.isBefore(selectedStartDate) || selectedEndDate.isEqual(selectedStartDate)) {
+               showAlert("End date cannot be before or equal to the start date");
+               return;
+           }
 
-        if (place.getText().isEmpty()) {
-            showAlert("Event Place is required");
-            return;
-        }
+           // Validate input fields
+           if (nomEvent.getText().isEmpty() || capacity.getText().isEmpty() || descEvent.getText().isEmpty() || place.getText().isEmpty() || imagePath == null) {
+               System.out.println("Fields cannot be empty!");
+               Alert alert = new Alert(Alert.AlertType.INFORMATION);
+               alert.setTitle("Validation");
+               alert.setHeaderText("Fields cannot be empty!");
+               alert.setContentText("All fields must be filled!");
+               alert.showAndWait();
+               return;
+           }
 
-        if (descEvent.getText().isEmpty()) {
-            showAlert("Event Description is required");
-            return;
-        }
+           String eventName = nomEvent.getText();
+           String eventPlace = place.getText();
+           String eventDescription = descEvent.getText();
+           int eventCapacity = Integer.parseInt(capacity.getText());
+           Date eventStartDate = java.sql.Date.valueOf(selectedStartDate);
+           Date eventEndDate = java.sql.Date.valueOf(selectedEndDate);
+           String eventImage = imagePath; // Use the stored image path
 
-        if (capacity.getText().isEmpty()) {
-            showAlert("Event Capacity is required");
-            return;
-        }
+           Events newEvent = new Events(eventName, eventPlace, eventDescription, eventImage, eventCapacity, eventStartDate, eventEndDate);
+           EventService.getInstance().addEvent(newEvent);
 
-        if (debutEvent.getValue() == null) {
-            showAlert("Event Start Date is required");
-            return;
-        }
+           // Clear the fields after adding the event
+           nomEvent.clear();
+           place.clear();
+           descEvent.clear();
+           capacity.clear();
+           debutEvent.getEditor().clear();
+           finEvent.getEditor().clear();
+           imageTF.setImage(null); // Clear the image field
+           imagePath = null; // Clear the image path
+       } catch (SQLException e) {
+           e.printStackTrace();
+       }
+   }
 
-        if (finEvent.getValue() == null) {
-            showAlert("Event End Date is required");
-            return;
-        }
-
-        if (imagePath == null) {
-            showAlert("Event Image is required");
-            return;
-        }
-
-        String eventName = nomEvent.getText();
-        String eventPlace = place.getText();
-        String eventDescription = descEvent.getText();
-        int eventCapacity = Integer.parseInt(capacity.getText());
-        Date eventStartDate = java.sql.Date.valueOf(debutEvent.getValue());
-        Date eventEndDate = java.sql.Date.valueOf(finEvent.getValue());
-        String eventImage = imagePath; // Use the stored image path
-
-        Events newEvent = new Events(eventName, eventPlace, eventDescription, eventImage, eventCapacity, eventStartDate, eventEndDate);
-        EventService.getInstance().addEvent(newEvent);
-
-        // Clear the fields after adding the event
-        nomEvent.clear();
-        place.clear();
-        descEvent.clear();
-        capacity.clear();
-        debutEvent.getEditor().clear();
-        finEvent.getEditor().clear();
-        imageTF.setImage(null); // Clear the image field
-        imagePath = null; // Clear the image path
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-}
 
 private void showAlert(String message) {
     Alert alert = new Alert(Alert.AlertType.ERROR);
