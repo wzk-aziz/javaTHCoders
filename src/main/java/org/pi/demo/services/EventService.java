@@ -2,7 +2,6 @@ package org.pi.demo.services;
 
 import org.pi.demo.Interfaces.EventInterface;
 import org.pi.demo.entities.Events;
-import org.pi.demo.entities.Events;
 import org.pi.demo.utils.MyConnection;
 
 import java.sql.Connection; // Correct import
@@ -49,16 +48,18 @@ public class EventService implements EventInterface {
 
 
 
-    public void SupprimerEvent(int id) {
-        try {
-            String request = "DELETE FROM event WHERE id = ?";
-            PreparedStatement pst = cnx.prepareStatement(request);
-            pst.setInt(1, id);
-            pst.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+   public boolean SupprimerEvent(int id) {
+    try {
+        String request = "DELETE FROM event WHERE id = ?";
+        PreparedStatement pst = cnx.prepareStatement(request);
+        pst.setInt(1, id);
+        int rowsDeleted = pst.executeUpdate();
+        return rowsDeleted > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+    return false;
+}
 
   public List<Events> AfficherEvent() {
     List<Events> events = new ArrayList<>();
@@ -76,9 +77,9 @@ public class EventService implements EventInterface {
     return events;
 }
 
-  public boolean updateEvent(Events ev) {
+ public boolean updateEvent(Events ev) {
     try {
-        String request = "UPDATE event SET event_name = ?, capacity = ?, start_date = ?, end_date = ?, place = ?, description = ? WHERE id = ?";
+        String request = "UPDATE event SET event_name = ?, capacity = ?, start_date = ?, end_date = ?, place = ?, description = ?,image= ? WHERE id = ?";
         PreparedStatement pst = cnx.prepareStatement(request);
         pst.setString(1, ev.getEvent_name());
         pst.setInt(2, ev.getCapacity());
@@ -86,10 +87,12 @@ public class EventService implements EventInterface {
         pst.setDate(4, new java.sql.Date(ev.getEnd_date().getTime()));
         pst.setString(5, ev.getPlace());
         pst.setString(6, ev.getDescription());
-        pst.setInt(7, ev.getId());
+        pst.setString(7, ev.getImage());
+        pst.setInt(8, ev.getId());
         int rowsUpdated = pst.executeUpdate();
         return rowsUpdated > 0;
     } catch (SQLException e) {
+        System.out.println("SQL Exception: " + e.getMessage()); // Print the SQL exception message
         e.printStackTrace();
     }
     return false;
@@ -109,7 +112,21 @@ public class EventService implements EventInterface {
         return events;
     }
 
+   public void decrementEventCapacity(int eventId) throws SQLException {
+    String query = "UPDATE event SET capacity = capacity - 1 WHERE id = ?";
+    PreparedStatement pst = cnx.prepareStatement(query);
+    pst.setInt(1, eventId);
+    pst.executeUpdate();
+}
 
-
-
+public Events getEventById(int eventId) throws SQLException {
+    String query = "SELECT * FROM event WHERE id = ?";
+    PreparedStatement pst = cnx.prepareStatement(query);
+    pst.setInt(1, eventId);
+    ResultSet rs = pst.executeQuery();
+    if (rs.next()) {
+        return new Events(rs.getInt("id"), rs.getString("event_name"), rs.getString("place"), rs.getString("description"), rs.getString("image"), rs.getInt("capacity"), rs.getDate("start_date"), rs.getDate("end_date"));
+    }
+    return null;
+}
 }
