@@ -49,11 +49,8 @@
                     </Label>
                 </children>
             </HBox>
-            <Pane prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
-                <children>
-                    <TextField fx:id="searchField" layoutX="47.0" layoutY="21.0" onAction="#search" promptText="RECHERCHER" style="-fx-background-color: #f0f0f0; -fx-border-color: #ddd; -fx-border-width: 1px; -fx-border-radius: 5px; -fx-padding: 5px;" />
-                </children>
-            </Pane>
+            <Pane prefHeight="20.0" prefWidth="259.0" style="-fx-background-color: transparent;" />
+              <TextField fx:id="searchField" onAction="#search" promptText="RECHERCHER" style="-fx-background-color: #f0f0f0; -fx-border-color: #ddd; -fx-border-width: 1px; -fx-border-radius: 5px; -fx-padding: 5px;" />
             <Label />
             <Label prefHeight="17.0" prefWidth="11.0" />
             <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Inventaire">
@@ -80,28 +77,25 @@
                 </font>
             </Button>
             <Label />
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Echange">
-                <font>
-                    <Font name="System Bold" size="15.0" />
-                </font>
-            </Button>
         </children>
     </VBox>
     <!-- ScrollPane for Comments -->
-    <ScrollPane fx:id="scroll1" layoutX="257.0" layoutY="387.0" prefHeight="203.0" prefWidth="634.0">
+    <ScrollPane fx:id="scroll1" layoutX="257.0" layoutY="387.0" prefHeight="277.0" prefWidth="641.0">
         <content>
-            <GridPane fx:id="grid1" prefHeight="26.0" prefWidth="719.0" style="-fx-background-color: #ffffff;">
-                <!-- Content for scroll1 -->
-                <children>
-                    <Pane onMouseClicked="#handleAnnouncementClick" />
-                </children>
-                <columnConstraints>
-                    <ColumnConstraints />
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints />
-                </rowConstraints>
-            </GridPane>
+            <VBox spacing="10">
+                <GridPane fx:id="grid1" prefHeight="26.0" prefWidth="719.0" style="-fx-background-color: #ffffff;">
+                    <!-- Content for scroll1 -->
+                    <children>
+                        <Pane onMouseClicked="#handleAnnouncementClick" />
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+            </VBox>
         </content>
     </ScrollPane>
 </AnchorPane>

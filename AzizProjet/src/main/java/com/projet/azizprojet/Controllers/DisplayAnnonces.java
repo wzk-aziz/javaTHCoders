@@ -44,6 +44,9 @@ public class DisplayAnnonces {
     @FXML
     private TextField searchField;
 
+    @FXML
+    private TextField searchField1;
+
     private AnnoncesServicesImp annoncesService = new AnnoncesServicesImp();
 
     public void initialize() {
@@ -206,6 +209,28 @@ public class DisplayAnnonces {
                     }
                 } else {
                     // Handle null Annonce object, e.g., by making the pane visible
+                    pane.setVisible(true);
+                }
+            }
+        }
+    }
+
+    private void filterComments(String keyword) {
+        for (Node node : grid1.getChildren()) {
+            if (node instanceof Pane) {
+                Pane pane = (Pane) node;
+                comment20 commentController = (comment20) pane.getProperties().get("controller");
+                CommentDTO comment = commentController.getCommentDetails();
+                if (comment != null) {
+                    String contenu = comment.getContenu().toLowerCase();
+                    // Add any additional fields from CommentDTO that you want to search
+                    if (contenu.contains(keyword.toLowerCase())) {
+                        pane.setVisible(true);
+                    } else {
+                        pane.setVisible(false);
+                    }
+                } else {
+                    // Handle null CommentDTO object, e.g., by making the pane visible
                     pane.setVisible(true);
                 }
             }

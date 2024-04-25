@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="display done">
+    <list default="true" id="36fab7d3-cf51-4d3d-b0ca-339db45b006a" name="Changes" comment="cardpane">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/AnnonceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/AnnonceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/DisplayAnnonces.java" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/java/com/projet/azizprojet/Controllers/DisplayAnnonces.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Annonce.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Annonce.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/DisplayAnnonces.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/DisplayAnnonces.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/Menu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/comment20.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AzizProjet/src/main/resources/com/projet/azizprojet/comment20.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +95,7 @@
       <workItem from="1713905329346" duration="4729000" />
       <workItem from="1713913378265" duration="9386000" />
       <workItem from="1713952183508" duration="372000" />
-      <workItem from="1713960879326" duration="34699000" />
+      <workItem from="1713960879326" duration="37255000" />
     </task>
     <task id="LOCAL-00001" summary="crud">
       <option name="closed" value="true" />
@@ -261,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713994184731</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="cardpane">
+      <option name="closed" value="true" />
+      <created>1714001438791</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1714001438791</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +286,7 @@
     <MESSAGE value="puch" />
     <MESSAGE value="displa" />
     <MESSAGE value="display done" />
-    <option name="LAST_COMMIT_MESSAGE" value="display done" />
+    <MESSAGE value="cardpane" />
+    <option name="LAST_COMMIT_MESSAGE" value="cardpane" />
   </component>
 </project>
