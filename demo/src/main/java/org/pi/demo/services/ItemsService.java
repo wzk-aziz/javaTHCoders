@@ -166,6 +166,20 @@ public class ItemsService implements ItemsInterface {
             return false;
         }
     }
+    public boolean updateItemQuantity(String itemRef, int newQuantity) {
+    try {
+        String request = "UPDATE items SET quantity = ? WHERE ref = ?";
+        PreparedStatement pst = cnx.prepareStatement(request);
+        pst.setInt(1, newQuantity);
+        pst.setString(2, itemRef);
+        pst.executeUpdate();
+        return true;
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
+    }
+}
+
     public List<Items> searchByName(String name) {
         List<Items> items = new ArrayList<>();
         try {

@@ -1,5 +1,13 @@
 package org.pi.demo.controllers;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,15 +29,25 @@ import javafx.stage.Stage;
 import org.pi.demo.Interfaces.MyListener;
 import org.pi.demo.entities.Items;
 import org.pi.demo.services.ItemsService;
+import org.pi.demo.services.SMSService;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class itemsforshow implements MyListener {
+    @FXML
+    private ImageView qrCodeImage;
 
     @FXML
     private VBox chosenItemsCard;
@@ -228,18 +246,40 @@ public class itemsforshow implements MyListener {
         }
     }
 
-    @FXML
-    void echange_btn(ActionEvent event) throws  IOException {
-        Parent AjouterInventaireParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/Menu.fxml")));
-        Scene AjouterInventaireScene = new Scene(AjouterInventaireParent);
+//    @FXML
+//    void echange_btn(ActionEvent event) throws  IOException {
+////        Parent AjouterInventaireParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/Menu.fxml")));
+////        Scene AjouterInventaireScene = new Scene(AjouterInventaireParent);
+////
+////        // This line gets the Stage information
+////        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+////
+////        window.setScene(AjouterInventaireScene);
+////        window.show();
+//    }
 
-        // This line gets the Stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+ @FXML
+void echange_btn(ActionEvent event) throws IOException, SQLException {
+    // Retrieve the current quantity of the item
+    int currentQuantity = Integer.parseInt(item_quantity.getText());
 
-        window.setScene(AjouterInventaireScene);
-        window.show();
-    }
+    // Retrieve the quantity set in the quantity field
+    // Assuming you have a TextField named quantityField
+    int quantityToSubtract = Integer.parseInt(item_quantity.getText());
 
+    // Subtract the quantity set in the quantity field from the current quantity of the item
+    int newQuantity = currentQuantity - quantityToSubtract;
+
+    // Update the item's quantity with the new quantity
+    item_quantity.setText(String.valueOf(newQuantity));
+
+    // Update the item's quantity in the database
+    ItemsService itemsService = ItemsService.getInstance();
+    itemsService.updateItemQuantity(item_ref.getText(), newQuantity);
+
+    // Refresh the grid
+    loadAndDisplayItems();
+}
 
     @FXML
     void shownewitemsonly(ActionEvent event) throws SQLException {
@@ -328,7 +368,86 @@ public class itemsforshow implements MyListener {
             item_image.setFitWidth(100); // Set the maximum width
             item_image.setPreserveRatio(true);
         } catch (Exception e) {
-            System.out.println("Error loading image: " + e.getMessage()); // Print any exceptions
+            throw new RuntimeException(e);
+        }
+
+      String qrCodeText = String.format(
+    "Item Details:\n\nName: %s\nCondition: %s\nReference: %s\nQuantity: %d",
+    item.getName(),
+    item.getPart_condition(),
+    item.getRef(),
+    item.getQuantity()
+);
+
+try {
+    generateQRCodeImage(qrCodeText, 200, 200/*,"images/logo2.jpg"*/);
+} catch (WriterException | IOException e) {
+    System.out.println("Error generating QR code: " + e.getMessage());
+}
+
+        if (item.getQuantity() == 0) {
+            SMSService smsService = new SMSService();
+            String to = "+21628504447";  // replace with the actual recipient's number
+            String from = "+17479008244";  // replace with your Twilio number
+            String message = "The item " + item.getName() + " is out of stock.";
+            smsService.sendSMS(to, from, message);
         }
     }
+
+    public void generateQRCodeImage(String text, int width, int height)
+        throws WriterException, IOException {
+    QRCodeWriter qrCodeWriter = new QRCodeWriter();
+    BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height);
+
+    // Make the BufferedImage that are to hold the QRCode
+    BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+    image.createGraphics();
+
+    Graphics2D graphics = (Graphics2D) image.getGraphics();
+    graphics.setColor(Color.WHITE);
+    graphics.fillRect(0, 0, width, height);
+    graphics.setColor(Color.BLACK);
+
+    // Paint and save the image using the ByteMatrix
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            if (bitMatrix.get(i, j)) {
+                graphics.fillRect(i, j, 1, 1);
+            }
+        }
+    }
+
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    ImageIO.write(image, "png", outputStream);
+    byte[] byteArray = outputStream.toByteArray();
+
+    Image qrImage = new Image(new ByteArrayInputStream(byteArray));
+    qrCodeImage.setImage(qrImage);
+}
+
+//   public void generateQRCodeImage(String text, int width, int height, String logoPath)
+//        throws WriterException, IOException {
+//    QRCodeWriter qrCodeWriter = new QRCodeWriter();
+//    Hashtable<EncodeHintType, ErrorCorrectionLevel> hintMap = new Hashtable<>();
+//    hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
+//    BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height, hintMap);
+//
+//    BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
+//    Graphics2D graphics = qrImage.createGraphics();
+//
+//    URL logoUrl = getClass().getResource("/images/logo2.jpg");
+//    BufferedImage logoImage = ImageIO.read(logoUrl);
+//    int deltaHeight = height - logoImage.getHeight();
+//    int deltaWidth = width - logoImage.getWidth();
+//
+//    graphics.drawImage(logoImage, Math.round(deltaWidth/2), Math.round(deltaHeight/2), null);
+//    graphics.dispose();
+//
+//    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+//    ImageIO.write(qrImage, "png", outputStream);
+//    byte[] byteArray = outputStream.toByteArray();
+//
+//    javafx.scene.image.Image finalImage = SwingFXUtils.toFXImage(qrImage, null);
+//    qrCodeImage.setImage(finalImage);
+//}
 }

@@ -12,6 +12,9 @@ module org.pi.demo {
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires javafx.swing;
+    requires com.google.zxing;
+    requires com.google.zxing.javase;
+    requires twilio;
 
     opens org.pi.demo to javafx.fxml;
     exports org.pi.demo;

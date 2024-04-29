@@ -19,7 +19,7 @@
                     <children>
                         <ImageView fitHeight="87.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../../images/416410478_914063033747346_4330283370965631652_n.png" />
+                                <Image url="@../../../images/logo.png" />
                             </image>
                         </ImageView>
                         <Label prefHeight="114.0" prefWidth="167.0" text="Khoudh&amp;Het">

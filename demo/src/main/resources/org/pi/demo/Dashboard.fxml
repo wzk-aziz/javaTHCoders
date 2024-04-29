@@ -22,7 +22,7 @@
                   <Insets top="30.0" />
                </VBox.margin>
                <image>
-                  <Image url="@../../../images/416410478_914063033747346_4330283370965631652_n.png" />
+                  <Image url="@../../../images/logo.png" />
                </image>
             </ImageView>
             <HBox prefHeight="46.0" prefWidth="206.0">
