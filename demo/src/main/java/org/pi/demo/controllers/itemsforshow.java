@@ -381,7 +381,7 @@ try {
             SMSService smsService = new SMSService();
             String to = "+21628504447";  // replace with the actual recipient's number
             String from = "+17479008244";  // replace with your Twilio number
-            String message = "The item " + item.getName() + " is out of stock.";
+            String message = "The item " + item.getName() + " is out of stock." +"on the inventory" + item.getInventory().getTitle() + "Please restock it.";
             smsService.sendSMS(to, from, message);
         }
     }

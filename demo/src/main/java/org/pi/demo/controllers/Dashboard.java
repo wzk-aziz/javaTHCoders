@@ -1,21 +1,38 @@
 package org.pi.demo.controllers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 import org.pi.demo.entities.Inventory;
 import org.pi.demo.entities.Items;
+import org.pi.demo.services.InventoryService;
 import org.pi.demo.services.ItemsService;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class Dashboard {
+    @FXML
+    private Label All_Inventories_Count;
 
+    @FXML
+    private Label All_Items_Count;
+
+    @FXML
+    private Label Percentage_of_exchanged_items;
     @FXML
     private ListView<Items> itemsListview;
 
@@ -55,6 +72,58 @@ public class Dashboard {
     } catch (SQLException e) {
         e.printStackTrace();
     }
+    try {
+        // Get services
+        ItemsService itemsService = ItemsService.getInstance();
+        InventoryService inventoryService = InventoryService.getInstance();
+
+        // Get all items and inventories
+        List<Items> items = itemsService.AfficherItems();
+        List<Inventory> inventories = inventoryService.AfficherInventory();
+
+        // Calculate and set percentage of exchanged items
+        // Assuming an item is considered "exchanged" if its quantity is 0
+        long exchangedItemsCount = items.stream().filter(item -> item.getQuantity() == 0).count();
+        double exchangedItemsPercentage = (double) exchangedItemsCount / items.size() * 100;
+
+        // Create IntegerProperties for gradual number loading
+        IntegerProperty inventoryCountProperty = new SimpleIntegerProperty(0);
+        IntegerProperty itemCountProperty = new SimpleIntegerProperty(0);
+        DoubleProperty exchangedItemsPercentageProperty = new SimpleDoubleProperty(0);
+
+        // Bind the text properties of the labels to the IntegerProperties
+        All_Inventories_Count.textProperty().bind(inventoryCountProperty.asString());
+        All_Items_Count.textProperty().bind(itemCountProperty.asString());
+        Percentage_of_exchanged_items.textProperty().bind(exchangedItemsPercentageProperty.asString("%.2f%%"));
+
+        // Create timelines for gradual number loading
+        Timeline inventoryCountTimeline = new Timeline(
+            new KeyFrame(Duration.seconds(2),
+                new KeyValue(inventoryCountProperty, inventories.size())
+            )
+        );
+
+        Timeline itemCountTimeline = new Timeline(
+            new KeyFrame(Duration.seconds(2),
+                new KeyValue(itemCountProperty, items.size())
+            )
+        );
+
+        Timeline exchangedItemsPercentageTimeline = new Timeline(
+            new KeyFrame(Duration.seconds(2),
+                new KeyValue(exchangedItemsPercentageProperty, exchangedItemsPercentage)
+            )
+        );
+
+        // Start the timelines
+        inventoryCountTimeline.play();
+        itemCountTimeline.play();
+        exchangedItemsPercentageTimeline.play();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
 }
 @FXML
 public void handleMouseClick(MouseEvent event) {

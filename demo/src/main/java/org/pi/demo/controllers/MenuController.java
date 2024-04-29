@@ -66,7 +66,7 @@ public class MenuController {
 
     @FXML
     void Dashboard(ActionEvent event) throws IOException {
-        Parent AjouterInventaireParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/DragandDrop.fxml")));
+        Parent AjouterInventaireParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/Dashboard.fxml")));
         Scene AjouterInventaireScene = new Scene(AjouterInventaireParent);
 
         // This line gets the Stage information
