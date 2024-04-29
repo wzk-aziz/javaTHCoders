@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class MyConnection {
 
-        public String url="jdbc:mysql://localhost:3306/dbpi?useSSL=false&serverTimezone=UTC";
+        public String url="jdbc:mysql://localhost:3306/dbpi";
         public String login="root";
         public String pwd="";
         public Connection connection;

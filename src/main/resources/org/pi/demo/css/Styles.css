@@ -6,7 +6,7 @@
     -fx-border-width: 2px; /* Largeur de la bordure */
 }
 .grid-container {
-   -fx-display: grid;
+    -fx-display: grid;
     -fx-gap: 10px; /* Espacement entre les éléments */
     background-color: blue;
     padding: 20px;

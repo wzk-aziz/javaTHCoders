@@ -12,11 +12,9 @@ public class User {
     private String password;
     private String profession;
     private Type roles;
-    private Boolean is_active;
-    private Boolean is_banned;
 
-    public User(int age, String firstname, String name, String email, String phone, String password, String profession, Type roles) {
-        this.age = age;
+    public User(int id, String firstname, String name, String email, String phone, String password, String profession, Type roles) {
+        this.id = id;
         this.firstname = firstname;
         this.name = name;
         this.email = email;
@@ -26,7 +24,7 @@ public class User {
         this.roles = roles;
     }
 
-    public User(int id, int age, String firstname, String name, String email, String phone, String password, String profession, Type roles, Boolean is_active, Boolean is_banned) {
+    public User(int id, int age, String firstname, String name, String email, String phone, String password, String profession, Type roles) {
         this.id = id;
         this.age = age;
         this.firstname = firstname;
@@ -36,8 +34,7 @@ public class User {
         this.password = password;
         this.profession = profession;
         this.roles = roles;
-        this.is_active = is_active;
-        this.is_banned = is_banned;
+
     }
 
     public User() {
@@ -79,14 +76,6 @@ public class User {
         return roles;
     }
 
-    public Boolean getIs_active() {
-        return is_active;
-    }
-
-    public Boolean getIs_banned() {
-        return is_banned;
-    }
-
     public void setAge(int age) {
         this.age = age;
     }
@@ -119,12 +108,32 @@ public class User {
         this.roles = roles;
     }
 
+    public User(int id, int age, String firstname, String name, String email, String phone, String password, String profession, Type roles, Boolean is_active, Boolean is_banned) {
+        this.id = id;
+        this.age = age;
+        this.firstname = firstname;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+        this.profession = profession;
+        this.roles = roles;
 
-    public void setIs_active(Boolean is_active) {
-        this.is_active = is_active;
     }
 
-    public void setIs_banned(Boolean is_banned) {
-        this.is_banned = is_banned;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", age=" + age +
+                ", firstname='" + firstname + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", password='" + password + '\'' +
+                ", profession='" + profession + '\'' +
+                ", roles=" + roles +
+                '}';
     }
+
 }

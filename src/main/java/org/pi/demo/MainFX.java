@@ -13,7 +13,7 @@ public class MainFX extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
         MyConnection mc = new MyConnection();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("Register.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("User.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Hello!");
         stage.setScene(scene);
