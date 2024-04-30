@@ -110,14 +110,15 @@ public class UserService implements UserInterface {
         }
 
         // Prepare SQL update statement
-        String request = "UPDATE user SET firstname = ?, lastname = ?, email = ?, phone = ? WHERE id = ?";
+        String request = "UPDATE user SET firstname = ?, name = ?, email = ?, phone = ?, profession = ? WHERE id = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(request);
             preparedStatement.setString(1, user.getFirstname());
             preparedStatement.setString(2, user.getName());
             preparedStatement.setString(3, user.getEmail());
             preparedStatement.setString(4, user.getPhone());
-            preparedStatement.setInt(5, user.getId());
+            preparedStatement.setString(5, user.getProfession());
+            preparedStatement.setInt(6, user.getId());
 
             // Execute the update statement
             int rowsAffected = preparedStatement.executeUpdate();
