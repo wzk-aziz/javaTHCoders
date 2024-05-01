@@ -12,6 +12,28 @@ public class User {
     private String password;
     private String profession;
     private Type roles;
+    private Boolean is_active;
+
+    private Boolean is_banned;
+
+
+    public Boolean getIsActive() {
+        return is_active;
+    }
+
+    public void setIsActive(Boolean is_active) {
+        this.is_active = is_active;
+    }
+
+    public Boolean getIsBanned() {
+        return is_banned;
+    }
+
+    public void setIsBanned(Boolean is_banned) {
+        this.is_banned = is_banned;
+    }
+
+
 
     public User(int id, String firstname, String name, String email, String phone, String password, String profession, Type roles) {
         this.id = id;

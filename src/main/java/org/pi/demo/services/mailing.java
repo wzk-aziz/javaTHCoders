@@ -26,19 +26,30 @@ public class mailing {
         });
     }
 
-    public void sendEmail(User to) throws MessagingException {
+    public void sendEmail(User to,String code ) throws MessagingException {
+        // Create a MimeMessage
         Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress("no-reply@greenta.tn"));
-        message.setRecipients(
-                Message.RecipientType.TO, InternetAddress.parse(to.getEmail())
-        );
-        message.setSubject("Password reset request:" + to.getFirstname());
+        message.setFrom(new InternetAddress("no-reply@5oudhwhet.tn"));
+        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to.getEmail()));
+        message.setSubject("Password reset request: " + to.getFirstname());
 
-        String msg = "Dear " + to.getFirstname() + " " + to.getName() + ", your password has been updated successfully." +
-                " If you didn't request this change, please contact us immediately. Thank you.";
+        // Customize the email message
+        String msg = "<html>"
+                + "<body>"
+                + "<p>Dear " + to.getFirstname() + " " + to.getName() + ",</p>"
+                + "<p>You forgot your password.</p>"
+                + "<p>Here is the code to retrieve it:</p>"
+                + "<p style='font-size: 18px; font-weight: bold;'>" + code + "</p>"
+                + "</body>"
+                + "</html>";
 
-        message.setText(msg);
+        // Set the message content as HTML
+        message.setContent(msg, "text/html");
 
+        // Send the email
         Transport.send(message);
     }
 }
+
+
+

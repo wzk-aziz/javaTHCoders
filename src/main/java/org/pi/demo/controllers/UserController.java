@@ -122,7 +122,7 @@ public class UserController extends Application {
     @FXML
     void onForgetPasswordClick(MouseEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/greenta/PhoneNumber.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/org/pi/demo/forget.fxml"));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -165,16 +165,7 @@ public class UserController extends Application {
             stage.show();
 
             // Create an instance of the mailing class
-            mailing mailer = new mailing();
 
-            try {
-                // Call the sendEmail method of the mailing instance, passing the user as parameter
-                mailer.sendEmail(user);
-                System.out.println("Email sent successfully.");
-            } catch (MessagingException e) {
-                System.err.println("Failed to send email: " + e.getMessage());
-                e.printStackTrace();
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -31,6 +31,11 @@
             <artifactId>jakarta.mail</artifactId>
             <version>2.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>de.triology.recaptchav2-java</groupId>
+            <artifactId>recaptchav2-java</artifactId>
+            <version>1.0.2</version>
+        </dependency>
         <!-- https://github.com/eclipse-ee4j/angus-mail -->
         <dependency>
             <groupId>org.eclipse.angus</groupId>

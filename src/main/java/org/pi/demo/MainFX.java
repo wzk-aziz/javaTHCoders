@@ -3,6 +3,8 @@ package org.pi.demo;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import org.pi.demo.services.SessionService;
 import org.pi.demo.services.UserService;
@@ -15,7 +17,7 @@ public class MainFX extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
         MyConnection mc = new MyConnection();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("User.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("user.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Hello!");
         stage.setScene(scene);
@@ -23,6 +25,7 @@ public class MainFX extends Application {
         UserService userService = UserService.getInstance();
         SessionService sessionService = SessionService.getInstance();
         mailing mailService = new mailing();
+
     }
 
     public static void main(String[] args) {
