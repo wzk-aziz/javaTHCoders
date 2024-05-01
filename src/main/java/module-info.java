@@ -3,6 +3,7 @@ module org.pi.demo {
     requires javafx.fxml;
     requires javafx.web;
 
+
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
@@ -13,6 +14,8 @@ module org.pi.demo {
     requires java.sql;
     requires javafx.swing;
     requires bcrypt;
+    requires jakarta.mail;
+
 
     opens org.pi.demo to javafx.fxml;
     exports org.pi.demo;

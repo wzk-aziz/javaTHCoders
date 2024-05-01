@@ -1,5 +1,7 @@
 package org.pi.demo.controllers;
 
+
+import jakarta.mail.MessagingException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +18,7 @@ import org.pi.demo.Exceptions.UserNotFoundException;
 import org.pi.demo.entities.User;
 import org.pi.demo.services.SessionService;
 import org.pi.demo.services.UserService;
+import org.pi.demo.services.mailing;
 import org.pi.demo.services.ValidationService;
 import org.pi.demo.utils.MyConnection;
 
@@ -143,6 +146,7 @@ public class UserController extends Application {
         //System.out.println(user.getPassword());
         System.out.println("password");
         //System.out.println(password);
+
         // Verify password
         if (!userService.verifyPassword(password, user.getPassword())) {
             System.out.println("no");
@@ -159,6 +163,18 @@ public class UserController extends Application {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+
+            // Create an instance of the mailing class
+            mailing mailer = new mailing();
+
+            try {
+                // Call the sendEmail method of the mailing instance, passing the user as parameter
+                mailer.sendEmail(user);
+                System.out.println("Email sent successfully.");
+            } catch (MessagingException e) {
+                System.err.println("Failed to send email: " + e.getMessage());
+                e.printStackTrace();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
