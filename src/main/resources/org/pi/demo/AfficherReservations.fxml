@@ -33,6 +33,11 @@
                   <Insets bottom="50.0" left="75.0" top="20.0" />
                </HBox.margin>
             </Label>
+            <Button mnemonicParsing="false" onAction="#back_btn" text="Back">
+               <HBox.margin>
+                  <Insets left="232.0" top="10.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
       <HBox layoutY="569.0" prefHeight="106.0" prefWidth="916.0" style="-fx-background-color: #ED5A5B;">

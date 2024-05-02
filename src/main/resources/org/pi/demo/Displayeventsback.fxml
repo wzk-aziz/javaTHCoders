@@ -145,5 +145,6 @@
         </HBox>
         <TextField fx:id="searchbar" layoutX="394.0" layoutY="20.0" />
         <Button layoutX="306.0" layoutY="20.0" mnemonicParsing="false" onAction="#search_btn" text="Recherche" />
+      <Button layoutX="902.0" layoutY="20.0" mnemonicParsing="false" onAction="#ajout_dash" text="Back" />
     </children>
 </AnchorPane>

@@ -28,5 +28,17 @@ void consulterreservation(ActionEvent event) {
             e.printStackTrace();
         }
     }
+    @FXML
 
+    void dashboard_btn (ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/pi/demo/MenuBack.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
