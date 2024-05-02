@@ -13,7 +13,8 @@ public class MainFX extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
         MyConnection mc = new MyConnection();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("MenuBack.fxml" ));
+     // FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("MenuBack.fxml" ));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("Menufront.fxml" ));
         //pour menu back "MenuBack.fxml" pour menu front "MenuFront.fxml"
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Hello!");

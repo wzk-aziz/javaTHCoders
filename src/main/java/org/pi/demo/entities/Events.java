@@ -9,6 +9,9 @@ public class Events {
     private String image;
     private int capacity;
     private Date start_date,end_date;
+    //new
+    private float latitude;
+    private float longitude;
 
     public Events() {
     }
@@ -32,6 +35,31 @@ public class Events {
         this.capacity = capacity;
         this.start_date = start_date;
         this.end_date = end_date;
+    }
+
+    public Events(int id, String event_name, String place, String description ,String image, int capacity, Date start_date, Date end_date,float latitude,float longitude) {
+        this.id = id;
+        this.event_name = event_name;
+        this.place = place;
+        this.description = description;
+        this.image = image;
+        this.capacity = capacity;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public Events(String event_name, String place, String description ,String image, int capacity, Date start_date, Date end_date,float latitude,float longitude) {
+        this.event_name = event_name;
+        this.place = place;
+        this.description = description;
+        this.image = image;
+        this.capacity = capacity;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getPlace() {
@@ -96,6 +124,22 @@ public class Events {
 
     public void setEnd_date(Date end_date) {
         this.end_date = end_date;
+    }
+
+    public float getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
+    }
+
+    public float getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(float longitude) {
+        this.longitude = longitude;
     }
 
     @Override

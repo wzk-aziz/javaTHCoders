@@ -3,6 +3,7 @@ package org.pi.demo.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -11,7 +12,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.pi.demo.Interfaces.MyListener;
+import org.pi.demo.MainFX;
 import org.pi.demo.entities.Events;
 import org.pi.demo.entities.Events;
 import org.pi.demo.services.EventService;
@@ -82,7 +85,6 @@ public class Displayeventsback {
     private LocalDate end_date;
     private String imagePath = null; // Variable to store the image path
 
-
     private MyListener myListener;
 
     public void setStart_dateString(String start_dateString) {
@@ -120,6 +122,7 @@ public class Displayeventsback {
                 date_fin.setValue(endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 
                 description.setText(events.getDescription());
+
 
                 // Load and display event image
                 try {
@@ -384,5 +387,5 @@ public class Displayeventsback {
             }
         }
     }
-}
 
+}

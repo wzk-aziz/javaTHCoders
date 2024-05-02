@@ -5,13 +5,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.pi.demo.entities.Events;
+import org.pi.demo.MainFX;
 import org.pi.demo.entities.Events;
 import org.pi.demo.services.EventService;
 
@@ -26,7 +31,8 @@ public class AjouterEvent {
     private TextField capacity;
     @FXML
     private DatePicker debutEvent;
-
+    @FXML
+    private WebView webView;
     @FXML
     private TextField descEvent;
 
@@ -58,7 +64,27 @@ public class AjouterEvent {
             return null;
         }));
 
+        place.textProperty().addListener((observable, oldValue, newValue) -> {
+            WebEngine webEngine = webView.getEngine();
+            String mapHtml = "<!DOCTYPE html>\n" +
+                    "<html>\n" +
+                    "<head>\n" +
+                    "    <title>Embedded Google Map</title>\n" +
+                    "</head>\n" +
+                    "<body>\n" +
+                    "<iframe\n" +
+                    "        width=\"600\"\n" +
+                    "        height=\"450\"\n" +
+                    "        frameborder=\"0\" style=\"border:0\"\n" +
+                    "        src=\"http://maps.google.com/maps?q=" + newValue + "&output=embed\"\n" +
+                    "        allowfullscreen>\n" +
+                    "</iframe>\n" +
+                    "</body>\n" +
+                    "</html>";
+            webEngine.loadContent(mapHtml);
+        });
     }
+
     @FXML
     void ListeEvent(ActionEvent event) {
         try {
@@ -72,84 +98,85 @@ public class AjouterEvent {
         }
     }
 
-   @FXML
-   void ajouterEvent(ActionEvent event) {
-       try {
-           // Get the current date
-           LocalDate currentDate = LocalDate.now();
+    @FXML
+    void ajouterEvent(ActionEvent event) {
+        try {
+            // Get the current date
+            LocalDate currentDate = LocalDate.now();
 
-           // Get the selected start and end dates
-           LocalDate selectedStartDate = debutEvent.getValue();
-           LocalDate selectedEndDate = finEvent.getValue();
+            // Get the selected start and end dates
+            LocalDate selectedStartDate = debutEvent.getValue();
+            LocalDate selectedEndDate = finEvent.getValue();
 
-           // Check if the selected start date is null
-           if (selectedStartDate == null) {
-               showAlert("All fields must be filled");
-               return;
-           }
+            // Check if the selected start date is null
+            if (selectedStartDate == null) {
+                showAlert("All fields must be filled");
+                return;
+            }
 
-           // Check if the selected start date is before the current date
-           if (selectedStartDate.isBefore(currentDate)) {
-               showAlert("Start date cannot be before the current date");
-               return;
-           }
+            // Check if the selected start date is before the current date
+            if (selectedStartDate.isBefore(currentDate)) {
+                showAlert("Start date cannot be before the current date");
+                return;
+            }
 
-           // Check if the selected end date is null
-           if (selectedEndDate == null) {
-               showAlert("All fields must be filled");
-               return;
-           }
+            // Check if the selected end date is null
+            if (selectedEndDate == null) {
+                showAlert("All fields must be filled");
+                return;
+            }
 
-           // Check if the selected end date is before the selected start date
-           if (selectedEndDate.isBefore(selectedStartDate) || selectedEndDate.isEqual(selectedStartDate)) {
-               showAlert("End date cannot be before or equal to the start date");
-               return;
-           }
+            // Check if the selected end date is before the selected start date
+            if (selectedEndDate.isBefore(selectedStartDate) || selectedEndDate.isEqual(selectedStartDate)) {
+                showAlert("End date cannot be before or equal to the start date");
+                return;
+            }
 
-           // Validate input fields
-           if (nomEvent.getText().isEmpty() || capacity.getText().isEmpty() || descEvent.getText().isEmpty() || place.getText().isEmpty() || imagePath == null) {
-               System.out.println("Fields cannot be empty!");
-               Alert alert = new Alert(Alert.AlertType.INFORMATION);
-               alert.setTitle("Validation");
-               alert.setHeaderText("Fields cannot be empty!");
-               alert.setContentText("All fields must be filled!");
-               alert.showAndWait();
-               return;
-           }
+            // Validate input fields
+            if (nomEvent.getText().isEmpty() || capacity.getText().isEmpty() || descEvent.getText().isEmpty() || place.getText().isEmpty() || imagePath == null) {
+                System.out.println("Fields cannot be empty!");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Validation");
+                alert.setHeaderText("Fields cannot be empty!");
+                alert.setContentText("All fields must be filled!");
+                alert.showAndWait();
+                return;
+            }
 
-           String eventName = nomEvent.getText();
-           String eventPlace = place.getText();
-           String eventDescription = descEvent.getText();
-           int eventCapacity = Integer.parseInt(capacity.getText());
-           Date eventStartDate = java.sql.Date.valueOf(selectedStartDate);
-           Date eventEndDate = java.sql.Date.valueOf(selectedEndDate);
-           String eventImage = imagePath; // Use the stored image path
+            String eventName = nomEvent.getText();
+            String eventPlace = place.getText();
+            String eventDescription = descEvent.getText();
+            int eventCapacity = Integer.parseInt(capacity.getText());
+            Date eventStartDate = java.sql.Date.valueOf(selectedStartDate);
+            Date eventEndDate = java.sql.Date.valueOf(selectedEndDate);
+            String eventImage = imagePath; // Use the stored image path
 
-           Events newEvent = new Events(eventName, eventPlace, eventDescription, eventImage, eventCapacity, eventStartDate, eventEndDate);
-           EventService.getInstance().addEvent(newEvent);
+            Events newEvent = new Events(eventName, eventPlace, eventDescription, eventImage, eventCapacity, eventStartDate, eventEndDate);
+            EventService.getInstance().addEvent(newEvent);
 
-           // Clear the fields after adding the event
-           nomEvent.clear();
-           place.clear();
-           descEvent.clear();
-           capacity.clear();
-           debutEvent.getEditor().clear();
-           finEvent.getEditor().clear();
-           imageTF.setImage(null); // Clear the image field
-           imagePath = null; // Clear the image path
-       } catch (SQLException e) {
-           e.printStackTrace();
-       }
-   }
+            // Clear the fields after adding the event
+            nomEvent.clear();
+            place.clear();
+            descEvent.clear();
+            capacity.clear();
+            debutEvent.getEditor().clear();
+            finEvent.getEditor().clear();
+            imageTF.setImage(null); // Clear the image field
+            imagePath = null; // Clear the image path
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
-private void showAlert(String message) {
-    Alert alert = new Alert(Alert.AlertType.ERROR);
-    alert.setTitle("Validation Error");
-    alert.setHeaderText(null);
-    alert.setContentText(message);
-    alert.showAndWait();
-}
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Validation Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
     @FXML
     void displayev(MouseEvent event) {
 
@@ -169,17 +196,19 @@ private void showAlert(String message) {
             System.out.println("No file selected");
         }
     }
-@FXML
-     void listeEvent(MouseEvent mouseEvent) {
-    try {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/pi/demo/Displayeventsback.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    }
-}
 
+    @FXML
+    void listeEvent(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/pi/demo/Displayeventsback.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+}

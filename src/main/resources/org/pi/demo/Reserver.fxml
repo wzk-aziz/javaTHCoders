@@ -12,14 +12,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="660.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.Reserver">
+<AnchorPane prefHeight="728.0" prefWidth="1254.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.Reserver">
     <children>
-        <VBox prefHeight="674.0" prefWidth="246.0" style="-fx-background-color: #ED5A5B;">
+        <VBox prefHeight="742.0" prefWidth="246.0" style="-fx-background-color: #ED5A5B;">
             <children>
                 <HBox prefHeight="77.0" prefWidth="291.0">
                     <children>
@@ -35,90 +35,89 @@
                         </Label>
                     </children>
                 </HBox>
-                <HBox prefHeight="43.0" prefWidth="266.0" />
-                <Pane prefHeight="33.0" prefWidth="266.0" />
-                <VBox fx:id="chosenEventCard" alignment="CENTER" prefHeight="625.0" prefWidth="203.0" stylesheets="@Style2.css">
-                    <children>
-                        <VBox prefHeight="560.0" prefWidth="203.0">
-                            <children>
-                                <Label fx:id="event_name_label" prefHeight="18.0" prefWidth="62.0" text="Event name">
-                                    <VBox.margin>
-                                        <Insets />
-                                    </VBox.margin>
-                                </Label>
-                                <TextField fx:id="event_name" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
-                                    <VBox.margin>
-                                        <Insets left="10.0" right="10.0" top="20.0" />
-                                    </VBox.margin>
-                                </TextField>
-                                <Label fx:id="event_place_label" prefHeight="18.0" prefWidth="90.0" text="Event place">
-                                    <VBox.margin>
-                                        <Insets left="10.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <TextField fx:id="event_place" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
-                                    <VBox.margin>
-                                        <Insets left="10.0" right="10.0" top="5.0" />
-                                    </VBox.margin>
-                                </TextField>
-                                <Label fx:id="event_capacity_label" prefHeight="18.0" prefWidth="90.0" text="Capacité">
-                                    <VBox.margin>
-                                        <Insets left="10.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <TextField fx:id="capacity" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
-                                    <VBox.margin>
-                                        <Insets left="10.0" right="10.0" top="5.0" />
-                                    </VBox.margin>
-                                </TextField>
-                                <Label fx:id="date_debut_label" prefHeight="18.0" prefWidth="90.0" text="D">
-                                    <VBox.margin>
-                                        <Insets left="10.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <DatePicker fx:id="date_debut" promptText="date debut">
-                                    <VBox.margin>
-                                        <Insets left="20.0" />
-                                    </VBox.margin>
-                                </DatePicker>
-                                <Label text="Date fin">
-                                    <VBox.margin>
-                                        <Insets left="10.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <DatePicker fx:id="date_fin" promptText="date fin">
-                                    <VBox.margin>
-                                        <Insets left="20.0" />
-                                    </VBox.margin>
-                                </DatePicker>
-                                <Label text="Description">
-                                    <VBox.margin>
-                                        <Insets left="10.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <TextField fx:id="description" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
-                                    <VBox.margin>
-                                        <Insets left="10.0" right="10.0" top="10.0" />
-                                    </VBox.margin>
-                                </TextField>
-                                <ImageView fx:id="event_image" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                            </children>
-                        </VBox>
-                    </children>
-                    <styleClass>
-                        <String fx:value="chosen-item-card" />
-                        <String fx:value="shadow" />
-                    </styleClass>
-                    <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="23.0" />
-                    </VBox.margin>
-                </VBox>
+                <HBox prefHeight="43.0" prefWidth="266.0">
+               <children>
+                      <VBox fx:id="chosenEventCard" alignment="CENTER" prefHeight="625.0" prefWidth="203.0" stylesheets="@Style2.css">
+                          <children>
+                              <VBox prefHeight="560.0" prefWidth="203.0">
+                                  <children>
+                                      <Label fx:id="event_name_label" prefHeight="18.0" prefWidth="62.0" text="Event name">
+                                          <VBox.margin>
+                                              <Insets />
+                                          </VBox.margin>
+                                      </Label>
+                                      <TextField fx:id="event_name" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
+                                          <VBox.margin>
+                                              <Insets left="10.0" right="10.0" top="20.0" />
+                                          </VBox.margin>
+                                      </TextField>
+                                      <Label fx:id="event_place_label" prefHeight="18.0" prefWidth="90.0" text="Event place">
+                                          <VBox.margin>
+                                              <Insets left="10.0" />
+                                          </VBox.margin>
+                                      </Label>
+                                      <TextField fx:id="event_place" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
+                                          <VBox.margin>
+                                              <Insets left="10.0" right="10.0" top="5.0" />
+                                          </VBox.margin>
+                                      </TextField>
+                                      <Label fx:id="event_capacity_label" prefHeight="18.0" prefWidth="90.0" text="Capacité">
+                                          <VBox.margin>
+                                              <Insets left="10.0" />
+                                          </VBox.margin>
+                                      </Label>
+                                      <TextField fx:id="capacity" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
+                                          <VBox.margin>
+                                              <Insets left="10.0" right="10.0" top="5.0" />
+                                          </VBox.margin>
+                                      </TextField>
+                                      <Label fx:id="date_debut_label" prefHeight="18.0" prefWidth="90.0" text="Date debut">
+                                          <VBox.margin>
+                                              <Insets left="10.0" />
+                                          </VBox.margin>
+                                      </Label>
+                                      <DatePicker fx:id="date_debut" promptText="date debut">
+                                          <VBox.margin>
+                                              <Insets left="20.0" />
+                                          </VBox.margin>
+                                      </DatePicker>
+                                      <Label text="Date fin">
+                                          <VBox.margin>
+                                              <Insets left="10.0" />
+                                          </VBox.margin>
+                                      </Label>
+                                      <DatePicker fx:id="date_fin" promptText="date fin">
+                                          <VBox.margin>
+                                              <Insets left="20.0" />
+                                          </VBox.margin>
+                                      </DatePicker>
+                                      <Label text="Description">
+                                          <VBox.margin>
+                                              <Insets left="10.0" />
+                                          </VBox.margin>
+                                      </Label>
+                                      <TextField fx:id="description" prefHeight="38.0" prefWidth="210.0" styleClass="search-box" stylesheets="@Style2.css">
+                                          <VBox.margin>
+                                              <Insets left="10.0" right="10.0" top="10.0" />
+                                          </VBox.margin>
+                                      </TextField>
+                                      <ImageView fx:id="event_image" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                  </children>
+                              </VBox>
+                          </children>
+                          <styleClass>
+                              <String fx:value="chosen-item-card" />
+                              <String fx:value="shadow" />
+                          </styleClass>
+                      </VBox>
+               </children></HBox>
                 <HBox prefHeight="28.0" prefWidth="246.0" />
+            <WebView fx:id="webview" prefHeight="234.0" prefWidth="246.0" />
             </children>
         </VBox>
-        <HBox layoutX="267.2" prefHeight="400.0" prefWidth="694.0" AnchorPane.bottomAnchor="261.0" AnchorPane.leftAnchor="267.0" AnchorPane.topAnchor="0.0">
+        <HBox layoutX="267.2" layoutY="55.0" prefHeight="426.0" prefWidth="668.0" AnchorPane.bottomAnchor="261.0" AnchorPane.leftAnchor="267.0" AnchorPane.topAnchor="55.0">
             <children>
-                <ScrollPane fx:id="scroll" prefHeight="382.0" prefWidth="650.0">
+                <ScrollPane fx:id="scroll" prefHeight="424.0" prefWidth="650.0">
                     <HBox.margin>
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                     </HBox.margin>
@@ -132,7 +131,7 @@
                 </ScrollPane>
             </children>
         </HBox>
-      <HBox layoutX="246.0" layoutY="436.0" prefHeight="238.0" prefWidth="733.0" style="-fx-background-color: #ED5A5B;">
+      <HBox layoutX="247.0" layoutY="503.0" prefHeight="238.0" prefWidth="694.0" style="-fx-background-color: #ED5A5B;">
          <children>
             <VBox prefHeight="238.0" prefWidth="304.0">
                <children>
@@ -164,5 +163,21 @@
                   </Button>
          </children>
       </HBox>
+      <ScrollPane layoutX="941.0" layoutY="63.0" prefHeight="647.0" prefWidth="304.0">
+         <content>
+            <GridPane fx:id="grid_top" prefHeight="0.0" prefWidth="0.0">
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Label layoutX="1007.0" prefHeight="74.0" prefWidth="166.0" text="TOP 3 EVENTS">
+         <font>
+            <Font name="Freestyle Script" size="32.0" />
+         </font>
+      </Label>
+      <TextField fx:id="searchbar" layoutX="344.0" layoutY="24.0" prefHeight="26.0" prefWidth="590.0" />
+      <Button layoutX="267.0" layoutY="25.0" mnemonicParsing="false" onAction="#search_btn" text="Recherche" />
     </children>
 </AnchorPane>
