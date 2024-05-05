@@ -8,6 +8,7 @@ import org.pi.demo.utils.MyConnection;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import org.pi.demo.utils.Type;
 
+import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -192,7 +193,9 @@ public class UserService implements UserInterface {
                 System.out.println("found  user");
                 System.out.println(user.toString());
             } else {
+                JOptionPane.showMessageDialog(null, "email not found");
                 throw new UserNotFoundException("User with email " + email + " doesn't exist.");
+
             }
             resultSet.close();
             statement.close();

@@ -50,22 +50,22 @@
             <Image url="@../../../images/sweden-change-replace-car.jpg" /> <!-- Update the file path with the correct path to your image file -->
          </image>
       </ImageView>
-      <Label fx:id="EmptyFieldException" layoutX="60.0" layoutY="107.0" prefHeight="15.0" prefWidth="163.0" textFill="RED">
+      <Label fx:id="EmptyFieldException" layoutX="60.0" layoutY="107.0" prefHeight="15.0" prefWidth="163.0" textFill="white">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <Label fx:id="UserNotFoundExceptionLabel" layoutX="47.0" layoutY="429.0" prefHeight="15.0" prefWidth="206.0" textFill="RED">
+      <Label fx:id="UserNotFoundExceptionLabel" layoutX="47.0" layoutY="429.0" prefHeight="15.0" prefWidth="206.0" textFill="white">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <Label fx:id="InvalidEmailExceptionLabel" layoutX="66.0" layoutY="401.0" prefHeight="15.0" prefWidth="150.0" textFill="RED">
+      <Label fx:id="InvalidEmailExceptionLabel" layoutX="66.0" layoutY="401.0" prefHeight="15.0" prefWidth="150.0" textFill="white">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <Label fx:id="InvalidPasswordExceptionLabel" layoutX="72.0" layoutY="465.0" prefHeight="15.0" prefWidth="150.0" textFill="RED">
+      <Label fx:id="InvalidPasswordExceptionLabel" layoutX="72.0" layoutY="465.0" prefHeight="15.0" prefWidth="150.0" textFill="white">
          <font>
             <Font size="10.0" />
          </font>

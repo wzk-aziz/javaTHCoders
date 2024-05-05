@@ -14,7 +14,7 @@ import org.pi.demo.entities.User;
 import org.pi.demo.services.SessionService;
 import org.pi.demo.services.UserService;
 import org.pi.demo.utils.Type;
-
+import java.util.prefs.Preferences;
 import java.io.IOException;
 
 public class ProfileController {
@@ -65,7 +65,11 @@ public class ProfileController {
                 email.setText(currentUser.getEmail());
                 phone.setText(currentUser.getPhone());
                 profession.setText(currentUser.getProfession());
+                Preferences userPreferences = Preferences.userRoot();
+                String retrievedValue = userPreferences.get("1", "defaultValue");
 
+                // Print the retrieved value
+                System.out.println("Retrieved value for key '" + "1" + "': " + retrievedValue);
                 // Set the role label based on the user's role
                 if (currentUser.getRoles() == Type.ROLE_ADMIN) {
                     role.setText("Admin");

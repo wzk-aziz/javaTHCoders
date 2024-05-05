@@ -16,7 +16,9 @@ import java.util.Random;
 
 public class PasswordResetService {
     Connection connection = MyConnection.getInstance().getConnection();
-    private Map<String, String> verificationCodes = new HashMap<>();
+
+    Map<String, String> verificationCodes = new HashMap<>();
+
     ValidationService validationService = new ValidationService();
     UserService userService = UserService.getInstance();
     private static PasswordResetService instance;
@@ -37,7 +39,7 @@ public class PasswordResetService {
     // Send SMS with verification code (Replace this with actual SMS sending code)
     public void sendVerificationCode(String email) throws UserNotFoundException {
         String verificationCode = generateVerificationCode();
-        verificationCodes.put(email, verificationCode); // Store the verification code
+        verificationCodes.put(email, verificationCode);// Store the verification code
         mailing mailer = new mailing();
         User user = UserService.getInstance().getUserbyEmail(email);
         try {
@@ -48,14 +50,16 @@ public class PasswordResetService {
             System.err.println("Failed to send email: " + e.getMessage());
             e.printStackTrace();
         }
-        verificationCodes.put(email, verificationCode);
     }
 
     // Verify SMS code
-    public boolean verifySMSCode(String phoneNumber, String enteredCode) {
-        String storedCode = verificationCodes.get(phoneNumber); // Retrieve stored code
+    public boolean verifySMSCode(String email, String enteredCode) {
+        String storedCode = verificationCodes.get(email);// Retrieve stored code
+        System.out.println(email);
+        System.out.println(storedCode);
         if (storedCode != null) {
             return enteredCode.equals(storedCode);
+
         }
         return false; // If no stored code found for the phone number
     }

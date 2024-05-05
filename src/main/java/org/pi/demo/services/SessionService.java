@@ -3,7 +3,7 @@ package org.pi.demo.services;
 import org.pi.demo.Exceptions.*;
 import org.pi.demo.entities.User;
 import org.pi.demo.utils.MyConnection;
-
+import java.util.prefs.Preferences;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -41,7 +41,6 @@ public class SessionService {
     }
 
     public boolean login(String email, String password) throws EmptyFieldException, InvalidEmailException, IncorrectPasswordException, UserNotFoundException, AccountLockedException {
-
         UserService userService = UserService.getInstance();
         ValidationService validationService = new ValidationService();
 
@@ -59,6 +58,13 @@ public class SessionService {
         if (user != null) {
             if (userService.verifyPassword(password, user.getPassword())) {
                 currentUser = user;
+                Preferences userPreferences = Preferences.userRoot();
+                userPreferences.put("user",user.getEmail());
+                String retrievedValue = userPreferences.get("1", "defaultValue");
+
+                // Print the retrieved value
+                System.out.println("Retrieved value for key '" + "1" + "': " + retrievedValue);
+
                 return true;
             } else {
                 throw new IncorrectPasswordException("Password is incorrect.");

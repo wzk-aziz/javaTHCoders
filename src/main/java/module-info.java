@@ -15,6 +15,7 @@ module org.pi.demo {
     requires javafx.swing;
     requires bcrypt;
     requires jakarta.mail;
+    requires java.prefs;
 
 
     opens org.pi.demo to javafx.fxml;

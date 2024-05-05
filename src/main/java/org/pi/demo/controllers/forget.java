@@ -44,7 +44,20 @@ public class forget {
     }
 
     @FXML
-    void sendCodeBtn(ActionEvent event) {
+    void sendCodeBtn(ActionEvent event) throws UserNotFoundException, IOException {
+        String mail = email.getText();
+            // Call sendVerificationCode method from PasswordResetService
+        PasswordResetService resetService = new PasswordResetService();
+        resetService.sendVerificationCode(mail);
+
+            // Navigate to RandomCodeController
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/pi/demo/RandomCode.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setUserData(mail);
+        stage.setScene(scene);
+        stage.show();
 
     }
     @FXML

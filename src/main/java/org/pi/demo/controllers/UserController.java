@@ -22,8 +22,12 @@ import org.pi.demo.services.mailing;
 import org.pi.demo.services.ValidationService;
 import org.pi.demo.utils.MyConnection;
 
+import javax.swing.*;
 import java.io.*;
 import java.sql.Connection;
+import java.util.Objects;
+import java.util.prefs.BackingStoreException;
+import java.util.prefs.Preferences;
 
 public class UserController extends Application {
 
@@ -66,55 +70,65 @@ public class UserController extends Application {
     private User currentUser;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, UserNotFoundException {
         FXMLLoader fxmlLoader = new FXMLLoader(UserController.class.getResource("/org/pi/demo/User.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("pi");
+        stage.setTitle("user login");
         stage.setScene(scene);
         stage.show();
+        Preferences userPreferences = Preferences.userRoot();
+        String retrievedValue = userPreferences.get("remember", "defaultValue");
+        System.out.println("Retrieved value for key '" + "remember" + "': " + retrievedValue);
+        boolean isNotEmpty = userPreferences.get("remember", null) != null;
+
+        if(isNotEmpty) {
+            stage.close();
+            loginauto();
+        }
+
     }
     public static void main(String[] args) {
         launch();
     }
 
-    public void initialize() {
-        loadCredentials();
+    public void initialize() throws BackingStoreException, UserNotFoundException, IOException {
+        Preferences userPreferences = Preferences.userRoot();
+        //userPreferences.clear();
+        String retrievedValue = userPreferences.get("remember", "defaultValue");
+        System.out.println("Retrieved value for key '" + "remember" + "': " + retrievedValue);
+        //userPreferences.clear();
+        }
+
+
+
+    private void loginauto() throws UserNotFoundException, IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/profile.fxml")));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+
     }
 
+
     private void saveCredentials(String email, String password) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(CREDENTIALS_FILE))) {
-            writer.write(email + "," + password);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Preferences userPreferences = Preferences.userRoot();
+            userPreferences.put("remember",emailField.getText());
+            String retrievedValue = userPreferences.get("remember", "defaultValue");
     }
-    private void loadCredentials() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(CREDENTIALS_FILE))) {
-            String line = reader.readLine();
-            if (line != null) {
-                String[] parts = line.split(",");
-                emailField.setText(parts[0]);
-                passwordField.setText(parts[1]);
-                rememberMeCheckBox.setSelected(true);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    private void clearCredentials() {
-        File file = new File(CREDENTIALS_FILE);
-        if (file.exists()) {
-            file.delete();
-        }
+    private void clearCredentials() throws BackingStoreException {
+        Preferences userPreferences = Preferences.userRoot();
+        userPreferences.clear();
     }
     @FXML
-    public void rememberMe(ActionEvent actionEvent) {
+    public void rememberMe(ActionEvent actionEvent) throws BackingStoreException {
         if (rememberMeCheckBox.isSelected()) {
             String email = emailField.getText();
             String password = passwordField.getText();
-            saveCredentials(email, password);
         } else {
-            clearCredentials();
+            Preferences userPreferences = Preferences.userRoot();
+            userPreferences.clear();
         }
     }
 
@@ -134,22 +148,19 @@ public class UserController extends Application {
     }
 
     @FXML
-    void onLoginClick(ActionEvent actionEvent) throws UserNotFoundException {
+    void onLoginClick(ActionEvent actionEvent) throws UserNotFoundException, BackingStoreException {
         String email = emailField.getText();
         String password = passwordField.getText();
         // Retrieve user from the database
         User user = userService.getUserbyEmail(email);
-        // Check if user exists
-        System.out.println("user name");
-        //System.out.println(user.getRoles());
-        System.out.println("user.getPassword()");
-        //System.out.println(user.getPassword());
-        System.out.println("password");
-        //System.out.println(password);
+
+
 
         // Verify password
         if (!userService.verifyPassword(password, user.getPassword())) {
             System.out.println("no");
+            JOptionPane.showMessageDialog(null, "password is incorrect");
+
             return;
         }
         try {
@@ -158,7 +169,12 @@ public class UserController extends Application {
             Parent root = loader.load();
             ProfileController profileController = loader.getController();
             profileController.initializeProfile(user.getId());
-
+            if (rememberMeCheckBox.isSelected()) {
+                saveCredentials(email, password);
+            } else {
+                // Clear saved credentials if "Remember Me" checkbox is not checked
+                clearCredentials();
+            }
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -168,12 +184,6 @@ public class UserController extends Application {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        if (rememberMeCheckBox.isSelected()) {
-            saveCredentials(email, password);
-        } else {
-            // Clear saved credentials if "Remember Me" checkbox is not checked
-            clearCredentials();
         }
     }
 
