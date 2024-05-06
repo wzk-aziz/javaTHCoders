@@ -50,14 +50,16 @@ public class ProfileController {
     @FXML
     void initialize() {
         // Add listener to firstname text field
-        firstname.textProperty().addListener((observable, oldValue, newValue) -> {
-            // Update name label with capitalized first name
-            //name.setText(capitalizeFirstLetter(newValue));
-        });
-    }
-    public void initializeProfile(int userId) throws UserNotFoundException {
+        System.out.println("user") ;
         try {
-            currentUser = userService.getUserbyID(userId);
+            Preferences userPreferences = Preferences.userRoot();
+            boolean isNotEmpty = userPreferences.get("remember", null) != null;
+            String retrievedValue = userPreferences.get("remember", "defaultValue");
+            if(isNotEmpty) {
+                currentUser = userService.getUserbyEmail(retrievedValue);
+                System.out.println("user") ;
+            }
+
             if (currentUser != null) {
                 // Populate the text fields with user data
                 firstname.setText(currentUser.getFirstname());
@@ -65,9 +67,6 @@ public class ProfileController {
                 email.setText(currentUser.getEmail());
                 phone.setText(currentUser.getPhone());
                 profession.setText(currentUser.getProfession());
-                Preferences userPreferences = Preferences.userRoot();
-                String retrievedValue = userPreferences.get("1", "defaultValue");
-
                 // Print the retrieved value
                 System.out.println("Retrieved value for key '" + "1" + "': " + retrievedValue);
                 // Set the role label based on the user's role
@@ -88,6 +87,11 @@ public class ProfileController {
             // Handle exception appropriately
             e.printStackTrace();
         }
+
+        //firstname.textProperty().addListener((observable, oldValue, newValue) -> {});
+        }
+    public void initializeProfile(int userId) throws UserNotFoundException {
+
     }
     private String capitalizeFirstLetter(String str) {
         if (str == null || str.isEmpty()) {
@@ -176,6 +180,8 @@ public class ProfileController {
         currentUser.setPhone(phone.getText());
         currentUser.setProfession(profession.getText());
         // Save changes to the database
+        name.setText(capitalizeFirstLetter(currentUser.getFirstname())); // or any other field you want to display as username
+
         userService.updateUser(currentUser);
     }
 
