@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.pi.demo.Exceptions.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +15,11 @@ import org.pi.demo.entities.User;
 import org.pi.demo.services.SessionService;
 import org.pi.demo.services.UserService;
 import org.pi.demo.utils.Type;
+
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 import java.io.IOException;
 
@@ -42,11 +48,11 @@ public class ProfileController {
 
     @FXML
     private TextField profession;
-
     @FXML
     private Label role;
     private User currentUser;
     private boolean isEditMode = false;
+    private static Set<Stage> stages = new HashSet<>();
     @FXML
     void initialize() {
         // Add listener to firstname text field
@@ -183,6 +189,23 @@ public class ProfileController {
         name.setText(capitalizeFirstLetter(currentUser.getFirstname())); // or any other field you want to display as username
 
         userService.updateUser(currentUser);
+    }
+
+    @FXML
+    void logoutbtn(ActionEvent event) throws BackingStoreException, IOException {
+        System.out.println("hi");
+        Preferences userPreferences = Preferences.userRoot();
+        userPreferences.clear();
+        for (Stage stage : stages) {
+            stage.close();
+        }
+        stages.clear();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/User.fxml")));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UTILITY);
+        stage.show();
     }
 
 

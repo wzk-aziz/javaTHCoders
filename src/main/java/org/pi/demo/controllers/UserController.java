@@ -96,7 +96,6 @@ public class UserController extends Application {
         //userPreferences.clear();
         String retrievedValue = userPreferences.get("remember", "defaultValue");
         System.out.println("Retrieved value for key '" + "remember" + "': " + retrievedValue);
-        //userPreferences.clear();
         }
 
 
@@ -163,18 +162,20 @@ public class UserController extends Application {
 
             return;
         }
+        saveCredentials(email, password);
+        if (rememberMeCheckBox.isSelected()) {
+            saveCredentials(email, password);
+        } else {
+            // Clear saved credentials if "Remember Me" checkbox is not checked
+            clearCredentials();
+        }
         try {
             // Pass the user's ID to the profile controller
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/pi/demo/Profile.fxml"));
             Parent root = loader.load();
             ProfileController profileController = loader.getController();
             profileController.initializeProfile(user.getId());
-            if (rememberMeCheckBox.isSelected()) {
-                saveCredentials(email, password);
-            } else {
-                // Clear saved credentials if "Remember Me" checkbox is not checked
-                clearCredentials();
-            }
+
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);

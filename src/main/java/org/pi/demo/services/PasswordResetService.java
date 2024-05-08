@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.prefs.Preferences;
 
 public class PasswordResetService {
     Connection connection = MyConnection.getInstance().getConnection();
@@ -39,7 +40,11 @@ public class PasswordResetService {
     // Send SMS with verification code (Replace this with actual SMS sending code)
     public void sendVerificationCode(String email) throws UserNotFoundException {
         String verificationCode = generateVerificationCode();
-        verificationCodes.put(email, verificationCode);// Store the verification code
+        Preferences userPreferences = Preferences.userRoot();
+        userPreferences.put(email, verificationCode);
+        String retrievedValue = userPreferences.get("remember", "defaultValue");
+
+        // Store the verification code
         mailing mailer = new mailing();
         User user = UserService.getInstance().getUserbyEmail(email);
         try {
@@ -54,7 +59,9 @@ public class PasswordResetService {
 
     // Verify SMS code
     public boolean verifySMSCode(String email, String enteredCode) {
-        String storedCode = verificationCodes.get(email);// Retrieve stored code
+        Preferences userPreferences = Preferences.userRoot();
+        String storedCode = userPreferences.get(email, "defaultValue");
+        System.out.println("stored code"+storedCode);
         System.out.println(email);
         System.out.println(storedCode);
         if (storedCode != null) {

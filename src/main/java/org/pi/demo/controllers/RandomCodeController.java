@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.pi.demo.services.PasswordResetService;
 import java.io.IOException;
+import java.util.Objects;
 
 public class RandomCodeController {
 
@@ -51,9 +52,7 @@ public class RandomCodeController {
         // Verify the verification code
         if (passwordResetService.verifySMSCode(email, verificationCode)) {
             // Navigate to ResetPasswordController
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/greenta/user.fxml"));
-            Parent root = loader.load();
-            //ResetPasswordController resetPasswordController = loader.getController();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/RandomCode.fxml")));
 
             // Pass any necessary data to ResetPasswordController if required
             Scene scene = new Scene(root);

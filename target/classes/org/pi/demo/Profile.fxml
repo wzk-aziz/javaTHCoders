@@ -128,5 +128,6 @@
       <Button fx:id="editProfileBtn" layoutX="514.0" layoutY="436.0" mnemonicParsing="false" onAction="#editProfile" text="Edit Profile" />
       <Label layoutX="500.0" layoutY="461.0" onMouseClicked="#deleteAccount" text="Delete this account" textFill="#ff0303" underline="true" />
       <TextField fx:id="profession" layoutX="392.0" layoutY="399.0" prefHeight="26.0" prefWidth="320.0" promptText="profession" />
+      <Button fx:id="logoutbtn" layoutX="684.0" layoutY="111.0" mnemonicParsing="false" onAction="#logoutbtn" text="logout" />
    </children>
 </AnchorPane>
