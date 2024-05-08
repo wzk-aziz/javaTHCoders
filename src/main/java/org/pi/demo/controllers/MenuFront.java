@@ -17,26 +17,28 @@ public class MenuFront {
     private TextField aff;
 
     @FXML
-void consulterreservation(ActionEvent event) {
+    void consulterreservation(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/pi/demo/Reserver.fxml"));
             Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
+
+            // Get the current stage and set the new scene on it
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    @FXML
 
+    @FXML
     void dashboard_btn (ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/pi/demo/MenuBack.fxml"));
             Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
+
+            // Get the current stage and set the new scene on it
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

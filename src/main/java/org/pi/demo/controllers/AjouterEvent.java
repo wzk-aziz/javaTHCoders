@@ -3,6 +3,7 @@ package org.pi.demo.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -90,9 +91,10 @@ public class AjouterEvent {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/pi/demo/Displayeventsback.fxml"));
             Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
+
+            // Get the current stage and set the new scene on it
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -202,9 +204,10 @@ public class AjouterEvent {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/pi/demo/Displayeventsback.fxml"));
             Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
+
+            // Get the current stage and set the new scene on it
+            Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

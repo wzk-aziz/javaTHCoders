@@ -19,6 +19,14 @@ public class EventsController {
     private Events events;
 
     @FXML
+    private Text event_capacity;
+
+    @FXML
+    private Text event_date;
+
+    @FXML
+    private Text event_desc;
+    @FXML
     private Text event_name;
     @FXML
     void clickmouse(MouseEvent event) {
@@ -38,6 +46,10 @@ public class EventsController {
         System.out.println("setData method called. Event: " + event); // Debug print statement
 
         event_name.setText(event.getEvent_name());
+        event_capacity.setText(String.valueOf(event.getCapacity()));
+        event_date.setText(event.getStart_date().toString());
+        event_desc.setText(event.getDescription());
+
 
         System.out.println("Image path: " + event.getImage()); // Print the image path
 

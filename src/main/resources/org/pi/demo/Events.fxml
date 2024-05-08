@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -8,20 +9,24 @@
 
 <AnchorPane onMousePressed="#clickmouse" styleClass="shadow" stylesheets="@Style2.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.EventsController">
     <children>
-        <VBox alignment="CENTER" layoutX="63.0" layoutY="8.0" prefHeight="215.0" prefWidth="225.0" styleClass="shadow" stylesheets="@Style2.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox alignment="CENTER">
             <padding>
                 <Insets bottom="10" left="10" right="10" top="10" />
             </padding>
             <children>
-                <ImageView fx:id="event_image" fitHeight="151.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
-                    <VBox.margin>
-                        <Insets left="10.0" />
-                    </VBox.margin></ImageView>
-                <Text fx:id="event_name" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="125.33668327331543">
-                    <VBox.margin>
-                        <Insets left="40.0" />
-                    </VBox.margin>
-                </Text>
+                <ImageView fx:id="event_image" fitHeight="151.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true" />
+                <VBox alignment="CENTER" styleClass="vbox2" stylesheets="@Style2.css">
+                    <children>
+                        <Label styleClass="text2" stylesheets="@Style2.css" text="Nom:" />
+                        <Text fx:id="event_name" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" textAlignment="CENTER" wrappingWidth="200.0" />
+                        <Label styleClass="text2" stylesheets="@Style2.css" text="Description:" />
+                        <Text fx:id="event_desc" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" textAlignment="CENTER" wrappingWidth="200.0" />
+                        <Label styleClass="text2" stylesheets="@Style2.css" text="Date:" />
+                        <Text fx:id="event_date" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" textAlignment="CENTER" wrappingWidth="200.0" />
+                        <Label styleClass="text2" stylesheets="@Style2.css" text="Capacité:" />
+                        <Text fx:id="event_capacity" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" textAlignment="CENTER" wrappingWidth="200.0" />
+                    </children>
+                </VBox>
             </children>
         </VBox>
     </children>

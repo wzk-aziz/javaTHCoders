@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class Reserver {
+public class Reserver implements MyListener{
     @FXML
     private Button btnreserver;
 
@@ -99,145 +99,149 @@ public class Reserver {
     private GridPane grid_top;
     private MyListener myListener;
 
-    public void setStart_dateString(String start_dateString) {
-        // Assuming date format in the database is "yyyy-MM-dd"
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        this.start_date = LocalDate.parse(start_dateString, formatter);
-    }
-
-    public void setEnd_dateString(String end_dateString) {
-        // Assuming date format in the database is "yyyy-MM-dd"
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        this.end_date = LocalDate.parse(end_dateString, formatter);
-    }
     @FXML
     public void initialize() throws SQLException {
+        // Initialize UI components and listeners
+        myListener = this;
+        //load and display events
         EventService eventService = EventService.getInstance();
         List<Events> eventsList = eventService.AfficherEvent();
+
+        // Load events and display them in the grid
+
         loadEvents();
+        // Other initialization code...
+        loadTop3Events();
 
 
-        myListener = new MyListener() {
+    }
 
-            @Override
-            public void OnClickListner(Events events) {
-                // Update UI elements with event details
-                event_name.setText(events.getEvent_name());
-                event_place.setText(events.getPlace());
-                capacity.setText(String.valueOf(events.getCapacity()));
-                selectedEventId = events.getId();
-                // Convert java.sql.Date to java.util.Date
-                Date startDate = new Date(events.getStart_date().getTime());
-                Date endDate = new Date(events.getEnd_date().getTime());
+//    @FXML
+//    public void initialize() throws SQLException {
+//        EventService eventService = EventService.getInstance();
+//        List<Events> eventsList = eventService.AfficherEvent();
+//
+//        myListener = new MyListener() {
+//            @Override
+//            public void OnClickListner(Events events) {
+//                // Update UI elements with event details
+//                selectedEventId = events.getId();
+//
+//                // Load and display event location in the WebView
+//                try {
+//                    WebEngine webEngine = webview.getEngine();
+//                    String mapHtml = "<!DOCTYPE html>\n" +
+//                            "<html>\n" +
+//                            "<head>\n" +
+//                            "    <title>Embedded Google Map</title>\n" +
+//                            "</head>\n" +
+//                            "<body>\n" +
+//                            "<iframe\n" +
+//                            "        width=\"600\"\n" +
+//                            "        height=\"450\"\n" +
+//                            "        frameborder=\"0\" style=\"border:0\"\n" +
+//                            "        src=\"http://maps.google.com/maps?q=" + events.getPlace() + "&output=embed\"\n" +
+//                            "        allowfullscreen>\n" +
+//                            "</iframe>\n" +
+//                            "</body>\n" +
+//                            "</html>";
+//                    webEngine.loadContent(mapHtml);
+//                } catch (Exception e) {
+//                    System.out.println("Error loading map: " + e.getMessage());
+//                }
+//            }
+//        };
+//
+//        // Load events and display them in the grid
+//        int column = 0;
+//        int row = 0;
+//        try {
+//            for (int i = 0; i < eventsList.size(); i++) {
+//                FXMLLoader fxmlLoader = new FXMLLoader();
+//                fxmlLoader.setLocation(getClass().getResource("/org/pi/demo/Events.fxml"));
+//
+//                AnchorPane pane = fxmlLoader.load();
+//
+//                EventsController eventController = fxmlLoader.getController();
+//                eventController.setData(eventsList.get(i), myListener);
+//
+//                if (column == 2) {
+//                    column = 0;
+//                    row++;
+//                }
+//
+//                grid.add(pane, column++, row); //(child,column,row)
+//                //set grid width
+//                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+//                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+//                grid.setMaxWidth(Region.USE_PREF_SIZE);
+//
+//                //set grid height
+//                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+//                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+//                grid.setMaxHeight(Region.USE_PREF_SIZE);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        // Other initialization code...
+//        loadTop3Events();
+//
+//        // Force a layout recalculation
+//        grid.layout();
+//    }
 
-                // Set date values
-                date_debut.setValue(startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-                date_fin.setValue(endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-                description.setText(events.getDescription());
 
-                // After loading the events, check the capacity of the selected event
-                Events selectedEvent = null;
-                try {
-                    selectedEvent = eventService.getEventById(selectedEventId);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-                if (selectedEvent.getCapacity() == 0) {
-                    // Disable the "Reserver" button if the capacity is 0
-                    btnreserver.setDisable(true);
-                } else {
-                    // Enable the "Reserver" button if the capacity is greater than 0
-                    btnreserver.setDisable(false);
-                }
+    @FXML
+    void search_btn(ActionEvent event) throws SQLException {
+        String searchText = searchbar.getText().toLowerCase();
+        System.out.println("Search term: " + searchText); // Print the search term
 
-                // Load and display event image
-                try {
-                    Image image = new Image("file:" + events.getImage());
-                    event_image.setImage(image);
-                    event_image.setFitHeight(100); // Set the maximum height
-                    event_image.setFitWidth(100); // Set the maximum width
-                    event_image.setPreserveRatio(true);
+        EventService eventService = EventService.getInstance();
+        List<Events> allEvents = eventService.AfficherEvent();
 
-                }
+        List<Events> filteredEvents = allEvents.stream()
+                .filter(events -> events.getEvent_name().toLowerCase().contains(searchText))
+                .collect(Collectors.toList());
 
-                catch (Exception e) {
-                    System.out.println("Error loading image: " + e.getMessage());
-                }
-                // Load and display event location in the WebView
-                try {
-                    WebEngine webEngine = webview.getEngine();
-                    String mapHtml = "<!DOCTYPE html>\n" +
-                            "<html>\n" +
-                            "<head>\n" +
-                            "    <title>Embedded Google Map</title>\n" +
-                            "</head>\n" +
-                            "<body>\n" +
-                            "<iframe\n" +
-                            "        width=\"600\"\n" +
-                            "        height=\"450\"\n" +
-                            "        frameborder=\"0\" style=\"border:0\"\n" +
-                            "        src=\"http://maps.google.com/maps?q=" + events.getPlace() + "&output=embed\"\n" +
-                            "        allowfullscreen>\n" +
-                            "</iframe>\n" +
-                            "</body>\n" +
-                            "</html>";
-                    webEngine.loadContent(mapHtml);
-                } catch (Exception e) {
-                    System.out.println("Error loading map: " + e.getMessage());
-                }
+        System.out.println("Number of filtered events: " + filteredEvents.size()); // Print the size of the filtered items list
 
-            }
+        grid.getChildren().clear();
 
-
-
-
-        };
-
-
-        int column = 0;
-        int row = 0;
-        try {
-            for (int i = 0; i < eventsList.size(); i++) {
+        if (filteredEvents.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("No Events Found");
+            alert.setHeaderText(null);
+            alert.setContentText("No Events match the search term: " + searchText);
+            alert.showAndWait();
+            loadEvents();
+        } else {
+            int column = 0;
+            int row = 1;
+            for (Events events : filteredEvents) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/org/pi/demo/Events.fxml"));
 
-                AnchorPane pane = fxmlLoader.load();
+                try {
+                    AnchorPane pane = fxmlLoader.load();
 
-                EventsController eventController = fxmlLoader.getController();
-                eventController.setData(eventsList.get(i), myListener);
+                    EventsController eventController = fxmlLoader.getController();
+                    eventController.setData(events, myListener);
 
-                if (column == 2) {
-                    column = 0;
-                    row++;
+                    if (column == 2) {
+                        column = 0;
+                        row++;
+                    }
+
+                    grid.add(pane, column++, row);
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-
-                grid.add(pane, column++, row); //(child,column,row)
-                //set grid width
-                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                grid.setMaxWidth(Region.USE_PREF_SIZE);
-
-                //set grid height
-                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_PREF_SIZE);
-
-
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
-        // Restrict the phone number field to accept only numbers
-        res_tel.setTextFormatter(new TextFormatter<>(change -> {
-            if (change.getControlNewText().matches("\\d*")) {
-                return change;
-            }
-            return null;
-        }));
-
-        loadTop3Events();
     }
+
 
 
     @FXML
@@ -325,144 +329,96 @@ public class Reserver {
         alert.showAndWait();
     }
 
-    public void loadEvents() throws SQLException {
+    private void loadEvents() throws SQLException {
+        grid.getChildren().clear();
+
         EventService eventService = EventService.getInstance();
         List<Events> eventsList = eventService.AfficherEvent();
+
         int column = 0;
-        int row = 0;
-        try {
-            // Clear the GridPane
-            grid.getChildren().clear();
+        int row = 1;
+        for (Events event : eventsList) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/org/pi/demo/Events.fxml"));
 
-            for (int i = 0; i < eventsList.size(); i++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/org/pi/demo/Events.fxml"));
-
+            try {
                 AnchorPane pane = fxmlLoader.load();
 
                 EventsController eventController = fxmlLoader.getController();
-                eventController.setData(eventsList.get(i), myListener);
+                eventController.setData(event, myListener);
 
                 if (column == 2) {
                     column = 0;
                     row++;
                 }
 
-                grid.add(pane, column++, row); //(child,column,row)
-                //set grid width
+                grid.add(pane, column++, row);
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
                 grid.setMaxWidth(Region.USE_PREF_SIZE);
 
-                //set grid height
                 grid.setMinHeight(Region.USE_COMPUTED_SIZE);
                 grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
 
-
-
+                grid.setMargin(pane, new javafx.geometry.Insets(10,10,10,10));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
+
+
     private void resetFields() {
-        event_name.clear();
-        event_place.clear();
-        capacity.clear();
-        date_debut.setValue(null);
-        date_fin.setValue(null);
-        description.clear();
-        event_image.setImage(null);
+        res_nom.clear();
+        res_address.clear();
+        res_tel.clear();
     }
 
 
-    public void loadTop3Events() throws SQLException {
-    EventService eventService = EventService.getInstance();
-    List<Events> top3EventsList = eventService.getTop3EventsBasedOnReservations();
-    int column = 0;
-    int row = 0;
-    try {
-        // Clear the GridPane
+    private void loadTop3Events() throws SQLException {
         grid_top.getChildren().clear();
 
-        for (int i = 0; i < top3EventsList.size(); i++) {
+        EventService eventService = EventService.getInstance();
+        List<Events> top3EventsList = eventService.getTop3EventsBasedOnReservations();
+
+        int column = 0;
+        int row = 1;
+        for (Events event : top3EventsList) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/org/pi/demo/Events.fxml"));
 
-            AnchorPane pane = fxmlLoader.load();
+            try {
+                AnchorPane pane = fxmlLoader.load();
 
-            EventsController eventController = fxmlLoader.getController();
-            eventController.setData(top3EventsList.get(i), myListener);
+                // Apply the "event-pane" style class to the event pane
+                pane.getStyleClass().add("event-pane");
 
-            if (column == 1) {
-                column = 0;
-                row++;
-            }
+                EventsController eventController = fxmlLoader.getController();
+                eventController.setData(event, myListener);
 
-            grid_top.add(pane, column++, row); //(child,column,row)
-            //set grid width
-            grid_top.setMinWidth(Region.USE_COMPUTED_SIZE);
-            grid_top.setPrefWidth(Region.USE_COMPUTED_SIZE);
-            grid_top.setMaxWidth(Region.USE_PREF_SIZE);
-
-            //set grid height
-            grid_top.setMinHeight(Region.USE_COMPUTED_SIZE);
-            grid_top.setPrefHeight(Region.USE_COMPUTED_SIZE);
-            grid_top.setMaxHeight(Region.USE_PREF_SIZE);
-        }
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-    @FXML
-    void search_btn(ActionEvent event) throws SQLException {
-        String searchText = searchbar.getText().toLowerCase();
-        System.out.println("Search term: " + searchText); // Print the search term
-
-        EventService eventService = EventService.getInstance();
-        List<Events> allEvents = eventService.AfficherEvent();
-
-        List<Events> filteredEvents = allEvents.stream()
-                .filter(events -> events.getEvent_name().toLowerCase().contains(searchText))
-                .collect(Collectors.toList());
-
-        System.out.println("Number of filtered events: " + filteredEvents.size()); // Print the size of the filtered items list
-
-        grid.getChildren().clear();
-
-        if (filteredEvents.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("No Events Found");
-            alert.setHeaderText(null);
-            alert.setContentText("No Events match the search term: " + searchText);
-            alert.showAndWait();
-            loadEvents();
-        } else {
-            int column = 0;
-            int row = 1;
-            for (Events events : filteredEvents) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/org/pi/demo/Events.fxml"));
-
-                try {
-                    AnchorPane pane = fxmlLoader.load();
-
-                    EventsController eventController = fxmlLoader.getController();
-                    eventController.setData(events, myListener);
-
-                    if (column == 2) {
-                        column = 0;
-                        row++;
-                    }
-
-                    grid.add(pane, column++, row);
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (column == 1) {
+                    column = 0;
+                    row++;
                 }
+
+                grid_top.add(pane, column++, row);
+                grid_top.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid_top.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid_top.setMaxWidth(Region.USE_PREF_SIZE);
+
+                grid_top.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid_top.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid_top.setMaxHeight(Region.USE_PREF_SIZE);
+
+                grid_top.setMargin(pane, new javafx.geometry.Insets(10,10,10,10));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
+
+
 
     @FXML
     void ajout_dash(ActionEvent event) {
@@ -477,6 +433,34 @@ public class Reserver {
         }
     }
 
+
+    public void OnClickListner(Events events) {
+        // Update UI elements with event details
+        selectedEventId = events.getId();
+
+        // Load and display event location in the WebView
+        try {
+            WebEngine webEngine = webview.getEngine();
+            String mapHtml = "<!DOCTYPE html>\n" +
+                    "<html>\n" +
+                    "<head>\n" +
+                    "    <title>Embedded Google Map</title>\n" +
+                    "</head>\n" +
+                    "<body>\n" +
+                    "<iframe\n" +
+                    "        width=\"600\"\n" +
+                    "        height=\"450\"\n" +
+                    "        frameborder=\"0\" style=\"border:0\"\n" +
+                    "        src=\"http://maps.google.com/maps?q=" + events.getPlace() + "&output=embed\"\n" +
+                    "        allowfullscreen>\n" +
+                    "</iframe>\n" +
+                    "</body>\n" +
+                    "</html>";
+            webEngine.loadContent(mapHtml);
+        } catch (Exception e) {
+            System.out.println("Error loading map: " + e.getMessage());
+        }
+    }
 
 }
 

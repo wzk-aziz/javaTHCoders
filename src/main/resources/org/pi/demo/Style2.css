@@ -49,3 +49,27 @@
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 30;
 }
+/* Style for Labels */
+.label2 {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* Style for Text Fields */
+.text2 {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+    -fx-padding: 5px;
+    -fx-background-color: #f4f4f4;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+/* Style for VBox */
+.vbox2 {
+    -fx-spacing: 5px;
+    -fx-padding: 10px;
+}
