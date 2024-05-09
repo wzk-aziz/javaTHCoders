@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class Displayeventsback {
+public class Displayeventsback implements MyListener{
 
     @FXML
     private Button btnmodif;
@@ -103,74 +103,19 @@ public class Displayeventsback {
 
     @FXML
     public void initialize() throws SQLException {
+        // Initialize UI components and listeners
+        myListener = this;
+        //load and display events
         EventService eventService = EventService.getInstance();
         List<Events> eventsList = eventService.AfficherEvent();
+
+        // Load events and display them in the grid
+
         loadEvents();
-        myListener = new MyListener() {
-
-            @Override
-            public void OnClickListner(Events events) {
-                // Update UI elements with event details
-                event_name.setText(events.getEvent_name());
-                event_place.setText(events.getPlace());
-                capacity.setText(String.valueOf(events.getCapacity()));
-                selectedEventId = events.getId();
-                // Convert java.sql.Date to java.util.Date
-                Date startDate = new Date(events.getStart_date().getTime());
-                Date endDate = new Date(events.getEnd_date().getTime());
-
-                // Set date values
-                date_debut.setValue(startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-                date_fin.setValue(endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-
-                description.setText(events.getDescription());
+        // Other initialization code...
 
 
-                // Load and display event image
-                try {
-                    Image image = new Image("file:" + events.getImage());
-                    event_image.setImage(image);
-                    event_image.setFitHeight(100); // Set the maximum height
-                    event_image.setFitWidth(100); // Set the maximum width
-                    event_image.setPreserveRatio(true);
-                } catch (Exception e) {
-                    System.out.println("Error loading image: " + e.getMessage());
-                }
-            }
-        };
 
-
-        int column = 0;
-        int row = 0;
-        try {
-            for (int i = 0; i < eventsList.size(); i++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/org/pi/demo/Events.fxml"));
-
-                AnchorPane pane = fxmlLoader.load();
-
-                EventsController eventController = fxmlLoader.getController();
-                eventController.setData(eventsList.get(i), myListener);
-
-                if (column == 2) {
-                    column = 0;
-                    row++;
-                }
-
-                grid.add(pane, column++, row); //(child,column,row)
-                //set grid width
-                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                grid.setMaxWidth(Region.USE_PREF_SIZE);
-
-                //set grid height
-                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_PREF_SIZE);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @FXML
@@ -302,44 +247,45 @@ public class Displayeventsback {
         }
     }
 
-    public void loadEvents() throws SQLException {
+    private void loadEvents() throws SQLException {
+        grid.getChildren().clear();
+
         EventService eventService = EventService.getInstance();
         List<Events> eventsList = eventService.AfficherEvent();
+
         int column = 0;
-        int row = 0;
-        try {
-            // Clear the GridPane
-            grid.getChildren().clear();
+        int row = 1;
+        for (Events event : eventsList) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/org/pi/demo/Events.fxml"));
 
-            for (int i = 0; i < eventsList.size(); i++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/org/pi/demo/Events.fxml"));
-
+            try {
                 AnchorPane pane = fxmlLoader.load();
 
                 EventsController eventController = fxmlLoader.getController();
-                eventController.setData(eventsList.get(i), myListener);
+                eventController.setData(event, myListener);
 
                 if (column == 2) {
                     column = 0;
                     row++;
                 }
 
-                grid.add(pane, column++, row); //(child,column,row)
-                //set grid width
+                grid.add(pane, column++, row);
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
                 grid.setMaxWidth(Region.USE_PREF_SIZE);
 
-                //set grid height
                 grid.setMinHeight(Region.USE_COMPUTED_SIZE);
                 grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                grid.setMargin(pane, new javafx.geometry.Insets(10,10,10,10));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
+
 
     @FXML
     void search_btn(ActionEvent event) throws SQLException {
@@ -401,5 +347,37 @@ void ajout_dash(ActionEvent event) {
     } catch (IOException e) {
         e.printStackTrace();
     }
+
 }
+
+    @Override
+    public void OnClickListner(Events events) {
+        // Update UI elements with event details
+        event_name.setText(events.getEvent_name());
+        event_place.setText(events.getPlace());
+        capacity.setText(String.valueOf(events.getCapacity()));
+        selectedEventId = events.getId();
+        // Convert java.sql.Date to java.util.Date
+        Date startDate = new Date(events.getStart_date().getTime());
+        Date endDate = new Date(events.getEnd_date().getTime());
+
+        // Set date values
+        date_debut.setValue(startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        date_fin.setValue(endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+
+        description.setText(events.getDescription());
+
+
+        // Load and display event image
+        try {
+            Image image = new Image("file:" + events.getImage());
+            event_image.setImage(image);
+            event_image.setFitHeight(100); // Set the maximum height
+            event_image.setFitWidth(100); // Set the maximum width
+            event_image.setPreserveRatio(true);
+        } catch (Exception e) {
+            System.out.println("Error loading image: " + e.getMessage());
+        }
+    }
 }
+
