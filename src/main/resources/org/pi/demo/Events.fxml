@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane onMousePressed="#clickmouse" styleClass="shadow" stylesheets="@Style2.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.EventsController">
+    <children>
+        <VBox alignment="CENTER">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+            <children>
+                <ImageView fx:id="event_image" fitHeight="151.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true" />
+                <VBox alignment="CENTER" styleClass="vbox2" stylesheets="@Style2.css">
+                    <children>
+                        <Label styleClass="text2" stylesheets="@Style2.css" text="Nom:" />
+                        <Text fx:id="event_name" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" textAlignment="CENTER" wrappingWidth="200.0" />
+                        <Label styleClass="text2" stylesheets="@Style2.css" text="Description:" />
+                        <Text fx:id="event_desc" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" textAlignment="CENTER" wrappingWidth="200.0" />
+                        <Label styleClass="text2" stylesheets="@Style2.css" text="Date:" />
+                        <Text fx:id="event_date" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" textAlignment="CENTER" wrappingWidth="200.0" />
+                        <Label styleClass="text2" stylesheets="@Style2.css" text="Capacité:" />
+                        <Text fx:id="event_capacity" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" textAlignment="CENTER" wrappingWidth="200.0" />
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

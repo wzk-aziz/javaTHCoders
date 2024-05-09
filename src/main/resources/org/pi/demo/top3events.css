@@ -1,0 +1,26 @@
+/* Style for the GridPane containing top events */
+#grid_top {
+    -fx-padding: 10px; /* Add padding around the grid */
+}
+
+/* Style for individual event panes */
+#grid_top .event-pane {
+    -fx-background-color: #F8F8F8; /* Light gray background color */
+    -fx-border-color: #CCCCCC; /* Light gray border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 5px; /* Border radius */
+    -fx-padding: 10px; /* Padding inside the pane */
+    -fx-effect: dropshadow(three-pass-box, #AAAAAA, 10, 0.5, 0, 0); /* Add drop shadow effect */
+}
+
+/* Style for event name label */
+#grid_top .event-name {
+    -fx-font-size: 16px; /* Font size */
+    -fx-font-weight: bold; /* Bold font weight */
+}
+
+/* Style for event description text */
+#grid_top .event-desc {
+    -fx-font-size: 14px; /* Font size */
+    -fx-text-fill: #666666; /* Gray text color */
+}

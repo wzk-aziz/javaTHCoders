@@ -5,10 +5,14 @@
     <option name="originalFiles">
       <list>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/pom.xml" />
 =======
         <option value="$PROJECT_DIR$/AzizProjet/pom.xml" />
 >>>>>>> origin/aziz-ferjaoui
+=======
+        <option value="$PROJECT_DIR$/pom.xml" />
+>>>>>>> origin/event
       </list>
     </option>
   </component>
