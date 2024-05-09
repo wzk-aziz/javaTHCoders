@@ -158,4 +158,20 @@ public List<Events> getTop3EventsBasedOnReservations() throws SQLException {
     }
     return eventsList;
 }
+
+    public Events getEventByName(String eventName) throws SQLException {
+        String query = "SELECT * FROM event WHERE event_name = ?";
+        PreparedStatement pst = cnx.prepareStatement(query);
+        pst.setString(1, eventName);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            return new Events(rs.getInt("id"), rs.getString("event_name"), rs.getString("place"),
+                    rs.getString("description"), rs.getString("image"), rs.getInt("capacity"),
+                    rs.getDate("start_date"), rs.getDate("end_date"));
+        }
+        return null;
+    }
+
+
+
 }

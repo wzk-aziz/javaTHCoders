@@ -35,7 +35,7 @@
                 </ScrollPane>
             </children>
         </HBox>
-      <ScrollPane layoutX="824.0" layoutY="92.0" prefHeight="614.0" prefWidth="304.0" stylesheets="@top3events.css">
+      <ScrollPane layoutX="871.0" layoutY="118.0" prefHeight="603.0" prefWidth="304.0" style="-fx-background-color: red;" stylesheets="@top3events.css">
          <content>
             <GridPane fx:id="grid_top" prefHeight="0.0" prefWidth="0.0">
               <rowConstraints>
@@ -92,5 +92,10 @@
                   </Button>
          </children>
       </VBox>
+      <Label layoutX="943.0" layoutY="78.0" prefHeight="32.0" prefWidth="159.0" text="TOP 3 EVENTS " textFill="RED">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

@@ -102,4 +102,25 @@ public class ReservationService implements ReservationInterface {
 
         return false;
     }
+
+    public List<Reservation> getReservationsByEventId(int eventId) {
+        List<Reservation> reservations = new ArrayList<>();
+        try {
+            String request = "SELECT * FROM reservation WHERE event_id = ?";
+            PreparedStatement pst = cnx.prepareStatement(request);
+            pst.setInt(1, eventId);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Reservation reservation = new Reservation(rs.getInt("id"), rs.getString("nom"),
+                        rs.getString("address"), rs.getInt("phone"),
+                        rs.getInt("event_id"));
+                reservations.add(reservation);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return reservations;
+    }
+
+
 }

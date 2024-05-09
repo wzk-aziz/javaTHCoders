@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Embedded Google Map</title>
+    <title>Embedded Mapbox Map</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
 </head>
 <body>
-<iframe
-        width="600"
-        height="450"
-        frameborder="0" style="border:0"
-        src="http://maps.google.com/maps/api/js?key=AIzaSyAgpCwkkTAaRSVoP6_UfKM7-IFspmpOTuA&sensor=false"
-        allowfullscreen>
-</iframe>
+<div id='map'></div>
+<script>
+    mapboxgl.accessToken = 'sk.eyJ1IjoiYWNocmFmbmFnIiwiYSI6ImNsdnd1em15MzF6YXMya3JyYWIzd3YwaW0ifQ.0xw-UhjREKfNsrTFy_4ogg';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [YOUR_LONGITUDE, YOUR_LATITUDE],
+        zoom: YOUR_ZOOM_LEVEL
+    });
+</script>
 </body>
 </html>
+

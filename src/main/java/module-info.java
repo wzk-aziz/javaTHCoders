@@ -12,6 +12,8 @@ module org.pi.demo {
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires javafx.swing;
+    requires org.json;
+    requires org.apache.pdfbox;
 
     opens org.pi.demo to javafx.fxml;
     exports org.pi.demo;
