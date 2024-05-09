@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.AjouterEchange">
+   <children>
+      <HBox layoutX="264.0" layoutY="-4.0" prefHeight="97.0" prefWidth="642.0" style="-fx-background-color: #ED5A5B;">
+         <children>
+            <Label alignment="BOTTOM_LEFT" prefHeight="36.0" prefWidth="447.0" text="Ajouter Echange">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="150.0" top="20.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+      <VBox layoutY="-4.0" prefHeight="608.0" prefWidth="264.0" style="-fx-background-color: #ED5A5B;">
+         <children>
+            <HBox prefHeight="77.0" prefWidth="291.0">
+               <children>
+                  <ImageView fitHeight="87.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/416410478_914063033747346_4330283370965631652_n.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="114.0" prefWidth="167.0" text="Khoudh&amp;Het">
+                     <font>
+                        <Font name="Freestyle Script" size="42.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Pane prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="13.0" prefHeight="42.0" prefWidth="151.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;" text="Echange" textAlignment="JUSTIFY">
+                     <font>
+                        <Font name="Yu Gothic UI Semibold" size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="268.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Profile">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label prefHeight="17.0" prefWidth="11.0" />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Inventaire">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label prefHeight="17.0" prefWidth="11.0" />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Evenements">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Annonces">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Réclamations">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Echange">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <HBox layoutX="10.0" layoutY="10.0" prefHeight="77.0" prefWidth="271.0" />
+      <Label layoutX="10.0" layoutY="10.0" />
+      <Label layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="11.0" />
+      <Label layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="11.0" />
+      <Label layoutX="10.0" layoutY="10.0" />
+      <Label layoutX="10.0" layoutY="10.0" />
+      <Label layoutX="10.0" layoutY="10.0" />
+      <Button layoutX="773.0" layoutY="562.0" mnemonicParsing="false" onAction="#menu" prefHeight="34.0" prefWidth="128.0" styleClass="reserve-button" stylesheets="@Style.css" text="Menu" textFill="#220202">
+         <effect>
+            <DropShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Button>
+      <TextField fx:id="error" editable="false" layoutX="290.0" layoutY="117.0" prefHeight="42.0" prefWidth="498.0">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="EchangeEtat" layoutX="302.0" layoutY="195.0" promptText="etat">
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextField>
+      <TextField fx:id="EchangeOffre" layoutX="300.0" layoutY="235.0" prefHeight="105.0" prefWidth="232.0" promptText="offre">
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextField>
+    <Button layoutX="625.0" layoutY="457.0" mnemonicParsing="false" onAction="#ajouterEchange" styleClass="reserve-button" stylesheets="@Style.css" text="Ajouter" textFill="#220202">
+    <effect>
+        <DropShadow />
+    </effect>
+    <cursor>
+        <Cursor fx:constant="DEFAULT" />
+    </cursor>
+</Button>
+      <Button layoutX="729.0" layoutY="457.0" mnemonicParsing="false" onAction="#allEchanges" onMouseClicked="#displayev" styleClass="reserve-button" stylesheets="@Style.css" text="Liste des echnges">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button layoutX="315.0" layoutY="365.0" mnemonicParsing="false" onAction="#handleUploadButtonAction" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style.css" text="telecharger image">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <ImageView fx:id="imageItem" fitHeight="147.0" fitWidth="168.0" layoutX="306.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />
+      <GridPane layoutX="563.0" layoutY="208.0" prefHeight="158.0" prefWidth="263.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+   </children>
+</AnchorPane>
