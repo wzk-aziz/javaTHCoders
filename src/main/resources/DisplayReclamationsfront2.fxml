@@ -75,7 +75,7 @@
                 </Button>
             </children>
         </VBox>
-        <Button layoutX="736.0" layoutY="545.0" mnemonicParsing="false" onAction="#menu" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style.css" text="Menu">
+        <Button layoutX="736.0" layoutY="545.0" mnemonicParsing="false" onAction="#menu" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style1.css" text="Menu">
             <effect>
                 <DropShadow />
             </effect>
@@ -94,7 +94,7 @@
                 <Font name="Corbel Light Italic" size="31.0" />
             </font>
         </Text>
-      <Button layoutX="316.0" layoutY="546.0" mnemonicParsing="false" onAction="#generatePDF" styleClass="reserve-button" stylesheets="@Style.css" text="PDF" textFill="#220202">
+      <Button layoutX="316.0" layoutY="546.0" mnemonicParsing="false" onAction="#generatePDF" styleClass="reserve-button" stylesheets="@Style1.css" text="PDF" textFill="#220202">
          <effect>
             <DropShadow />
          </effect>
@@ -102,7 +102,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
-      <Button layoutX="383.0" layoutY="545.0" mnemonicParsing="false" onAction="#generateExcel" styleClass="reserve-button" stylesheets="@Style.css" text="EXCEL" textFill="#220202">
+      <Button layoutX="383.0" layoutY="545.0" mnemonicParsing="false" onAction="#generateExcel" styleClass="reserve-button" stylesheets="@Style1.css" text="EXCEL" textFill="#220202">
          <effect>
             <DropShadow />
          </effect>
@@ -110,7 +110,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
-      <Button layoutX="521.0" layoutY="545.0" mnemonicParsing="false" onAction="#sortByName" styleClass="reserve-button" stylesheets="@Style.css" text="Tri Nom" textFill="#220202">
+      <Button layoutX="521.0" layoutY="545.0" mnemonicParsing="false" onAction="#sortByName" styleClass="reserve-button" stylesheets="@Style1.css" text="Tri Nom" textFill="#220202">
          <effect>
             <DropShadow />
          </effect>

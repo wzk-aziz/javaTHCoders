@@ -26,7 +26,7 @@
             <DropShadow />
          </effect>
       </TextField>
-      <Button layoutX="484.0" layoutY="552.0" mnemonicParsing="false" onAction="#ajouterReclamation" styleClass="reserve-button" stylesheets="@Style.css" text="Ajouter" textFill="#220202">
+      <Button layoutX="484.0" layoutY="552.0" mnemonicParsing="false" onAction="#ajouterReclamation" styleClass="reserve-button" stylesheets="@Style1.css" text="Ajouter" textFill="#220202">
          <effect>
             <DropShadow />
          </effect>
@@ -109,7 +109,7 @@
             </Button>
          </children>
       </VBox>
-      <Button layoutX="763.0" layoutY="552.0" mnemonicParsing="false" onAction="#menu" prefHeight="34.0" prefWidth="128.0" styleClass="reserve-button" stylesheets="@Style.css" text="Menu" textFill="#220202">
+      <Button layoutX="763.0" layoutY="552.0" mnemonicParsing="false" onAction="#menu" prefHeight="34.0" prefWidth="128.0" styleClass="reserve-button" stylesheets="@Style1.css" text="Menu" textFill="#220202">
          <effect>
             <DropShadow />
          </effect>

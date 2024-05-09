@@ -123,9 +123,9 @@ public class AjouterEchange {
 
     @FXML
     void menu(ActionEvent event) throws IOException {
-        Parent AjouterReclamationParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Menu.fxml")));
+        Parent AjouterReclamationParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/MenuWess.fxml")));
         if (AjouterReclamationParent == null) {
-            System.err.println("Error: Menu.fxml not found!");
+            System.err.println("Error: MenuWess.fxml not found!");
             return;
         }
         Scene AjouterReclamationScene = new Scene(AjouterReclamationParent);

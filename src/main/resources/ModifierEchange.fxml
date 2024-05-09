@@ -102,7 +102,7 @@
         <Label layoutX="10.0" layoutY="10.0" />
         <Label layoutX="10.0" layoutY="10.0" />
         <Label layoutX="10.0" layoutY="10.0" />
-        <Button layoutX="773.0" layoutY="562.0" mnemonicParsing="false" onAction="#menu" prefHeight="34.0" prefWidth="128.0" styleClass="reserve-button" stylesheets="@Style.css" text="Menu" textFill="#220202">
+        <Button layoutX="773.0" layoutY="562.0" mnemonicParsing="false" onAction="#menu" prefHeight="34.0" prefWidth="128.0" styleClass="reserve-button" stylesheets="@Style1.css" text="Menu" textFill="#220202">
             <effect>
                 <DropShadow />
             </effect>
@@ -125,7 +125,7 @@
                 <DropShadow />
             </effect>
         </TextField>
-        <Button layoutX="354.0" layoutY="417.0" mnemonicParsing="false" onAction="#ajouterEchange" styleClass="refuser-button" stylesheets="@Style.css" text="Modify" textFill="#220202">
+        <Button layoutX="354.0" layoutY="417.0" mnemonicParsing="false" onAction="#ajouterEchange" styleClass="refuser-button" stylesheets="@Style1.css" text="Modify" textFill="#220202">
             <effect>
                 <DropShadow />
             </effect>
@@ -133,7 +133,7 @@
                 <Cursor fx:constant="DEFAULT" />
             </cursor>
         </Button>
-        <Button layoutX="315.0" layoutY="365.0" mnemonicParsing="false" onAction="#handleUploadButtonAction" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style.css" text="telecharger image">
+        <Button layoutX="315.0" layoutY="365.0" mnemonicParsing="false" onAction="#handleUploadButtonAction" prefHeight="33.0" prefWidth="149.0" styleClass="reserve-button" stylesheets="@Style1.css" text="telecharger image">
             <effect>
                 <DropShadow />
             </effect>

@@ -17,7 +17,7 @@ public class HelloController {
     private TextField aff;
     @FXML
     void consulterInventaire(ActionEvent event) throws IOException {
-        Parent AjouterInventaireParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/Menu.fxml")));
+        Parent AjouterInventaireParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/MenuWess.fxml")));
         Scene AjouterInventaireScene = new Scene(AjouterInventaireParent);
 
         // This line gets the Stage information
@@ -29,7 +29,7 @@ public class HelloController {
 
     @FXML
     void consulteritems(ActionEvent event) throws IOException {
-        Parent AjouterInventaireParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/Menu.fxml")));
+        Parent AjouterInventaireParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/pi/demo/MenuWess.fxml")));
         Scene AjouterInventaireScene = new Scene(AjouterInventaireParent);
 
         // This line gets the Stage information
