@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class DisplayEchangefront implements Initializable {
+public class DisplayEchange implements Initializable {
 
     @FXML
     private HBox cardLayout;
