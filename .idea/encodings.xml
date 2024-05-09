@@ -3,6 +3,7 @@
   <component name="Encoding">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
 =======
@@ -13,5 +14,9 @@
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
 >>>>>>> origin/event
+=======
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+>>>>>>> origin/user
   </component>
 </project>

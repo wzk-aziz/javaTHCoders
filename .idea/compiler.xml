@@ -7,11 +7,20 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <module name="demo" />
 =======
         <module name="AzizProjet" />
 >>>>>>> origin/aziz-ferjaoui
       </profile>
     </annotationProcessing>
+=======
+        <module name="demo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Greenta" target="17" />
+    </bytecodeTargetLevel>
+>>>>>>> origin/user
   </component>
 </project>

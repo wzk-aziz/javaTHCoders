@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="610.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pi.demo.controllers.ProfileController">
+   <children>
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="268.0" style="-fx-background-color: #ED5A5B;">
+         <children>
+            <HBox prefHeight="77.0" prefWidth="291.0">
+               <children>
+                  <ImageView fitHeight="87.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/416410478_914063033747346_4330283370965631652_n.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="114.0" prefWidth="167.0" text="Khoudh&amp;Het">
+                     <font>
+                        <Font name="Freestyle Script" size="42.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Pane prefHeight="68.0" prefWidth="259.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 15;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="13.0" prefHeight="42.0" prefWidth="151.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;" text="Dashboard" textAlignment="JUSTIFY">
+                     <font>
+                        <Font name="Yu Gothic UI Semibold" size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="268.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 16;" text="Profile">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label prefHeight="17.0" prefWidth="11.0" />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Inventaire">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label prefHeight="17.0" prefWidth="11.0" />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Evenements">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Annonces">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Réclamations">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Echange">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER_LEFT" layoutX="277.0" layoutY="10.0" maxHeight="-Infinity" prefHeight="87.0" prefWidth="479.0" spacing="20.0" style="-fx-background-color: #ED5A5B;">
+         <children>
+            <ImageView fitHeight="20.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../OneDrive/Desktop/1.png" />
+               </image>
+            </ImageView>
+            <VBox prefHeight="381.0" prefWidth="138.0" stylesheets="@css/Styles.css">
+               <styleClass>
+                  <String fx:value="white-background" />
+                  <String fx:value="white-background" />
+               </styleClass>
+               <children>
+                  <ImageView fitHeight="87.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/416410478_914063033747346_4330283370965631652_n.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <Label prefHeight="36.0" prefWidth="214.0" text="Profile details">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox layoutX="371.0" layoutY="181.0" prefHeight="313.0" prefWidth="361.0" style="-fx-background-color: #ED5A5B;" />
+      <HBox alignment="BOTTOM_LEFT" prefHeight="42.0" prefWidth="600.0">
+         <children>
+            <Separator maxHeight="-Infinity" orientation="VERTICAL" prefHeight="41.0" prefWidth="6.0" />
+         </children>
+      </HBox>
+      <TextField fx:id="firstname" layoutX="390.0" layoutY="205.0" prefHeight="26.0" prefWidth="320.0" promptText="First name" />
+      <TextField fx:id="phone" layoutX="390.0" layoutY="352.0" prefHeight="26.0" prefWidth="320.0" promptText="Phone number" />
+      <TextField fx:id="email" layoutX="390.0" layoutY="302.0" prefHeight="26.0" prefWidth="320.0" promptText="Email" />
+      <TextField fx:id="lastname" layoutX="390.0" layoutY="253.0" prefHeight="26.0" prefWidth="320.0" promptText="Last name" />
+      <Label fx:id="name" layoutX="352.0" layoutY="154.0" prefHeight="15.0" prefWidth="81.0">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="role" layoutX="489.0" layoutY="161.0" prefWidth="227.0" />
+      <Button fx:id="editProfileBtn" layoutX="514.0" layoutY="436.0" mnemonicParsing="false" onAction="#editProfile" text="Edit Profile" />
+      <Label layoutX="500.0" layoutY="461.0" onMouseClicked="#deleteAccount" text="Delete this account" textFill="#ff0303" underline="true" />
+      <TextField fx:id="profession" layoutX="392.0" layoutY="399.0" prefHeight="26.0" prefWidth="320.0" promptText="profession" />
+      <Button fx:id="logoutbtn" layoutX="684.0" layoutY="111.0" mnemonicParsing="false" onAction="#logoutbtn" text="logout" />
+   </children>
+</AnchorPane>

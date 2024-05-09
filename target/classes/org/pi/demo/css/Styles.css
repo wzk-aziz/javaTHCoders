@@ -1,0 +1,82 @@
+/* Styles pour les événements */
+.event-grid-pane {
+    -fx-background-color: #f0f0f0; /* Couleur de fond */
+    -fx-padding: 15px; /* Espacement intérieur */
+    -fx-border-color: black; /* Couleur de la bordure */
+    -fx-border-width: 2px; /* Largeur de la bordure */
+}
+.grid-container {
+    -fx-display: grid;
+    -fx-gap: 10px; /* Espacement entre les éléments */
+    background-color: blue;
+    padding: 20px;
+    text-align: center;
+    -fx-background-color: white; /* Couleur de fond */
+    -fx-padding: 15px; /* Espacement intérieur */
+    -fx-border-color: black; /* Couleur de la bordure */
+    -fx-border-width: 2px; /* Largeur de la bordure */
+}
+
+.item {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
+.event-label1 {
+    -fx-font-size: 59pt; /* Taille de la police */
+    -fx-font-weight: bold; /* Gras */
+    -fx-font-family: "Freestyle Script"; /* Famille de police */
+    -fx-text-fill: darkviolet;
+}
+
+
+.event-label3 {
+
+    -fx-font-size: 10pt; /* Taille de la police */
+    -fx-text-fill: #000080; /* Couleur de texte */
+    -fx-font-family: "Arial"; /* Nom de la police */
+    -fx-font-weight: bold;
+
+}
+.event-image {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0); /* Ombre portée */
+}
+
+.reserve-button {
+    -fx-background-color:  #ff8000; /* Couleur de fond */
+    -fx-text-fill: black; /* Couleur de texte */
+    -fx-font-weight: bold; /* Gras */
+    -fx-padding: 8px 16px; /* Espacement intérieur */
+    -fx-border-radius: 5px; /* Rayon de bordure */
+}
+.conf-button {
+    -fx-background-color: green; /* Couleur de fond */
+    -fx-text-fill: white; /* Couleur de texte */
+    -fx-font-weight: bold; /* Gras */
+    -fx-padding: 8px 16px; /* Espacement intérieur */
+    -fx-border-radius: 5px; /* Rayon de bordure */
+}
+.refuser-button {
+    -fx-background-color: red; /* Couleur de fond */
+    -fx-text-fill: white; /* Couleur de texte */
+    -fx-font-weight: bold; /* Gras */
+    -fx-padding: 8px 16px; /* Espacement intérieur */
+    -fx-border-radius: 5px; /* Rayon de bordure */
+}
+.text-field {
+    -fx-font-size: 12pt;
+    -fx-padding: 8px;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+}
+
+.text-field:focused {
+    -fx-border-color: #3498db;
+    -fx-border-width: 2px;
+}
+
+.text-field:hover {
+    -fx-border-color: #bbb;
+}
+

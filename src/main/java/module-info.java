@@ -3,6 +3,10 @@ module org.pi.demo {
     requires javafx.fxml;
     requires javafx.web;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/user
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
@@ -12,8 +16,15 @@ module org.pi.demo {
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires javafx.swing;
+<<<<<<< HEAD
     requires org.json;
     requires org.apache.pdfbox;
+=======
+    requires bcrypt;
+    requires jakarta.mail;
+    requires java.prefs;
+
+>>>>>>> origin/user
 
     opens org.pi.demo to javafx.fxml;
     exports org.pi.demo;

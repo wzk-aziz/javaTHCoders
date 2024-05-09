@@ -6,6 +6,7 @@
       <list>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/pom.xml" />
 =======
         <option value="$PROJECT_DIR$/AzizProjet/pom.xml" />
@@ -13,6 +14,9 @@
 =======
         <option value="$PROJECT_DIR$/pom.xml" />
 >>>>>>> origin/event
+=======
+        <option value="$PROJECT_DIR$/pom.xml" />
+>>>>>>> origin/user
       </list>
     </option>
   </component>

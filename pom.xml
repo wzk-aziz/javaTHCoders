@@ -21,6 +21,37 @@
             <version>8.0.33</version>
         </dependency>
         <dependency>
+<<<<<<< HEAD
+=======
+            <groupId>jakarta.mail</groupId>
+            <artifactId>jakarta.mail-api</artifactId>
+            <version>2.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>jakarta.mail</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-junit47</artifactId>
+            <version>2.22.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.triology.recaptchav2-java</groupId>
+            <artifactId>recaptchav2-java</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <!-- https://github.com/eclipse-ee4j/angus-mail -->
+        <dependency>
+            <groupId>org.eclipse.angus</groupId>
+            <artifactId>jakarta.mail</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+>>>>>>> origin/user
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>17.0.6</version>
@@ -31,11 +62,27 @@
             <version>17.0.6</version>
         </dependency>
         <dependency>
+<<<<<<< HEAD
+=======
+            <groupId>at.favre.lib</groupId>
+            <artifactId>bcrypt</artifactId>
+            <version>0.10.2</version>
+        </dependency>
+        <dependency>
+>>>>>>> origin/user
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
             <version>17.0.6</version>
         </dependency>
         <dependency>
+<<<<<<< HEAD
+=======
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.4</version>
+        </dependency>
+        <dependency>
+>>>>>>> origin/user
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-swing</artifactId>
             <version>17.0.6</version>
@@ -61,6 +108,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+<<<<<<< HEAD
         <!-- *************** PDF ******************* -->
         <dependency>
             <groupId>org.apache.pdfbox</groupId>
@@ -69,6 +117,8 @@
         </dependency>
 
 
+=======
+>>>>>>> origin/user
         <dependency>
             <groupId>net.synedra</groupId>
             <artifactId>validatorfx</artifactId>
@@ -124,6 +174,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+<<<<<<< HEAD
         <dependency>
             <groupId>com.mapbox.mapboxsdk</groupId>
             <artifactId>mapbox-sdk-turf</artifactId>
@@ -140,6 +191,8 @@
 <!--            <version>5.11.0</version>-->
 <!--        </dependency>-->
 
+=======
+>>>>>>> origin/user
     </dependencies>
 
     <build>
