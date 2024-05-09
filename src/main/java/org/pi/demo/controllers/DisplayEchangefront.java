@@ -101,7 +101,7 @@ public class DisplayEchangefront implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/ModifierEchange.fxml"));
                 Parent modifierEchangeParent = loader.load();
-                ModifierEchangeController controller = loader.getController();
+                ModifierEchange controller = loader.getController();
                 controller.initData(selectedEchange); // Pass the selected Echange to the ModifierEchangeController
                 Scene modifierEchangeScene = new Scene(modifierEchangeParent);
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

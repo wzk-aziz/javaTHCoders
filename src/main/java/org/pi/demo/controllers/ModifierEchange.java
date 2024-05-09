@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
 
-public class ModifierEchangeController {
+public class ModifierEchange {
 
     @FXML
     private TextField error;
@@ -52,7 +52,7 @@ public class ModifierEchangeController {
 
     private String imagePath; // Declare imagePath variable here
 
-    public ModifierEchangeController() {
+    public ModifierEchange() {
         try {
             this.echangeService = EchangeService.getInstance();
         } catch (SQLException e) {
