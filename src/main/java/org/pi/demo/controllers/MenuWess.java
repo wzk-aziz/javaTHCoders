@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class MenuController {
+public class MenuWess {
     @FXML
     private TextField aff;
     @FXML
