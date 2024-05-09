@@ -92,7 +92,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="491.0" layoutY="398.0" mnemonicParsing="false" onAction="#allReclamations" prefHeight="56.0" prefWidth="268.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Afficher reclamation">
+      <Button layoutX="491.0" layoutY="398.0" mnemonicParsing="false" onAction="#allReclamations" prefHeight="56.0" prefWidth="277.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Afficher reclamation">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
