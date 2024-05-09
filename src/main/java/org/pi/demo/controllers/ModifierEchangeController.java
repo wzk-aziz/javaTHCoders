@@ -70,6 +70,11 @@ public class ModifierEchangeController {
     void ajouterEchange() {
         String newEtat = EchangeEtat.getText();
         String newOffre = EchangeOffre.getText();
+        // Check if any of the input fields are empty
+        if (newEtat.isEmpty() || newOffre.isEmpty() || imagePath == null || imagePath.isEmpty()) {
+            error.setText("Please fill in all fields and upload an image");
+            return; // Exit the method if validation fails
+        }
 
         echange.setEtat(newEtat);
         echange.setOffre(newOffre);
