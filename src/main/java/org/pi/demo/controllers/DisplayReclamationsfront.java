@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -34,10 +36,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class DisplayReclamationsfront implements Initializable {
     @FXML
     private VBox cardLayout;
+    @FXML
+    private TextField searchField;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -92,6 +97,44 @@ public class DisplayReclamationsfront implements Initializable {
         card.getChildren().addAll(label1, label2, label3, label4, deleteButton);
 
         return card;
+    }
+
+    @FXML
+    void sortByName(ActionEvent event) throws SQLException {
+        // Clear existing cards
+        cardLayout.getChildren().clear();
+
+        // Get sorted Reclamations by name
+        List<Reclamation> sortedReclamations = ReclamationService.getInstance().AfficherReclamationSortedByName();
+
+        // Loop through sorted Reclamations and create cards
+        for (Reclamation reclamation : sortedReclamations) {
+            VBox card = createReclamationCard(reclamation, sortedReclamations.indexOf(reclamation));
+            cardLayout.getChildren().add(card);
+        }
+    }
+
+    @FXML
+    void handleSearch(KeyEvent event) throws SQLException {
+        // Get the search query from the TextField
+        String query = searchField.getText().toLowerCase();
+
+        // Clear existing cards
+        cardLayout.getChildren().clear();
+
+        // Get all Reclamations from the database
+        List<Reclamation> allReclamations = ReclamationService.getInstance().AfficherReclamation();
+
+        // Filter Reclamations based on the search query
+        List<Reclamation> filteredReclamations = allReclamations.stream()
+                .filter(reclamation -> reclamation.getNom().toLowerCase().contains(query))
+                .collect(Collectors.toList());
+
+        // Loop through filtered Reclamations and create cards
+        for (Reclamation reclamation : filteredReclamations) {
+            VBox card = createReclamationCard(reclamation, filteredReclamations.indexOf(reclamation));
+            cardLayout.getChildren().add(card);
+        }
     }
 
     @FXML

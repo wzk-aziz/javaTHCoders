@@ -38,7 +38,26 @@ public class ReclamationService {
     public List<Reclamation> AfficherReclamation() {
         List<Reclamation> Reclamation = new ArrayList<>();
         try {
-            String request = "SELECT * FROM Reclamation";
+            String request = "SELECT * FROM Reclamation ORDER BY date DESC";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(request);
+            while (rs.next()) {
+                Reclamation r = new Reclamation();
+                r.setNom(rs.getString("nom"));
+                r.setSujet(rs.getString("sujet"));
+                r.setDetails(rs.getString("details"));
+                r.setDate(rs.getTimestamp("date").toLocalDateTime());
+                Reclamation.add(r);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Reclamation;
+    }
+    public List<Reclamation> AfficherReclamationSortedByName() {
+        List<Reclamation> Reclamation = new ArrayList<>();
+        try {
+            String request = "SELECT * FROM Reclamation ORDER BY nom ASC";
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(request);
             while (rs.next()) {
