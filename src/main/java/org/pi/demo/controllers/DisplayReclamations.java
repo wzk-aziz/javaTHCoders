@@ -37,7 +37,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class DisplayReclamationsfront implements Initializable {
+public class DisplayReclamations implements Initializable {
     @FXML
     private VBox cardLayout;
     @FXML
